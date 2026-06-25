@@ -979,18 +979,33 @@
     line-height: 1.5;
     margin-bottom: 24px;
   }
+  .role-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-start;
+    margin-top: 4px;
+  }
   .role-tag {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-family: var(--font-body);
-    font-weight: 700;
+    font-weight: 800;
     font-size: 11px;
-    letter-spacing: 0.2em;
-    color: var(--red);
+    line-height: 1.15;
+    letter-spacing: 0.14em;
+    color: #ffd7b0;
     text-transform: uppercase;
-    border: 1px solid var(--red);
-    padding: 4px 12px;
-    margin-right: 8px;
-    margin-bottom: 8px;
+    border: 1px solid rgba(255, 138, 76, 0.62);
+    background: rgba(255, 138, 76, 0.12);
+    box-shadow: inset 0 0 0 1px rgba(255, 211, 161, 0.08);
+    padding: 8px 14px;
+    margin: 0;
+    min-height: 36px;
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-word;
   }
 
   /* Artist grid */
@@ -1067,10 +1082,12 @@
   .artist-card-sub {
     font-family: var(--font-body);
     font-size: 13px;
-    color: rgba(255,255,255,0.45);
+    color: rgba(255,255,255,0.82);
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    line-height: 1.45;
+    text-shadow: 0 1px 14px rgba(0,0,0,0.42);
   }
   .special-guest-card {
     background: linear-gradient(135deg, rgba(255,111,71,0.16), rgba(255,209,102,0.12));
@@ -1089,6 +1106,11 @@
     object-position: center top;
   }
   .special-guest-poster .artist-card-body { padding: 22px; }
+  .special-guest-poster .artist-card-sub,
+  .media-basket-poster .artist-card-sub,
+  .media-basket-artist-card .artist-card-sub {
+    color: rgba(255,255,255,0.9);
+  }
   .special-guest-poster .artist-card-name {
     color: var(--red);
     text-shadow: 0 0 16px rgba(224,28,44,.45);
@@ -1131,6 +1153,12 @@
   }
   .media-basket-poster .artist-card-img { aspect-ratio: 16/20; object-fit: cover; object-position: center top; }
   .media-basket-poster .artist-card-body { padding: 22px; }
+  .media-basket-poster .artist-card-ticket-btn {
+    align-self: flex-start;
+  }
+  .media-basket-poster .artist-card-ticket-note {
+    max-width: 38ch;
+  }
   .media-basket-poster .artist-card-name,
   .media-basket-artist-card .artist-card-name { color: #39ff7a; text-shadow: 0 0 14px rgba(57,255,122,.45); }
   .media-basket-artist-card {
@@ -1574,6 +1602,10 @@
     .about-grid { grid-template-columns: 1fr; }
     .about-stats { grid-template-columns: 1fr 1fr; }
     .headliner-card { grid-template-columns: 1fr; }
+    .headliner-info { padding: 28px 22px; }
+    .headliner-name { font-size: clamp(32px, 9vw, 54px); }
+    .role-tags { gap: 8px; }
+    .role-tag { width: 100%; justify-content: flex-start; }
     .venue-grid { grid-template-columns: 1fr; }
     .program-grid { grid-template-columns: 1fr; }
     .exp-grid { grid-template-columns: 1fr; }
@@ -2292,7 +2324,7 @@
           <div class="headliner-name">КАСТОМ<br>ПЛЯЖНАЯ<br>ВЕЧЕРИНКА</div>
           <div class="headliner-desc">Главный визуал события: закатная палитра, вода, сцена, танцпол и летняя курортная энергия. Это не классический концертный постер, а афиша-впечатление.</div>
           <div class="headliner-desc">По афише считывается одно: приходишь не просто на выступление, а на длинную пляжную ночь с музыкой, баром, активностями и рассветом у воды.</div>
-          <div>
+          <div class="role-tags">
             <span class="role-tag">01 /</span>
             <span class="role-tag">ГЛАВНАЯ АФИША</span>
           </div>
@@ -2304,7 +2336,7 @@
         <div class="headliner-info">
           <div class="headliner-name">ЗОНЫ<br>ОТДЫХА<br>& АКТИВНОСТИ</div>
           <div class="headliner-desc">На афише сразу перечислены сценарии отдыха: <strong>катамараны</strong>, <strong>шезлонги</strong>, <strong>гриль-зона</strong> и <strong>пляжный волейбол</strong>. Это делает событие не только музыкальным, но и дневным по ощущениям.</div>
-          <div>
+          <div class="role-tags">
             <span class="role-tag">02 /</span>
             <span class="role-tag">ПЛЯЖНЫЙ ФОРМАТ</span>
           </div>
@@ -2316,7 +2348,7 @@
         <div class="headliner-info">
           <div class="headliner-name">МУЗЫКА<br>БАР<br>КИНО</div>
           <div class="headliner-desc">Кроме сцены и танцпола, афиша обещает <strong>барную зону</strong>, <strong>кинотеатр под открытым небом</strong>, <strong>DJ-сеты</strong> и выступление <strong>хедлайнера</strong>.</div>
-          <div>
+          <div class="role-tags">
             <span class="role-tag">03 /</span>
             <span class="role-tag">НОЧНАЯ АТМОСФЕРА</span>
           </div>
@@ -2328,7 +2360,7 @@
         <div class="headliner-info">
           <div class="headliner-name">ЗАКАТ<br>НОЧЬ<br>РАССВЕТ</div>
           <div class="headliner-desc">Финальный образ афиши — длинная летняя ночь на пляже. Не просто слот 2 часа, а целая смена настроений: приезд на закате, пик ночью, рассвет под конец.</div>
-          <div>
+          <div class="role-tags">
             <span class="role-tag">04 /</span>
             <span class="role-tag">19:00 → 05:00</span>
           </div>
