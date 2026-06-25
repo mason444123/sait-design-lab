@@ -1,0 +1,3122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>BIG RUSSIAN FEST 2026 — Казань · 12–14 июня</title>
+<!-- Favicon / tab icon -->
+<link rel="icon" href="favicon.ico?v=20260605214846" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=20260605214846">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png?v=20260605214846">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=20260605214846">
+<meta name="theme-color" content="#0a0a0a">
+<template id="__bundler_thumbnail" data-bg-color="#4B0FBB">
+  <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="600" fill="#4B0FBB"/>
+    <!-- Sunburst rays -->
+    <g opacity="0.18" transform="translate(200,200)">
+      <line x1="0" y1="-180" x2="0" y2="180" stroke="white" stroke-width="8"/>
+      <line x1="-180" y1="0" x2="180" y2="0" stroke="white" stroke-width="8"/>
+      <line x1="-127" y1="-127" x2="127" y2="127" stroke="white" stroke-width="8"/>
+      <line x1="127" y1="-127" x2="-127" y2="127" stroke="white" stroke-width="8"/>
+      <line x1="-170" y1="-60" x2="170" y2="60" stroke="white" stroke-width="5"/>
+      <line x1="60" y1="-170" x2="-60" y2="170" stroke="white" stroke-width="5"/>
+      <line x1="170" y1="-60" x2="-170" y2="60" stroke="white" stroke-width="5"/>
+      <line x1="-60" y1="-170" x2="60" y2="170" stroke="white" stroke-width="5"/>
+    </g>
+    <!-- Tricolor stripe -->
+    <rect x="0" y="340" width="400" height="14" fill="white"/>
+    <rect x="0" y="354" width="400" height="14" fill="#1A5CE8"/>
+    <rect x="0" y="368" width="400" height="14" fill="#E01C2C"/>
+    <!-- Fest title -->
+    <rect x="20" y="382" width="360" height="80" fill="#0A0A0A"/>
+    <text x="200" y="438" text-anchor="middle" fill="#E01C2C" font-family="Impact,sans-serif" font-size="52" letter-spacing="2">БИГ РАШН</text>
+    <!-- Bottom bar -->
+    <rect x="0" y="462" width="400" height="138" fill="#0A0A0A"/>
+    <text x="200" y="518" text-anchor="middle" fill="#E01C2C" font-family="Impact,sans-serif" font-size="52" letter-spacing="2">ФЕСТ 2026</text>
+    <text x="200" y="560" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Arial,sans-serif" font-size="18" letter-spacing="4">КАЗАНЬ · 12–14 ИЮНЯ</text>
+  </svg>
+</template>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --purple: #7B2AFF;
+    --purple-light: #A040FF;
+    --purple-dark: #4B0FBB;
+    --red: #E01C2C;
+    --red-dark: #B01020;
+    --black: #0A0A0A;
+    --dark: #111118;
+    --white: #FFFFFF;
+    --blue-stripe: #1A5CE8;
+    --font-impact: 'Bebas Neue', 'Impact', 'Arial Black', sans-serif;
+    --font-body: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ─── GLOBAL ANIMATIONS ────────────────────────────────── */
+  @keyframes sunburst-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.6; }
+    50%       { opacity: 1; }
+  }
+  @keyframes glitch {
+    0%   { clip-path: inset(0 0 96% 0); transform: translate(-4px, 0); }
+    5%   { clip-path: inset(40% 0 50% 0); transform: translate(4px, 0); }
+    10%  { clip-path: inset(80% 0 10% 0); transform: translate(-2px, 0); }
+    15%  { clip-path: inset(20% 0 70% 0); transform: translate(2px, 0); }
+    20%  { clip-path: inset(60% 0 30% 0); transform: translate(-4px, 0); }
+    25%  { clip-path: inset(0 0 96% 0); transform: translate(0, 0); }
+    100% { clip-path: inset(0 0 96% 0); transform: translate(0, 0); }
+  }
+  @keyframes glitch2 {
+    0%   { clip-path: inset(50% 0 40% 0); transform: translate(4px, 0); color: #E01C2C; }
+    5%   { clip-path: inset(10% 0 80% 0); transform: translate(-4px, 0); color: #7B2AFF; }
+    10%  { clip-path: inset(70% 0 20% 0); transform: translate(2px, 0); color: #E01C2C; }
+    15%  { clip-path: inset(30% 0 60% 0); transform: translate(-2px, 0); }
+    20%  { clip-path: inset(90% 0 5% 0);  transform: translate(4px, 0); color: #E01C2C; }
+    25%  { clip-path: inset(50% 0 40% 0); transform: translate(0, 0); }
+    100% { clip-path: inset(50% 0 40% 0); transform: translate(0, 0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-10px); }
+  }
+  @keyframes countdown-pulse {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.04); }
+  }
+
+  /* ─── NAV ────────────────────────────────────────────── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 48px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, transparent 100%);
+    backdrop-filter: blur(0px);
+  }
+  .nav-logo {
+    font-family: var(--font-impact);
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+  }
+  .nav-logo img {
+    display: block;
+    height: 72px;
+    width: auto;
+    object-fit: contain;
+  }
+  @media (max-width: 768px) {
+    .nav-logo img { height: 56px; }
+  }
+  .nav-logo span { color: var(--red); }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--red);
+    color: var(--white) !important;
+    padding: 10px 22px !important;
+    clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+    font-size: 12px !important;
+  }
+  .nav-cta:hover { background: #ff2233; color: var(--white) !important; }
+
+  /* ─── HERO ───────────────────────────────────────────── */
+  #hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    background: var(--purple-dark);
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 70% at 50% 30%, #A040FF 0%, #7B2AFF 40%, #4B0FBB 70%, #1a0060 100%);
+  }
+  /* Sunburst rays */
+  .sunburst {
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180%;
+    aspect-ratio: 1;
+    animation: sunburst-spin 60s linear infinite;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  .sunburst-inner {
+    width: 100%; height: 100%;
+    background: conic-gradient(
+      rgba(255,255,255,0.3) 0deg, transparent 8deg,
+      rgba(255,255,255,0.3) 16deg, transparent 24deg,
+      rgba(255,255,255,0.3) 32deg, transparent 40deg,
+      rgba(255,255,255,0.3) 48deg, transparent 56deg,
+      rgba(255,255,255,0.3) 64deg, transparent 72deg,
+      rgba(255,255,255,0.3) 80deg, transparent 88deg,
+      rgba(255,255,255,0.3) 96deg, transparent 104deg,
+      rgba(255,255,255,0.3) 112deg, transparent 120deg,
+      rgba(255,255,255,0.3) 128deg, transparent 136deg,
+      rgba(255,255,255,0.3) 144deg, transparent 152deg,
+      rgba(255,255,255,0.3) 160deg, transparent 168deg,
+      rgba(255,255,255,0.3) 176deg, transparent 184deg,
+      rgba(255,255,255,0.3) 192deg, transparent 200deg,
+      rgba(255,255,255,0.3) 208deg, transparent 216deg,
+      rgba(255,255,255,0.3) 224deg, transparent 232deg,
+      rgba(255,255,255,0.3) 240deg, transparent 248deg,
+      rgba(255,255,255,0.3) 256deg, transparent 264deg,
+      rgba(255,255,255,0.3) 272deg, transparent 280deg,
+      rgba(255,255,255,0.3) 288deg, transparent 296deg,
+      rgba(255,255,255,0.3) 304deg, transparent 312deg,
+      rgba(255,255,255,0.3) 320deg, transparent 328deg,
+      rgba(255,255,255,0.3) 336deg, transparent 344deg,
+      rgba(255,255,255,0.3) 352deg, transparent 360deg
+    );
+  }
+
+  .hero-time-pills {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    gap: 12px;
+    margin-top: 100px;
+    animation: fadeUp 0.6s ease both;
+  }
+  .pill {
+    background: var(--red);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    padding: 7px 18px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .hero-artist-name {
+    position: relative;
+    z-index: 10;
+    font-family: var(--font-impact);
+    font-size: clamp(60px, 10vw, 120px);
+    letter-spacing: 0.06em;
+    color: var(--white);
+    text-align: center;
+    line-height: 0.9;
+    margin-top: 100px;
+    animation: fadeUp 0.6s 0.1s ease both;
+    text-shadow:
+      3px 3px 0 rgba(0,0,0,0.5),
+      0 0 60px rgba(255,255,255,0.2);
+  }
+  /* Glitch layers */
+  .hero-artist-name::before,
+  .hero-artist-name::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    font-family: inherit;
+    font-size: inherit;
+    letter-spacing: inherit;
+    text-align: inherit;
+  }
+  .hero-artist-name::before {
+    color: #E01C2C;
+    animation: glitch 4s 2s infinite;
+  }
+  .hero-artist-name::after {
+    color: #00CFFF;
+    animation: glitch2 4s 2s infinite;
+  }
+
+  .hero-img-wrap {
+    position: relative;
+    z-index: 8;
+    width: 100vw;
+    max-width: 100vw;
+    margin: clamp(10px, 2vh, 28px) calc(50% - 50vw) 0;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .hero-img-wrap picture {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+  .hero-img-wrap img {
+    width: 100vw;
+    max-width: 100vw;
+    height: auto;
+    object-fit: contain;
+    object-position: center top;
+    display: block;
+    border-radius: 0;
+    box-shadow: 0 8px 80px rgba(0,0,0,0.6), 0 0 60px rgba(123, 42, 255, 0.4);
+    animation: float 6s ease-in-out infinite;
+    image-rendering: auto;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  /* Tricolor stripe */
+  .tricolor {
+    position: relative;
+    z-index: 11;
+    width: 100%;
+    height: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: -2px;
+  }
+  .tricolor-row { height: 4px; width: 100%; }
+  .tricolor-white { background: #fff; }
+  .tricolor-blue  { background: var(--blue-stripe); }
+  .tricolor-red   { background: var(--red); }
+
+  /* Festival name bar */
+  .hero-fest-bar {
+    position: relative;
+    z-index: 12;
+    width: 100%;
+    background: var(--black);
+    padding: 18px 40px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .fest-logo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .fest-custom-label {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .fest-title-ru {
+    font-family: var(--font-impact);
+    font-size: clamp(48px, 9vw, 100px);
+    line-height: 0.85;
+    color: var(--red);
+    text-align: center;
+    letter-spacing: -0.01em;
+    text-shadow:
+      -2px -2px 0 #000,
+       2px -2px 0 #000,
+      -2px  2px 0 #000,
+       2px  2px 0 #000,
+       4px  4px 0 rgba(0,0,0,0.6);
+  }
+  .fest-openair-label {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .hero-address-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .addr-chip {
+    border: 2px solid var(--red);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 900;
+    font-size: 14px;
+    padding: 5px 16px;
+    border-radius: 4px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero-cta-wrap {
+    margin-top: 20px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 40px;
+  }
+  .btn-main {
+    background: var(--red);
+    color: var(--white);
+    font-family: var(--font-impact);
+    font-size: 22px;
+    letter-spacing: 0.08em;
+    padding: 16px 48px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    transition: transform 0.15s, background 0.15s;
+    text-transform: uppercase;
+  }
+  .btn-main:hover {
+    background: #ff2233;
+    transform: scale(1.04) skewX(-1deg);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--white);
+    font-family: var(--font-impact);
+    font-size: 22px;
+    letter-spacing: 0.08em;
+    padding: 14px 36px;
+    border: 2px solid rgba(255,255,255,0.4);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    transition: border-color 0.15s, transform 0.15s;
+    text-transform: uppercase;
+  }
+  .btn-ghost:hover { border-color: var(--white); transform: scale(1.02); }
+
+  /* ─── FIXED TICKET DRAWER ────────────────────────────── */
+  .side-ticket-widget {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    z-index: 9999;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+  }
+  .side-ticket-banner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 236px;
+    width: 74px;
+    padding: 18px 10px;
+    background: linear-gradient(180deg, #ff2233 0%, var(--red) 48%, #9b0714 100%);
+    color: var(--white);
+    border: 2px solid rgba(255,255,255,.28);
+    border-right: 0;
+    border-radius: 22px 0 0 22px;
+    font-family: var(--font-impact);
+    font-size: 24px;
+    line-height: .9;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    cursor: pointer;
+    pointer-events: auto;
+    box-shadow: 0 12px 38px rgba(0,0,0,.62), 0 0 34px rgba(224,28,44,.58);
+    overflow: hidden;
+    transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+  }
+  .side-ticket-banner::before,
+  .side-ticket-banner::after {
+    content: '';
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    height: 3px;
+    background: rgba(255,255,255,.9);
+  }
+  .side-ticket-banner::before { top: 12px; }
+  .side-ticket-banner::after { bottom: 12px; }
+  .side-ticket-banner:hover,
+  .side-ticket-widget.is-open .side-ticket-banner {
+    transform: translateX(-4px) scale(1.03);
+    background: linear-gradient(180deg, #ff4050 0%, #e01c2c 50%, #b01020 100%);
+    box-shadow: 0 16px 46px rgba(0,0,0,.72), 0 0 46px rgba(255,34,51,.76);
+  }
+  .side-ticket-banner__hint {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .18em;
+    opacity: .82;
+    margin-block-start: 10px;
+  }
+  .side-ticket-panel {
+    position: absolute;
+    right: 74px;
+    top: 50%;
+    width: min(420px, calc(100vw - 96px));
+    max-height: min(78vh, 720px);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(10,10,14,.96);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 22px;
+    box-shadow: 0 22px 70px rgba(0,0,0,.74), 0 0 36px rgba(224,28,44,.35);
+    transform: translate(28px, -50%) scale(.94);
+    transform-origin: right center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    overflow: hidden;
+    transition: opacity .22s ease, transform .26s cubic-bezier(.2,.9,.25,1), visibility 0s linear .26s;
+  }
+  .side-ticket-widget.is-open .side-ticket-panel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(0, -50%) scale(1);
+    transition: opacity .22s ease, transform .26s cubic-bezier(.2,.9,.25,1), visibility 0s;
+  }
+  .side-ticket-panel__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .side-ticket-panel__eyebrow {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 900;
+    color: rgba(255,255,255,.55);
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+  .side-ticket-panel__title {
+    margin-top: 3px;
+    font-family: var(--font-impact);
+    font-size: 28px;
+    line-height: .95;
+    color: #fff;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .side-ticket-panel__close {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.18);
+    background: rgba(255,255,255,.08);
+    color: #fff;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .side-ticket-panel__widget {
+    min-height: 340px;
+    max-height: 48vh;
+    overflow: hidden;
+    background: #b10f1a;
+    border-radius: 18px;
+  }
+  .side-ticket-panel__widget .external-widget-placeholder {
+    min-height: 340px;
+    padding: 0;
+    border: 0;
+    border-radius: 18px;
+    background: transparent;
+    overflow: hidden;
+  }
+  .side-ticket-panel__widget iframe {
+    width: calc(100% + 18px);
+    height: 420px;
+    max-height: 48vh;
+    margin: 0 -18px 0 0;
+    border: 0;
+    border-radius: 18px;
+    display: block;
+    background: #b10f1a;
+  }
+  .side-ticket-panel__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .side-ticket-buy,
+  .side-ticket-support {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 11px 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,.18);
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+  }
+  .side-ticket-buy {
+    background: linear-gradient(180deg, #22c55e 0%, #16a34a 55%, #0f7a35 100%);
+    box-shadow: 0 10px 28px rgba(22,163,74,.28), inset 0 1px 0 rgba(255,255,255,.22);
+  }
+  .side-ticket-support {
+    background: rgba(255,255,255,.08);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+  }
+
+  /* ─── TICKER ─────────────────────────────────────────── */
+  .ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    background: var(--red);
+    padding: 10px 0;
+    border-top: 3px solid #ff2233;
+    border-bottom: 3px solid #cc0011;
+  }
+  .ticker-inner {
+    display: flex;
+    white-space: nowrap;
+    animation: ticker 20s linear infinite;
+  }
+  .ticker-inner span {
+    font-family: var(--font-impact);
+    font-size: 18px;
+    letter-spacing: 0.15em;
+    color: var(--white);
+    padding: 0 40px;
+    text-transform: uppercase;
+  }
+  .ticker-sep { color: rgba(255,255,255,0.5); }
+
+  /* ─── SECTION SHARED ─────────────────────────────────── */
+  section { width: 100%; }
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 48px;
+  }
+  .section-label {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.35em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: var(--font-impact);
+    font-size: clamp(44px, 6vw, 80px);
+    line-height: 0.9;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+
+  /* ─── SECRET PROGRAM ITEMS ──────────────────────────────── */
+  .prog-secret {
+    color: rgba(255,255,255,0.15) !important;
+    letter-spacing: 0.3em;
+    position: relative;
+    filter: none !important;
+    user-select: none;
+    transition: color 0.6s ease;
+  }
+  .secret-date-label {
+    color: rgba(255,255,255,0.25) !important;
+    font-style: italic;
+    font-size: 12px !important;
+    letter-spacing: 0.12em;
+  }
+  .secret-item {
+    position: relative;
+    border-left: 2px dashed rgba(255,255,255,0.08);
+    padding-left: 0;
+  }
+  .secret-item::before {
+    background: rgba(255,255,255,0.12) !important;
+    border-color: rgba(255,255,255,0.2) !important;
+  }
+  .secret-item .prog-time {
+    color: rgba(255,255,255,0.2) !important;
+    letter-spacing: 0.3em;
+  }
+  .secret-item .secret-lock-badge,
+  .secret-item .secret-lock,
+  .secret-item .lock-icon,
+  .secret-item svg {
+    display: none !important;
+  }
+  .secret-item .prog-secret::before,
+  .secret-item .prog-secret::after {
+    content: none !important;
+    display: none !important;
+  }
+  /* Revealed state */
+  .secret-item.revealed .prog-secret {
+    filter: none;
+    color: var(--white) !important;
+  }
+  .secret-item.revealed .secret-date-label {
+    color: rgba(255,255,255,0.45) !important;
+    font-style: normal;
+  }
+  .secret-item.revealed::before {
+    background: var(--red) !important;
+    border-color: #ff4455 !important;
+  }
+  @keyframes revealFlash {
+    0%   { background: rgba(224,28,44,0.2); }
+    100% { background: transparent; }
+  }
+  .secret-item.revealed {
+    animation: revealFlash 0.8s ease;
+  }
+
+  /* Reveal on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(48px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── ABOUT ──────────────────────────────────────────── */
+  #about {
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+  #about::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(123,42,255,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .about-text p {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 20px;
+  }
+  .about-text .big-quote {
+    font-family: var(--font-impact);
+    font-size: clamp(28px, 3.5vw, 46px);
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+  .about-text .big-quote span { color: var(--red); }
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .stat-block {
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-top: 3px solid var(--red);
+    background: rgba(255,255,255,0.03);
+  }
+  .stat-num {
+    font-family: var(--font-impact);
+    font-size: 58px;
+    line-height: 1;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+  .stat-pre {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 4px;
+  }
+  .stat-num span { color: var(--red); }
+  .stat-label {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .stat-sub {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.5);
+    margin-top: 6px;
+  }
+
+  /* ─── LINEUP ─────────────────────────────────────────── */
+  #lineup {
+    background: var(--purple-dark);
+    position: relative;
+    overflow: hidden;
+  }
+  .lineup-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 100% 80% at 50% 50%, #6020CC 0%, #3A0A99 50%, #1a0060 100%);
+    opacity: 0.8;
+  }
+  .lineup-sunburst {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    aspect-ratio: 1;
+    animation: sunburst-spin 80s linear infinite;
+    opacity: 0.08;
+    pointer-events: none;
+  }
+  .lineup-sunburst-inner {
+    width: 100%; height: 100%;
+    background: conic-gradient(
+      rgba(255,255,255,1) 0deg, transparent 6deg,
+      rgba(255,255,255,1) 12deg, transparent 18deg,
+      rgba(255,255,255,1) 24deg, transparent 30deg,
+      rgba(255,255,255,1) 36deg, transparent 42deg,
+      rgba(255,255,255,1) 48deg, transparent 54deg,
+      rgba(255,255,255,1) 60deg, transparent 66deg,
+      rgba(255,255,255,1) 72deg, transparent 78deg,
+      rgba(255,255,255,1) 84deg, transparent 90deg,
+      rgba(255,255,255,1) 96deg, transparent 102deg,
+      rgba(255,255,255,1) 108deg, transparent 114deg,
+      rgba(255,255,255,1) 120deg, transparent 126deg,
+      rgba(255,255,255,1) 132deg, transparent 138deg,
+      rgba(255,255,255,1) 144deg, transparent 150deg,
+      rgba(255,255,255,1) 156deg, transparent 162deg,
+      rgba(255,255,255,1) 168deg, transparent 174deg,
+      rgba(255,255,255,1) 180deg, transparent 186deg,
+      rgba(255,255,255,1) 192deg, transparent 198deg,
+      rgba(255,255,255,1) 204deg, transparent 210deg,
+      rgba(255,255,255,1) 216deg, transparent 222deg,
+      rgba(255,255,255,1) 228deg, transparent 234deg,
+      rgba(255,255,255,1) 240deg, transparent 246deg,
+      rgba(255,255,255,1) 252deg, transparent 258deg,
+      rgba(255,255,255,1) 264deg, transparent 270deg,
+      rgba(255,255,255,1) 276deg, transparent 282deg,
+      rgba(255,255,255,1) 288deg, transparent 294deg,
+      rgba(255,255,255,1) 300deg, transparent 306deg,
+      rgba(255,255,255,1) 312deg, transparent 318deg,
+      rgba(255,255,255,1) 324deg, transparent 330deg,
+      rgba(255,255,255,1) 336deg, transparent 342deg,
+      rgba(255,255,255,1) 348deg, transparent 354deg,
+      rgba(255,255,255,1) 360deg
+    );
+  }
+
+  .day-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 2;
+    border-bottom: 2px solid rgba(255,255,255,0.15);
+  }
+  .day-tab {
+    font-family: var(--font-impact);
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.45);
+    padding: 14px 32px 12px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.2s, border-color 0.2s;
+    text-transform: uppercase;
+  }
+  .day-tab.active {
+    color: var(--white);
+    border-bottom-color: var(--red);
+  }
+
+  .lineup-day { display: none; position: relative; z-index: 2; }
+  .lineup-day.active { display: block; }
+
+  /* HEADLINER */
+  .headliner-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: var(--black);
+    margin-bottom: 24px;
+    border: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s;
+  }
+  .headliner-card:hover { transform: translateY(-4px); }
+  .headliner-card::before {
+    content: 'HEADLINER';
+    position: absolute;
+    top: 16px; left: 16px;
+    background: var(--red);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 900;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    padding: 4px 10px;
+    z-index: 5;
+  }
+  .headliner-img {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    aspect-ratio: auto;
+    object-fit: cover;
+    object-position: top center;
+    filter: saturate(1.1) contrast(1.05);
+    display: block;
+  }
+  .headliner-info {
+    padding: 40px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--black);
+  }
+  .headliner-name {
+    font-family: var(--font-impact);
+    font-size: clamp(36px, 5vw, 72px);
+    color: var(--white);
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+  }
+  .headliner-desc {
+    font-family: var(--font-body);
+    font-size: 17px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+  .role-tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--red);
+    text-transform: uppercase;
+    border: 1px solid var(--red);
+    padding: 4px 12px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+
+  /* Artist grid */
+  .artists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 8px;
+    align-items: start;
+  }
+  .artist-card {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.25s, border-color 0.25s, transform 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .artist-card-featured {
+    padding: 0;
+    background: var(--black);
+  }
+  .artist-card-img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: saturate(1.08) contrast(1.05);
+  }
+  .artist-card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .artist-card-desc {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.45;
+    color: rgba(255,255,255,0.62);
+    margin-top: 6px;
+  }
+  .artist-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .artist-card:hover { background: rgba(123,42,255,0.15); border-color: rgba(123,42,255,0.4); transform: translateY(-3px); }
+  .artist-card:hover::after { transform: scaleX(1); }
+  .artist-num {
+    font-family: var(--font-impact);
+    font-size: 13px;
+    color: var(--red);
+    letter-spacing: 0.1em;
+  }
+  .artist-card-name {
+    font-family: var(--font-impact);
+    font-size: 28px;
+    line-height: 1;
+    color: var(--white);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .artist-card-sub {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .special-guest-card {
+    background: linear-gradient(135deg, rgba(224,28,44,0.12), rgba(123,42,255,0.12));
+    border: 1px solid rgba(224,28,44,0.3);
+  }
+  .special-guest-card .artist-card-name { color: var(--red); }
+  .special-guest-poster {
+    grid-column: 1 / -1;
+    padding: 0;
+    background: #050505;
+    border-color: rgba(224,28,44,0.45);
+  }
+  .special-guest-poster .artist-card-img {
+    aspect-ratio: 16 / 20;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .special-guest-poster .artist-card-body { padding: 22px; }
+  .special-guest-poster .artist-card-name {
+    color: var(--red);
+    text-shadow: 0 0 16px rgba(224,28,44,.45);
+  }
+  .artist-card-ticket-note {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.45;
+    color: rgba(255,255,255,0.72);
+    letter-spacing: 0.03em;
+    margin-top: 6px;
+  }
+  .artist-card-ticket-btn,
+  .prog-ticket-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin-top: 12px;
+    padding: 12px 22px;
+    background: linear-gradient(180deg, #22c55e 0%, #16a34a 55%, #0f7a35 100%);
+    color: #fff;
+    border: 1px solid rgba(134, 239, 172, 0.75);
+    border-radius: 999px;
+    box-shadow: 0 0 18px rgba(34, 197, 94, 0.35);
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .artist-card-ticket-btn:hover,
+  .prog-ticket-btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .media-basket-poster {
+    grid-column: 1 / -1;
+    padding: 0;
+    background: #050505;
+    border-color: rgba(34, 197, 94, 0.45);
+  }
+  .media-basket-poster .artist-card-img { aspect-ratio: 16/20; object-fit: cover; object-position: center top; }
+  .media-basket-poster .artist-card-body { padding: 22px; }
+  .media-basket-poster .artist-card-name,
+  .media-basket-artist-card .artist-card-name { color: #39ff7a; text-shadow: 0 0 14px rgba(57,255,122,.45); }
+  .media-basket-artist-card {
+    padding: 0;
+    background: #050505;
+    border-color: rgba(34, 197, 94, 0.35);
+  }
+  .media-basket-artist-card .artist-card-img {
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .media-basket-artist-card .artist-card-body { padding: 18px 18px 20px; }
+
+  /* ─── VENUE ──────────────────────────────────────────── */
+  #venue {
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+  }
+  .venue-grid {
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .venue-visual {
+    position: relative;
+  }
+  .venue-img-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
+    position: relative;
+  }
+  /* SVG stage illustration */
+  .venue-img-placeholder svg {
+    width: 100%;
+    height: 100%;
+  }
+  .venue-img-placeholder .venue-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 45%;
+    display: block;
+  }
+  .venue-label-chip {
+    position: absolute;
+    bottom: 16px; left: 16px;
+    background: rgba(0,0,0,0.85);
+    border: 1px solid rgba(255,255,255,0.12);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.7);
+    padding: 8px 16px;
+    text-transform: uppercase;
+  }
+  .venue-info h3 {
+    font-family: var(--font-impact);
+    font-size: clamp(32px, 4vw, 54px);
+    color: var(--white);
+    text-transform: uppercase;
+    line-height: 0.95;
+    margin-bottom: 20px;
+    letter-spacing: 0.03em;
+  }
+  .venue-info h3 span { color: var(--red); }
+  .venue-info p {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 16px;
+  }
+  .venue-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .venue-detail-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .vd-key {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    min-width: 80px;
+  }
+  .vd-val {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--white);
+  }
+
+  /* ─── PROGRAM ────────────────────────────────────────── */
+  #program {
+    background: #0d0d14;
+    position: relative;
+  }
+  .program-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .program-day-block {}
+  .prog-day-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .prog-date-badge {
+    background: var(--red);
+    color: var(--white);
+    font-family: var(--font-impact);
+    font-size: 18px;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .prog-day-title {
+    font-family: var(--font-impact);
+    font-size: 32px;
+    color: var(--white);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .prog-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-left: 2px solid rgba(255,255,255,0.08);
+    margin-left: 8px;
+    padding-left: 28px;
+  }
+  .prog-item {
+    position: relative;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .prog-item::before {
+    content: '';
+    position: absolute;
+    left: -34px; top: 22px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--purple);
+    border: 2px solid var(--purple-light);
+  }
+  .prog-item.headliner-item::before,
+  .prog-item.special-guest-item::before { background: var(--red); border-color: #ff4455; width: 14px; height: 14px; left: -36px; top: 20px; }
+  .prog-time {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .prog-name {
+    font-family: var(--font-impact);
+    font-size: 26px;
+    color: var(--white);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .prog-item.headliner-item .prog-name { color: var(--white); }
+  .prog-item.special-guest-item .prog-name,
+  .prog-name .after-party-name {
+    color: #ff2a3d;
+    text-shadow: 0 0 10px rgba(255, 42, 61, 0.75), 0 0 26px rgba(224, 28, 44, 0.45);
+  }
+  .prog-sub {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 2px;
+    letter-spacing: 0.05em;
+  }
+  .prog-collab-tag {
+    display: inline-block;
+    background: rgba(123,42,255,0.25);
+    border: 1px solid rgba(123,42,255,0.5);
+    color: rgba(200,160,255,0.9);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    padding: 3px 10px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+  .prog-collab-tag.after-party-tag {
+    background: rgba(255, 42, 61, 0.12);
+    border-color: rgba(255, 42, 61, 0.55);
+    color: #ff2a3d;
+    text-shadow: 0 0 10px rgba(255, 42, 61, 0.75), 0 0 26px rgba(224, 28, 44, 0.45);
+  }
+
+  /* ─── EXPERIENCE ─────────────────────────────────────── */
+  #experience {
+    background: var(--dark);
+    overflow: hidden;
+    position: relative;
+  }
+  #experience::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 60%, rgba(224,28,44,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 40%, rgba(123,42,255,0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .exp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+  .exp-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 40px 32px;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .exp-card:hover { background: rgba(123,42,255,0.08); }
+  .exp-icon {
+    width: 48px; height: 48px;
+    margin-bottom: 20px;
+  }
+  .exp-card-title {
+    font-family: var(--font-impact);
+    font-size: 28px;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+  }
+  .exp-card-text {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+  .exp-number {
+    position: absolute;
+    top: 24px; right: 24px;
+    font-family: var(--font-impact);
+    font-size: 72px;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  /* ─── CTA / COUNTDOWN ───────────────────────────────── */
+  #cta {
+    background: var(--purple-dark);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  #cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 50%, #7B2AFF 0%, #3A0A99 50%, #1a0060 100%);
+  }
+  .cta-sunburst {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 160%;
+    aspect-ratio: 1;
+    animation: sunburst-spin 50s linear infinite;
+    opacity: 0.06;
+    pointer-events: none;
+  }
+  .cta-sunburst-inner { width: 100%; height: 100%; }
+  .cta-inner {
+    position: relative;
+    z-index: 2;
+    padding: 100px 48px;
+  }
+  .cta-eyebrow {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.35em;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .cta-headline {
+    font-family: var(--font-impact);
+    font-size: clamp(48px, 8vw, 110px);
+    line-height: 0.88;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    margin-bottom: 24px;
+    text-shadow: 0 0 80px rgba(255,255,255,0.15);
+  }
+  .cta-sub {
+    font-family: var(--font-body);
+    font-size: 20px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 48px;
+    letter-spacing: 0.04em;
+  }
+  .cta-sub strong { color: var(--white); }
+
+  /* Countdown */
+  .countdown {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  .cd-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 100px;
+    animation: countdown-pulse 2s ease-in-out infinite;
+  }
+  .cd-block:nth-child(2) { animation-delay: 0.25s; }
+  .cd-block:nth-child(3) { animation-delay: 0.5s; }
+  .cd-block:nth-child(4) { animation-delay: 0.75s; }
+  .cd-num {
+    font-family: var(--font-impact);
+    font-size: clamp(52px, 6vw, 88px);
+    line-height: 1;
+    color: var(--white);
+    background: rgba(0,0,0,0.35);
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    border-top: 3px solid var(--red);
+    letter-spacing: -0.02em;
+  }
+  .cd-label {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+  }
+  .cd-sep {
+    font-family: var(--font-impact);
+    font-size: 70px;
+    color: rgba(255,255,255,0.2);
+    line-height: 1.1;
+    align-self: flex-start;
+    padding-top: 12px;
+  }
+
+  /* ─── TICKET WIDGET ─────────────────────────────────── */
+  .ticket-widget-wrap {
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto 32px;
+  }
+  .widget-inner-iframe {
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .widget-tabs__iframe {
+    width: 100%;
+    min-height: 480px;
+    border: none;
+    display: block;
+  }
+
+  /* ─── FOOTER ─────────────────────────────────────────── */
+  footer {
+    background: var(--black);
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-brand {
+    font-family: var(--font-impact);
+    font-size: 24px;
+    color: var(--white);
+    letter-spacing: 0.04em;
+  }
+  .footer-brand span { color: var(--red); }
+  .footer-info {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.06em;
+    text-align: center;
+  }
+  .footer-age {
+    font-family: var(--font-impact);
+    font-size: 22px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── RESPONSIVE ─────────────────────────────────────── */
+  @media (max-width: 768px) {
+    nav { padding: 8px 20px; }
+    .nav-links { display: none; }
+    .section-inner { padding: 60px 24px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+    .headliner-card { grid-template-columns: 1fr; }
+    .venue-grid { grid-template-columns: 1fr; }
+    .program-grid { grid-template-columns: 1fr; }
+    .exp-grid { grid-template-columns: 1fr; }
+    .countdown { gap: 4px; }
+    .cd-block { min-width: 72px; }
+    .side-ticket-widget {
+      top: auto;
+      right: 50%;
+      bottom: 14px;
+      transform: translateX(50%);
+      align-items: flex-end;
+    }
+    .side-ticket-banner {
+      writing-mode: horizontal-tb;
+      width: min(92vw, 380px);
+      min-height: 0;
+      padding: 13px 22px 14px;
+      gap: 10px;
+      border: 2px solid rgba(255,255,255,.3);
+      border-radius: 22px;
+      clip-path: none;
+      font-size: 25px;
+      line-height: 1;
+      box-shadow: 0 10px 30px rgba(0,0,0,.7), 0 0 32px rgba(224,28,44,.64);
+    }
+    .side-ticket-banner:hover,
+    .side-ticket-widget.is-open .side-ticket-banner { transform: translateY(-3px) scale(1.02); }
+    .side-ticket-banner::before,
+    .side-ticket-banner::after {
+      top: 50%;
+      bottom: auto;
+      width: 3px;
+      height: auto;
+      transform: translateY(-50%);
+    }
+    .side-ticket-banner::before { left: 12px; right: auto; }
+    .side-ticket-banner::after { right: 12px; left: auto; }
+    .side-ticket-banner__hint {
+      margin: 0;
+      font-size: 10px;
+      letter-spacing: .13em;
+    }
+    .side-ticket-panel {
+      right: 50%;
+      top: auto;
+      bottom: 58px;
+      width: min(92vw, 380px);
+      max-height: 72vh;
+      padding: 12px;
+      transform: translate(50%, 16px) scale(.96);
+      transform-origin: center bottom;
+    }
+    .side-ticket-widget.is-open .side-ticket-panel {
+      transform: translate(50%, 0) scale(1);
+    }
+    .side-ticket-panel__title { font-size: 23px; }
+    .side-ticket-panel__widget { min-height: 300px; max-height: 42vh; border-radius: 18px; }
+    .side-ticket-panel__widget .external-widget-placeholder { min-height: 300px; padding: 0; }
+    .side-ticket-panel__widget iframe { height: 360px; max-height: 42vh; }
+    .side-ticket-panel__actions { grid-template-columns: 1fr; }
+    .hero-img-wrap {
+      width: 100vw;
+      margin: 14px calc(50% - 50vw) 0;
+      aspect-ratio: 4 / 5;
+      height: auto;
+      max-height: none;
+      overflow: hidden;
+    }
+    .hero-img-wrap picture {
+      width: 100%;
+      height: 100%;
+    }
+    .hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+    .cta-inner { padding: 60px 24px; }
+  }
+
+  /* ─── FAQ ──────────────────────────────────────────────────────── */
+  #faq {
+    position: relative;
+    background: linear-gradient(180deg, #0A0A0A 0%, #1a0845 100%);
+    padding: 100px 0 120px;
+    overflow: hidden;
+  }
+  #faq::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 30%, rgba(123,42,255,0.18), transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(224,28,44,0.12), transparent 50%);
+    pointer-events: none;
+  }
+  .faq-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 960px;
+    margin: 40px auto 0;
+    position: relative;
+    z-index: 2;
+  }
+  .faq-item {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all .3s;
+  }
+  .faq-item:hover { border-color: rgba(224,28,44,0.3); }
+  .faq-item.open { border-color: var(--red); background: rgba(224,28,44,0.05); }
+  .faq-q {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 28px;
+    background: transparent;
+    border: 0;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-align: left;
+    cursor: pointer;
+    transition: color .2s;
+  }
+  .faq-q:hover { color: var(--red); }
+  .faq-toggle {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--red);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 300;
+    transition: transform .3s;
+    margin-left: 16px;
+  }
+  .faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--purple); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .5s ease, padding .3s;
+    padding: 0 28px;
+    color: rgba(255,255,255,0.78);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .faq-item.open .faq-a { max-height: 1200px; padding: 0 28px 26px; }
+  .faq-a p { margin-bottom: 10px; }
+  .faq-a strong { color: var(--white); }
+  .refund-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin: 14px 0;
+    background: rgba(0,0,0,0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .refund-row {
+    display: contents;
+  }
+  .refund-row > span {
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.02);
+    font-size: 15px;
+  }
+  .refund-row > span:first-child { color: rgba(255,255,255,0.6); font-weight: 600; }
+  .refund-row > span:last-child { color: #fff; font-weight: 700; text-align: right; }
+  .refund-row.full > span:last-child { color: #4ade80; }
+  .refund-row.none > span:last-child { color: var(--red); }
+  .fz-note {
+    margin-top: 10px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.1em;
+  }
+
+  /* ─── HERO POSTER ────────────────────────────────────────────── */
+  .hero-poster {
+    position: relative;
+    z-index: 8;
+    width: 100%;
+    max-width: 540px;
+    margin: 32px auto 0;
+    padding: 0 20px;
+  }
+  .hero-poster img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 12px 60px rgba(0,0,0,0.5), 0 0 80px rgba(123,42,255,0.35);
+  }
+
+  /* ─── SOCIALS ─────────────────────────────────────────────────── */
+  .socials {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin: 28px 0 10px;
+    flex-wrap: wrap;
+  }
+  .social-ico {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    transition: all .25s;
+  }
+  .social-ico:hover {
+    background: var(--red);
+    border-color: var(--red);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(224,28,44,0.4);
+  }
+  .social-ico svg { width: 22px; height: 22px; }
+
+  /* ─── ARTIST MEDIA (video + yandex) ───────────────────────────── */
+  .artist-media {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .artist-media a {
+    flex: 1;
+    min-width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all .2s;
+  }
+  .artist-media a.ym-link { background: rgba(255,220,0,0.12); border-color: rgba(255,220,0,0.4); }
+  .artist-media a.ym-link:hover { background: #FFCC00; color: #000; }
+  .artist-media a.video-link:hover { background: var(--red); border-color: var(--red); }
+  .artist-media svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  /* ─── HEADLINER VIDEO ─────────────────────────────────────────── */
+  .headliner-video-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    margin: 20px 0 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+  }
+  .headliner-video-wrap iframe {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+
+  /* ─── TICKET MODAL ─────────────────────────────────────────────── */
+  .ticket-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 5, 30, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s ease, visibility 0s linear .35s;
+    padding: 20px;
+  }
+  .ticket-modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .35s ease, visibility 0s linear 0s;
+  }
+  .ticket-modal {
+    position: relative;
+    width: 100%;
+    max-width: 860px;
+    max-height: 92vh;
+    background: #E01C2C;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255,255,255,0.08);
+    transform: translateY(24px) scale(0.96);
+    transition: transform .4s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  }
+  .ticket-modal-overlay.show .ticket-modal { transform: translateY(0) scale(1); }
+  .ticket-modal-close {
+    position: absolute;
+    top: 12px; right: 12px;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s;
+    z-index: 2;
+  }
+  .ticket-modal-close:hover {
+    background: #000;
+    transform: rotate(90deg);
+  }
+  .ticket-modal-eyebrow {
+    padding: 16px 24px 4px;
+    text-align: center;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.85);
+    text-transform: uppercase;
+  }
+  .ticket-modal-title {
+    padding: 0 24px 14px;
+    text-align: center;
+    font-family: var(--font-impact);
+    font-size: 28px;
+    letter-spacing: 0.04em;
+    color: #fff;
+  }
+  .ticket-modal-iframe-wrap {
+    background: #fff;
+    width: 100%;
+    height: 70vh;
+    min-height: 480px;
+    overflow: hidden;
+  }
+  .ticket-modal-iframe-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  @media (max-width: 600px) {
+    .ticket-modal { max-height: 96vh; border-radius: 12px; }
+    .ticket-modal-title { font-size: 22px; }
+    .ticket-modal-iframe-wrap { height: 72vh; }
+  }
+
+
+  /* ─── LEGAL / COMPLIANCE BLOCKS ───────────────────────── */
+  .legal-note {
+    max-width: 860px;
+    margin: 0 auto 18px;
+    padding: 16px 18px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    background: rgba(0,0,0,0.32);
+    color: rgba(255,255,255,0.72);
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: .03em;
+  }
+  .legal-note a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+  .external-widget-placeholder {
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+  }
+  .external-widget-placeholder h3 {
+    font-family: var(--font-impact);
+    font-size: 34px;
+    letter-spacing: .05em;
+    margin-bottom: 12px;
+  }
+  .external-widget-placeholder p {
+    max-width: 620px;
+    margin: 0 auto 18px;
+    color: rgba(255,255,255,.72);
+    font-size: 16px;
+    line-height: 1.45;
+  }
+  .external-widget-placeholder .btn-main { display: inline-block; font-size: 20px; padding: 14px 34px; }
+  .legal-footer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px 34px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.2fr;
+    gap: 24px;
+    font-family: var(--font-body);
+    color: rgba(255,255,255,.62);
+  }
+  .legal-footer__title { color:#fff; font-weight:900; letter-spacing:.08em; text-transform:uppercase; margin-bottom:10px; }
+  .legal-footer__text { font-size: 14px; line-height:1.55; }
+  .legal-footer__links { display:flex; flex-direction:column; gap:7px; }
+  .legal-footer a { color: rgba(255,255,255,.82); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* Footer/legal alignment polish */
+  footer .socials {
+    margin-bottom: 14px;
+  }
+  .footer-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) minmax(360px, 1.4fr) minmax(220px, 1fr);
+    align-items: center;
+    gap: 28px;
+  }
+  .footer-brand {
+    text-align: left;
+  }
+  .footer-info {
+    text-align: center;
+    line-height: 1.55;
+    justify-self: center;
+    width: max-content;
+    max-width: 100%;
+  }
+  .footer-age {
+    text-align: right;
+    justify-self: end;
+  }
+  .legal-footer {
+    grid-template-columns: minmax(260px, 1fr) minmax(280px, 1fr) minmax(340px, 1.25fr);
+    gap: 34px;
+    align-items: start;
+    padding-top: 8px;
+  }
+  .legal-footer > div {
+    min-width: 0;
+  }
+  .legal-footer__title {
+    min-height: 22px;
+    margin-bottom: 14px;
+    font-family: var(--font-impact);
+    font-size: 22px;
+    line-height: .95;
+    letter-spacing: .06em;
+  }
+  .legal-footer__text {
+    font-size: 14px;
+    line-height: 1.65;
+    max-width: 100%;
+  }
+  .legal-footer__links {
+    gap: 9px;
+    line-height: 1.35;
+  }
+  .legal-footer a {
+    color: rgba(255,255,255,.86);
+  }
+
+  @media (max-width: 900px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      align-items: start;
+      text-align: left;
+    }
+    .footer-info,
+    .footer-age {
+      text-align: left;
+    }
+    .legal-footer {
+      grid-template-columns: 1fr;
+      gap: 26px;
+    }
+  }
+
+  .cookie-banner {
+    position: fixed;
+    left: 50%; bottom: 18px;
+    transform: translateX(-50%);
+    z-index: 10000;
+    width: min(92vw, 680px);
+    padding: 12px 12px 12px 16px;
+    background: rgba(12,12,18,.78);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 999px;
+    box-shadow: 0 18px 60px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.04);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    font-family: var(--font-body);
+  }
+  .cookie-banner[hidden] { display:none; }
+  .cookie-banner__content { display:flex; gap:12px; align-items:center; justify-content:space-between; }
+  .cookie-banner__text { font-size:13px; line-height:1.25; color:rgba(255,255,255,.82); letter-spacing:.03em; }
+  .cookie-banner__text a { color:#fff; text-decoration:underline; text-underline-offset:2px; }
+  .cookie-banner__actions { display:flex; gap:8px; flex-shrink:0; }
+  .cookie-banner button { border:0; border-radius:999px; padding:10px 16px; font-weight:900; cursor:pointer; font-family:var(--font-body); text-transform:uppercase; letter-spacing:.06em; }
+  .cookie-accept { background: var(--red); color:#fff; box-shadow: 0 0 22px rgba(224,28,44,.35); }
+  .cookie-decline { background:rgba(255,255,255,.10); color:#fff; }
+  @media (max-width: 760px) {
+    .legal-footer { grid-template-columns: 1fr; padding: 0 24px 28px; }
+    .cookie-banner { border-radius: 18px; }
+    .cookie-banner__content { align-items:center; }
+    .cookie-banner__text { font-size:12px; }
+    .cookie-banner button { padding:9px 12px; }
+  }
+
+</style>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109054298','ym');
+    ym(109054298,'init',{
+      ssr:true, webvisor:true, clickmap:true,
+      ecommerce:"dataLayer", referrer:document.referrer,
+      url:location.href, accurateTrackBounce:true, trackLinks:true
+    });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/109054298" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<div class="side-ticket-widget" id="sideTicketWidget">
+  <button type="button" class="side-ticket-banner" id="sideTicketToggle" aria-label="Открыть покупку билета и поддержку" aria-expanded="false" aria-controls="sideTicketPanel">
+    <span>Купить билет</span>
+    <span class="side-ticket-banner__hint">12 июня</span>
+  </button>
+  <div class="side-ticket-panel" id="sideTicketPanel" aria-hidden="true">
+    <div class="side-ticket-panel__head">
+      <div>
+        <div class="side-ticket-panel__eyebrow">Билеты / поддержка</div>
+        <div class="side-ticket-panel__title">BIG RUSSIAN FEST</div>
+      </div>
+      <button type="button" class="side-ticket-panel__close" data-side-ticket-close aria-label="Закрыть">×</button>
+    </div>
+    <div class="side-ticket-panel__widget">
+      <div class="external-widget-placeholder" data-voroh-placeholder>
+        <div>
+          <h3>Покупка билетов</h3>
+          <p>Нажми, чтобы открыть виджет покупки.</p>
+          <button type="button" class="btn-main" data-load-voroh>Открыть покупку билета</button>
+        </div>
+      </div>
+    </div>
+    <div class="side-ticket-panel__actions">
+      <a href="https://voroh.ru/event/1022485/" target="_blank" rel="noopener" class="side-ticket-buy" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">Купить билет</a>
+      <a href="https://t.me/custom_843" target="_blank" rel="noopener" class="side-ticket-support" onclick="ym(109054298,'reachGoal','SUPPORT_CLICK')">Поддержка</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════════════ -->
+<nav>
+  <a href="#" class="nav-logo" aria-label="BIG RUSSIAN FEST">
+    <img src="assets/brf-logo-480.png?v=20260605214846"
+         srcset="assets/brf-logo-480.png?v=20260605214846 480w, assets/brf-logo.png?v=20260605214846 2400w"
+         sizes="(max-width: 768px) 36px, 44px"
+         alt="BIG RUSSIAN FEST">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#lineup">Лайнап</a></li>
+    <li><a href="#venue">Место</a></li>
+    <li><a href="#program">Программа</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="https://voroh.ru/event/1022485/" target="_blank" rel="noopener" class="nav-cta">Купить билет</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="sunburst"><div class="sunburst-inner"></div></div>
+
+  <h1 class="hero-artist-name" data-text="BIG RUSSIAN FEST">BIG RUSSIAN FEST</h1>
+
+  <div class="hero-img-wrap">
+    <picture>
+      <source media="(max-width: 480px)" srcset="assets/brf-poster-mobile-828.jpg?v=20260607045601">
+      <source media="(max-width: 768px)" srcset="assets/brf-poster-mobile.jpg?v=20260607045601">
+      <source media="(min-width: 1921px)" srcset="assets/brf-poster-3840.jpg?v=20260607045601">
+      <source media="(min-width: 769px)" srcset="assets/brf-poster-1920.jpg?v=20260607045601">
+      <img src="assets/brf-poster.jpg?v=20260607045601" alt="BIG RUSSIAN FEST" loading="eager" fetchpriority="high">
+    </picture>
+  </div>
+
+  <!-- Tricolor stripe -->
+  <div class="tricolor">
+    <div class="tricolor-row tricolor-white"></div>
+    <div class="tricolor-row tricolor-blue"></div>
+    <div class="tricolor-row tricolor-red"></div>
+  </div>
+
+  <div class="hero-fest-bar">
+    <div class="fest-logo-wrap">
+      <div class="fest-title-ru">БИГ РАШН ФЕСТ</div>
+      <span class="fest-openair-label">ОПЕН ЭИР 2026</span>
+    </div>
+
+    <div class="hero-address-row">
+      <span class="addr-chip">12 июня — Адонис</span>
+      <span class="addr-chip">13 июня — Афтерпати Фест</span>
+      <span class="addr-chip">14 июня — X Media Basket</span>
+      <span class="addr-chip">Казань</span>
+      <span class="addr-chip">18+</span>
+    </div>
+
+    <div class="hero-cta-wrap">
+      <a href="https://voroh.ru/event/1022485/" target="_blank" rel="noopener" class="btn-main" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">КУПИТЬ БИЛЕТ</a>
+      <a href="#lineup" class="btn-ghost">ЛАЙНАП →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TICKER ══════════════════════════════════════════════════════ -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span>BIG RUSSIAN FEST</span><span class="ticker-sep">✦</span>
+    <span>+ СПЕЦ ГОСТЬ</span><span class="ticker-sep">✦</span>
+    <span>12–14 ИЮНЯ 2026</span><span class="ticker-sep">✦</span>
+    <span>КАЗАНЬ</span><span class="ticker-sep">✦</span>
+    <span>АДОНИС · ПРОФСОЮЗНАЯ 3</span><span class="ticker-sep">✦</span>
+    <!-- duplicate for seamless loop -->
+    <span>BIG RUSSIAN FEST</span><span class="ticker-sep">✦</span>
+    <span>+ СПЕЦ ГОСТЬ</span><span class="ticker-sep">✦</span>
+    <span>12–14 ИЮНЯ 2026</span><span class="ticker-sep">✦</span>
+    <span>КАЗАНЬ</span><span class="ticker-sep">✦</span>
+    <span>АДОНИС · ПРОФСОЮЗНАЯ 3</span><span class="ticker-sep">✦</span>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ══════════════════════════════════════════════════════ -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="section-label">О ФЕСТИВАЛЕ</div>
+        <div class="big-quote">Три дня. Одна Казань.<br><span>И звук, который ты не забудешь.</span></div>
+        <p>12 июня Казань отпразднует главное культурное событие лета. Сразу после салюта в День России мы запускаем трёхдневный фестиваль: <strong>«Адонис»</strong> (Профсоюзная, 3), <strong>13 июня</strong> — Афтерпати Фест и <strong>14 июня</strong> — X Media Basket в R1 Club.</p>
+        <p><strong>2500+</strong> зрителей, открытое небо, мощный звук и главные артисты русского рэпа. Три дня, которые станут точкой отсчёта для всего лета.</p>
+        <p>Это не концерт и не вечеринка. Это событие, которое останется в ленте, разговорах и памяти. <strong>Такое пропустить нельзя!</strong></p>
+        <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+          <span class="role-tag">НОЧНОЙ OPEN-AIR</span>
+          <span class="role-tag">РЭП / HIP-HOP</span>
+          <span class="role-tag">КАЗАНЬ 2026</span>
+        </div>
+      </div>
+      <div class="about-stats reveal reveal-delay-2">
+        <div class="stat-block">
+          <div class="stat-num">2500<span>+</span></div>
+          <div class="stat-label">Гостей</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-pre">Более</div>
+          <div class="stat-num">7</div>
+          <div class="stat-label">Артистов</div>
+          <div class="stat-sub">за 3 дня</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Дня</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LINEUP ═════════════════════════════════════════════════════ -->
+<section id="lineup">
+  <div class="lineup-bg"></div>
+  <div class="lineup-sunburst"><div class="lineup-sunburst-inner"></div></div>
+  <div class="section-inner" style="position:relative; z-index:2;">
+    <div class="section-label reveal">ЛАЙНАП</div>
+    <div class="section-title reveal">КТО БУДЕТ</div>
+
+    <div class="day-tabs reveal">
+      <div class="day-tab active" onclick="switchDay('day1')">12 ИЮНЯ — ОСНОВНОЙ ДЕНЬ</div>
+      <div class="day-tab" onclick="switchDay('day2')">13 ИЮНЯ — АФТЕРПАТИ ФЕСТ</div>
+      <div class="day-tab" onclick="switchDay('day3')">14 ИЮНЯ — MEDIA BASKET</div>
+    </div>
+
+    <!-- DAY 1 -->
+    <div class="lineup-day active" id="day1">
+      <!-- HEADLINERS -->
+      <div class="headliner-card reveal">
+        <img src="assets/soda-luv-poster.jpg?v=20260605214846" alt="SODA LUV на БИГ РАШН ФЕСТ" class="headliner-img">
+        <div class="headliner-info">
+          <div class="headliner-name">SODA<br>LUV</div>
+          <div class="headliner-desc">Он начал в Ухте, прошёл улицы Питера и стал одним из главных голосов поколения. SODA LUV — это 7 миллионов подписчиков, 3,5 миллиона стримов ежемесячно и треки, которые ты слышал даже если не следишь за рэпом.</div>
+          <div class="headliner-desc">В 2021-м GQ назвал его «Открытием года». С тех пор он выпустил несколько альбомов, завирусился в Японии с «Блесс гад» и записал фиты с Егором Кридом, Димой Биланом, BUSHIDO ZHO и десятками других.</div>
+          <div>
+            <span class="role-tag">01 /</span>
+            <span class="role-tag">HEADLINER</span>
+          </div>
+          <div class="artist-media">
+            <a href="https://vkvideo.ru/video-130705885_456239699" target="_blank" rel="noopener" class="video-link">
+              <!-- removed duplicate lock icon -->
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              VK Видео
+            </a>
+            <a href="https://music.yandex.ru/artist/6142275" target="_blank" rel="noopener" class="ym-link">
+              <!-- removed duplicate lock icon -->
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-13l6 5-6 5V7z"/></svg>
+              Яндекс Музыка
+            </a>
+          </div>
+          <div class="headliner-video-wrap">
+            <iframe src="https://vkvideo.ru/video_ext.php?oid=-130705885&id=456239699&hd=2" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="headliner-card reveal reveal-delay-1">
+        <img src="assets/big-russian-boss.jpg?v=20260605214846" alt="Big Russian Boss" class="headliner-img" loading="lazy">
+        <div class="headliner-info">
+          <div class="headliner-name">BIG RUSSIAN<br>BOSS<br>& Young P&H</div>
+          <div class="headliner-desc">Два короля русского рэпа. Шуба, корона, борода встречают флекс и стиль. Легенды вместе на одной сцене.</div>
+          <div>
+            <span class="role-tag">02 / 03</span>
+            <span class="role-tag">HEADLINER</span>
+          </div>
+          <div class="artist-media">
+            <a href="https://vkvideo.ru/video-40524511_456243026" target="_blank" rel="noopener" class="video-link">
+              <!-- removed duplicate lock icon -->
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              VK Видео
+            </a>
+            <a href="https://music.yandex.ru/artist/3608179" target="_blank" rel="noopener" class="ym-link">
+              <!-- removed duplicate lock icon -->
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-13l6 5-6 5V7z"/></svg>
+              Яндекс Музыка
+            </a>
+          </div>
+          <div class="headliner-video-wrap">
+            <iframe src="https://vkvideo.ru/video_ext.php?oid=-40524511&id=456243026&hd=2" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="headliner-card reveal reveal-delay-2">
+        <img src="assets/babtoma-dj.jpg?v=20260605214846" alt="BABTOMA DJ" class="headliner-img" loading="lazy">
+        <div class="headliner-info">
+          <div class="headliner-name">BABTOMA<br>DJ</div>
+          <div class="headliner-desc">Она не просто играет треки, а устраивает динамичное шоу: сводит сет, общается с залом и раскачивает его как настоящий МС. В ее арсенале — мэшапы, набравшие миллионы просмотров и запустившие тренды в TikTok. BabToma точно знает, как сделать вечер живым и незабываемым.</div>
+          <div>
+            <span class="role-tag">04 /</span>
+            <span class="role-tag">DJ / MC SHOW</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="headliner-card reveal reveal-delay-3">
+        <img src="assets/sky-rae-poster.png?v=20260605214846" alt="SKY RAE на БИГ РАШН ФЕСТ" class="headliner-img" loading="lazy">
+        <div class="headliner-info">
+          <div class="headliner-name">SKY<br>RAE</div>
+          <div class="headliner-desc">SKY RAE возвращается в Казань, чтобы зажечь сцену в родном городе. 4,5 миллиона слушателей, вирусный куплет «Наследство» с Icegergert и хит с Toxi$, который пели все. Дебютный альбом «Gonki» ломает жанры — от драм-н-бейса до бразильского фонка. Совсем скоро услышим её вживую!</div>
+          <div>
+            <span class="role-tag">05 /</span>
+            <span class="role-tag">LIVE / КАЗАНЬ</span>
+          </div>
+          <div class="artist-media">
+            <a href="https://music.yandex.ru/artist/10186597" target="_blank" rel="noopener" class="ym-link">
+              <!-- removed duplicate lock icon -->
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-13l6 5-6 5V7z"/></svg>
+              Яндекс Музыка
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="artists-grid">
+        <div class="artist-card artist-card-featured special-guest-poster reveal reveal-delay-4">
+          <img src="assets/maladoy-prince-special-guest.jpg?v=20260607043628" alt="MALADOY PRINCE — специальный гость БИГ РАШН ФЕСТ" class="artist-card-img" loading="lazy">
+          <div class="artist-card-body">
+            <div class="artist-num">06 / СПЕЦИАЛЬНЫЙ ГОСТЬ</div>
+            <div class="artist-card-name" style="font-size: 40px;">MALADOY<br>PRINCE</div>
+            <div class="artist-card-sub">КАСТОМ · 12 ИЮНЯ · КАЗАНЬ</div>
+            <div class="artist-media">
+              <a href="https://music.yandex.ru/artist/12914950?ref_id=5435EBDB-2B86-4409-B0F0-8CE0DE3306D8&utm_medium=copy_link" target="_blank" rel="noopener" class="ym-link">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-13l6 5-6 5V7z"/></svg>
+                Яндекс Музыка
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="lineup-day" id="day2">
+      <div class="artists-grid">
+        <div class="artist-card special-guest-card reveal" style="grid-column: 1 / -1; text-align: center; padding: 40px 32px;">
+          <div class="artist-num">13 ИЮНЯ /</div>
+          <div class="artist-card-name" style="font-size: 36px; color: var(--white);">АФТЕРПАТИ ФЕСТ · БЕСПЛАТНЫЙ ВХОД</div>
+          <div class="artist-card-sub">Бесплатный вход по браслету первого дня фестиваля</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="lineup-day" id="day3">
+      <div class="artists-grid">
+        <div class="artist-card artist-card-featured media-basket-poster reveal">
+          <img src="assets/media-basket-afterparty.jpg?v=20260606222803" alt="Media Basket Afterparty — AVIR, Stas Satori, Riri" class="artist-card-img" loading="lazy">
+          <div class="artist-card-body">
+            <div class="artist-num">14 ИЮНЯ / RAVEZ ONE</div>
+            <div class="artist-card-name" style="font-size: 36px;">X MEDIA<br>BASKET</div>
+            <div class="artist-card-sub">AVIR · STAS SATORI · RIRI</div>
+            <div class="artist-card-ticket-note">Билеты уже на сайте Voroh — переходи и забирай вход заранее.</div>
+            <a href="https://voroh.ru/event/1035914/" target="_blank" rel="noopener" class="artist-card-ticket-btn" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">Купить билет</a>
+          </div>
+        </div>
+        <div class="artist-card artist-card-featured media-basket-artist-card reveal reveal-delay-1">
+          <img src="assets/media-basket-stas-satori.jpg?v=20260606222803" alt="STAS SATORI — Media Basket x Kazan Afterparty" class="artist-card-img" loading="lazy">
+          <div class="artist-card-body">
+            <div class="artist-num">14 ИЮНЯ /</div>
+            <div class="artist-card-name">STAS SATORI</div>
+            <div class="artist-card-sub">MEDIA BASKET x KAZAN AFTERPARTY</div>
+          </div>
+        </div>
+        <div class="artist-card artist-card-featured media-basket-artist-card reveal reveal-delay-2">
+          <img src="assets/media-basket-riri.jpg?v=20260606222803" alt="RIRI — Media Basket x Kazan Afterparty" class="artist-card-img" loading="lazy">
+          <div class="artist-card-body">
+            <div class="artist-num">14 ИЮНЯ /</div>
+            <div class="artist-card-name">RIRI</div>
+            <div class="artist-card-sub">MEDIA BASKET x KAZAN AFTERPARTY</div>
+          </div>
+        </div>
+        <div class="artist-card artist-card-featured media-basket-artist-card reveal reveal-delay-3">
+          <img src="assets/media-basket-avir.jpg?v=20260606222803" alt="AVIR — Media Basket x Kazan Afterparty" class="artist-card-img" loading="lazy">
+          <div class="artist-card-body">
+            <div class="artist-num">14 ИЮНЯ /</div>
+            <div class="artist-card-name">AVIR</div>
+            <div class="artist-card-sub">MEDIA BASKET x KAZAN AFTERPARTY</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VENUE ══════════════════════════════════════════════════════ -->
+<section id="venue">
+  <div class="section-inner">
+    <div class="venue-grid">
+      <div class="venue-visual reveal">
+        <div class="venue-img-placeholder">
+          <img class="venue-photo"
+               src="assets/venue-adonis.jpg?v=20260605214846"
+               srcset="assets/venue-adonis.jpg?v=20260605214846 800w, assets/venue-adonis@2x.jpg?v=20260605214846 1600w"
+               sizes="(max-width: 900px) 100vw, 50vw"
+               alt="Адонис — open-air сцена в Казани"
+               loading="lazy">
+          <span class="venue-label-chip">Казань, Профсоюзная 3</span>
+        </div>
+      </div>
+
+      <div class="venue-info reveal reveal-delay-2">
+        <div class="section-label">МЕСТО</div>
+        <h3>Три дня —<br>три<br><span>формата</span></h3>
+        <p>Индустриальная площадка нового поколения в самом сердце Казани. Открытое небо, профессиональный звук, свет и дым — всё для ночного open-air.</p>
+        <p>Не бар. Не клуб. Площадки, которые помнят только лучших.</p>
+        <div class="venue-details">
+          <div class="venue-detail-row">
+            <span class="vd-key">12 Июня</span>
+            <span class="vd-val">Адонис, Профсоюзная 3</span>
+          </div>
+          <div class="venue-detail-row">
+            <span class="vd-key">13 Июня</span>
+            <span class="vd-val">Афтерпати Фест — вход бесплатный</span>
+          </div>
+          <div class="venue-detail-row">
+            <span class="vd-key">14 Июня</span>
+            <span class="vd-val">X Media Basket — R1 Club</span>
+          </div>
+          <div class="venue-detail-row">
+            <span class="vd-key">Формат</span>
+            <span class="vd-val">Open-Air / Афтерпати / Коллаборация</span>
+          </div>
+          <div class="venue-detail-row">
+            <span class="vd-key">Вместимость</span>
+            <span class="vd-val">2500+ человек</span>
+          </div>
+          <div class="venue-detail-row">
+            <span class="vd-key">Время</span>
+            <span class="vd-val">21:00 — 05:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROGRAM ════════════════════════════════════════════════════ -->
+<section id="program">
+  <div class="section-inner">
+    <div class="section-label reveal">ПРОГРАММА</div>
+    <div class="section-title reveal">РАСПИСАНИЕ</div>
+
+    <div class="program-grid">
+      <!-- DAY 1 -->
+      <div class="program-day-block reveal">
+        <div class="prog-day-header">
+          <div class="prog-date-badge">12 ИЮНЯ</div>
+          <div class="prog-day-title">Основной день</div>
+        </div>
+        <div class="prog-timeline">
+          <div class="prog-item">
+            <div class="prog-time">21:00</div>
+            <div class="prog-name">Двери открыты</div>
+            <div class="prog-sub">Сбор гостей, атмосфера разгоняется</div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-name">SKY RAE</div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-name">BABTOMA DJ</div>
+          </div>
+          <div class="prog-item headliner-item">
+            <div class="prog-name">BIG RUSSIAN BOSS & Young P&H</div>
+            <div class="prog-sub">Хедлайнер</div>
+          </div>
+          <div class="prog-item headliner-item">
+            <div class="prog-name">SODA LUV</div>
+            <div class="prog-sub">Хедлайнер</div>
+          </div>
+          <div class="prog-item special-guest-item">
+            <div class="prog-name">MALADOY PRINCE</div>
+            <div class="prog-sub">Специальный гость</div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-time">05:00</div>
+            <div class="prog-name">Закрытие</div>
+            <div class="prog-sub">До следующего раза</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY 2 -->
+      <div class="program-day-block reveal reveal-delay-2">
+        <div class="prog-day-header">
+          <div class="prog-date-badge">13 ИЮНЯ</div>
+          <div class="prog-day-title">Афтерпати Фест</div>
+        </div>
+        <div class="prog-timeline">
+          <div class="prog-item headliner-item after-party-entry-item">
+            <div class="prog-name"><span class="after-party-name">АФТЕРПАТИ ФЕСТ</span> · БЕСПЛАТНЫЙ ВХОД</div>
+            <div class="prog-sub">Бесплатный вход по браслету первого дня фестиваля</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY 3 -->
+      <div class="program-day-block reveal reveal-delay-3">
+        <div class="prog-day-header">
+          <div class="prog-date-badge">14 ИЮНЯ</div>
+          <div class="prog-day-title">X Media Basket</div>
+        </div>
+        <div class="prog-timeline">
+          <div class="prog-item headliner-item">
+            <div class="prog-name">X MEDIA BASKET</div>
+            <div class="prog-sub">Афтерпати: Riri / Stas Satori / AVIR</div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-name">R1 CLUB</div>
+            <div class="prog-sub">14 июня · RAVEZ ONE · старт в 23:00</div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-name">Билеты уже на Voroh</div>
+            <div class="prog-sub">Переходи на сайт Voroh и покупай билет заранее</div>
+            <a href="https://voroh.ru/event/1035914/" target="_blank" rel="noopener" class="prog-ticket-btn" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">Купить билет</a>
+          </div>
+        </div>
+        <div style="margin-top: 20px;">
+          <span class="prog-collab-tag">X MEDIA BASKET</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE ═════════════════════════════════════════════════ -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label reveal">АТМОСФЕРА</div>
+    <div class="section-title reveal">ЧТО ТЫ ПОЛУЧИШЬ</div>
+    <div class="exp-grid">
+      <div class="exp-card reveal">
+        <div class="exp-number">01</div>
+        <!-- removed duplicate lock icon -->
+      <svg class="exp-icon" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="10" stroke="#E01C2C" stroke-width="2.5"/>
+          <line x1="24" y1="2" x2="24" y2="10" stroke="#E01C2C" stroke-width="2"/>
+          <line x1="24" y1="38" x2="24" y2="46" stroke="#E01C2C" stroke-width="2"/>
+          <line x1="2" y1="24" x2="10" y2="24" stroke="#E01C2C" stroke-width="2"/>
+          <line x1="38" y1="24" x2="46" y2="24" stroke="#E01C2C" stroke-width="2"/>
+          <line x1="7" y1="7" x2="13" y2="13" stroke="#E01C2C" stroke-width="2"/>
+          <line x1="35" y1="35" x2="41" y2="41" stroke="#E01C2C" stroke-width="2"/>
+          <line x1="41" y1="7" x2="35" y2="13" stroke="#E01C2C" stroke-width="2"/>
+          <line x1="13" y1="35" x2="7" y2="41" stroke="#E01C2C" stroke-width="2"/>
+        </svg>
+        <div class="exp-card-title">Профессиональный свет</div>
+        <div class="exp-card-text">Лазеры, стробы, лучи. Визуальный удар, который ты не забудешь. Сцена живёт вместе с музыкой.</div>
+      </div>
+      <div class="exp-card reveal reveal-delay-1">
+        <div class="exp-number">02</div>
+        <!-- removed duplicate lock icon -->
+      <svg class="exp-icon" viewBox="0 0 48 48" fill="none">
+          <path d="M8 40 C8 40 16 20 24 16 C32 12 40 24 40 40" stroke="#7B2AFF" stroke-width="2.5" fill="none"/>
+          <circle cx="24" cy="12" r="5" stroke="#7B2AFF" stroke-width="2"/>
+          <path d="M12 40 Q24 30 36 40" stroke="#7B2AFF" stroke-width="2" fill="none"/>
+          <line x1="4" y1="40" x2="44" y2="40" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+        </svg>
+        <div class="exp-card-title">Звук на открытом воздухе</div>
+        <div class="exp-card-text">Open-air акустика, bass без потолка. Звук, который идёт от груди — не из телефона.</div>
+      </div>
+      <div class="exp-card reveal reveal-delay-2">
+        <div class="exp-number">03</div>
+        <!-- removed duplicate lock icon -->
+      <svg class="exp-icon" viewBox="0 0 48 48" fill="none">
+          <rect x="8" y="28" width="32" height="14" rx="2" stroke="#E01C2C" stroke-width="2.5"/>
+          <path d="M14 28 L14 20 C14 16 18 12 24 12 C30 12 34 16 34 20 L34 28" stroke="#E01C2C" stroke-width="2.5"/>
+          <circle cx="24" cy="35" r="3" fill="#E01C2C"/>
+        </svg>
+        <div class="exp-card-title">Контент и безопасность</div>
+        <div class="exp-card-text">Профессиональная охрана, фото-зоны, бары и кейтеринг. Всё для того, чтобы ты думал только о музыке.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ════════════════════════════════════════════════════════ -->
+<section id="faq">
+  <div class="section-inner" style="position:relative; z-index:2;">
+    <div class="section-label reveal">FAQ</div>
+    <div class="section-title reveal">ИНФОРМАЦИЯ</div>
+
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button">Зачем мне быть на БИГ РАШН ФЕСТ?<span class="faq-toggle">+</span></button>
+        <div class="faq-a">
+          <p>Это <strong>первый ночной рэп-опен-эйр в истории Татарстана</strong>. Уже объявлен BIG RUSSIAN BOSS, а впереди — ещё несколько громких имён.</p>
+          <p>Старт — 12 июня, сразу после салюта в День России. Открытое небо, площадка в самом центре Казани, активности и незабываемые эмоции.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button">Как устроена программа?<span class="faq-toggle">+</span></button>
+        <div class="faq-a">
+          <p><strong>21:00</strong> — открытие и DJ-сеты, затем выступления артистов. Порядок и полный лайн-ап раскроем ближе к дате.</p>
+          <p>Ночь закрывают диджеи команды Кастом до <strong>05:00</strong>. Следи за соцсетями — там будут все обновления.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button">Какие билеты доступны и чем отличаются?<span class="faq-toggle">+</span></button>
+        <div class="faq-a">
+          <p><strong>Стандарт</strong> — танцпол и движ.</p>
+          <p><strong>Комфорт</strong> — отдельный вход, лучший обзор и бар.</p>
+          <p><strong>Групповой на троих</strong> — выгоднее на 15%.</p>
+          <p><strong>VIP</strong> — мерч и проход за сцену.</p>
+          <p style="color: var(--red); font-weight: 700;">Цены растут каждую неделю.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button">Во сколько начало и конец?<span class="faq-toggle">+</span></button>
+        <div class="faq-a">
+          <p><strong>12 июня</strong> — старт в 21:00 на Профсоюзной 3, сразу после городского салюта. Заканчиваем в 05:00. Рекомендуем приходить заранее, чтобы не пропустить ни одного артиста.</p>
+          <p><strong>13 июня</strong> — Афтерпати Фест: вход бесплатный, браслеты BIG RUSSIAN FEST сохраняй с собой.</p>
+          <p><strong>14 июня</strong> — X Media Basket: Riri, Stas Satori, AVIR, R1 Club. Билеты уже на сайте Voroh — переходи и покупай заранее.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button">Как добраться?<span class="faq-toggle">+</span></button>
+        <div class="faq-a">
+          <p><strong>Креативный кластер «Адонис»</strong>, ул. Профсоюзная, 3. Центр Казани, легко на такси или пешком от площади Свободы.</p>
+          <p>Парковка рядом ограничена — лучше без машины.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button">Что если пойдёт дождь?<span class="faq-toggle">+</span></button>
+        <div class="faq-a">
+          <p>Дождливая погода — не повод менять планы. Праздник состоится при любых условиях.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button">Что будет на площадке? Будут ли столы?<span class="faq-toggle">+</span></button>
+        <div class="faq-a">
+          <p>Основная сцена, VIP-зона за сценой, несколько баров, фуд-корт, фото-зоны и курилки. Танцпол — в центре.</p>
+          <p><strong>Столы</strong> доступны по VIP-пакету: отдельная зона с персональным обслуживанием. Количество ограничено — брать нужно заранее через поддержку.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button">Какое барное меню будет?<span class="faq-toggle">+</span></button>
+        <div class="faq-a">
+          <p>Несколько баров с коктейлями, крепким, пивом и безалкогольными напитками. Полное меню с ценами опубликуем ближе к дате в соцсетях.</p>
+          <p>Оплата — карта и наличные.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button">Можно ли купить билет на входе?<span class="faq-toggle">+</span></button>
+        <div class="faq-a">
+          <p>Ты сможешь приобрести билет на входе, но <strong>лучше купи заранее</strong> — ведь их цена закономерно повысится, либо их и вовсе может не остаться!</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button">Нужно ли брать паспорт?<span class="faq-toggle">+</span></button>
+        <div class="faq-a">
+          <p>Фестиваль <strong>18+</strong>, на входе проверяем возраст. <strong>Оригинал паспорта необходимо брать с собой!</strong></p>
+          <p>Это основной документ, подтверждающий возраст гостя, и без него вход на мероприятие может быть затруднен.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button">Какой дресс-код?<span class="faq-toggle">+</span></button>
+        <div class="faq-a">
+          <p>Мы не намереваемся делать строгий дресс-код, однако на фестивале будет много камер, и мы будем рады, если ты поддержишь наш вайб и выгуляешь свой <strong>лучший аутфит</strong>!</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button">Можно ли вернуть билет?<span class="faq-toggle">+</span></button>
+        <div class="faq-a">
+          <p>Да, возврат билета возможен. Возврат оформляется через поддержку площадки <a href="https://voroh.ru" target="_blank" rel="noopener" style="color: var(--red); text-decoration: underline;">Voroh.ru</a>, где покупался билет.</p>
+          <p><strong>Условия по времени:</strong></p>
+          <div class="refund-table">
+            <div class="refund-row full">
+              <span>10 дней до события и раньше</span>
+              <span>100% возврат</span>
+            </div>
+            <div class="refund-row">
+              <span>5–9 дней</span>
+              <span>50%</span>
+            </div>
+            <div class="refund-row">
+              <span>3–4 дня</span>
+              <span>30%</span>
+            </div>
+            <div class="refund-row none">
+              <span>Меньше 3 дней</span>
+              <span>Возврат не осуществляется</span>
+            </div>
+          </div>
+          <div class="fz-note">РЕГУЛИРУЕТСЯ ФЗ №193</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA + COUNTDOWN ════════════════════════════════════════════ -->
+<section id="cta">
+  <div class="cta-sunburst"><div class="cta-sunburst-inner sunburst-inner"></div></div>
+  <div class="cta-inner">
+    <div class="cta-eyebrow reveal">Осталось совсем немного</div>
+    <div class="cta-headline reveal">НЕ<br>ПРОПУСТИ</div>
+    <div class="cta-sub reveal">три дня, которые <strong>услышит вся страна</strong></div>
+
+    <div class="countdown reveal">
+      <div class="cd-block">
+        <div class="cd-num" id="cd-days">00</div>
+        <div class="cd-label">Дней</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block">
+        <div class="cd-num" id="cd-hours">00</div>
+        <div class="cd-label">Часов</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block">
+        <div class="cd-num" id="cd-mins">00</div>
+        <div class="cd-label">Минут</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block">
+        <div class="cd-num" id="cd-secs">00</div>
+        <div class="cd-label">Секунд</div>
+      </div>
+    </div>
+
+    <!-- Виджет билетов: внешний Voroh загружается только по действию пользователя -->
+    <div class="reveal ticket-widget-wrap">
+      <div class="external-widget-placeholder" data-voroh-placeholder>
+        <div>
+          <h3>Покупка билетов</h3>
+          <p>Нажми, чтобы открыть виджет покупки.</p>
+          <button type="button" class="btn-main" data-load-voroh>Открыть покупку билета</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 16px;">
+      <a href="https://voroh.ru/event/1022485/" target="_blank" rel="noopener" class="btn-main" style="font-size: 28px; padding: 20px 64px;" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">КУПИТЬ БИЛЕТ</a>
+    </div>
+
+    <div class="reveal" style="margin-top: 24px;">
+      <div style="font-family: var(--font-body); font-size: 13px; color: rgba(255,255,255,0.3); letter-spacing: 0.15em; text-transform: uppercase;">12 ИЮНЯ · КАЗАНЬ · «АДОНИС» · ПРОФСОЮЗНАЯ 3 · 21:00–05:00 · 18+</div>
+      <div style="font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.28); margin-top: 8px;">Билет на 12 июня не включает секретную коллаборацию 13 июня, если это прямо не указано в категории билета.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TICKET MODAL ═══════════════════════════════════════════════ -->
+<div class="ticket-modal-overlay" id="ticketModalOverlay" aria-hidden="true">
+  <div class="ticket-modal" role="dialog" aria-modal="true" aria-labelledby="ticketModalTitle">
+    <button class="ticket-modal-close" id="ticketModalClose" aria-label="Закрыть">×</button>
+    <div class="ticket-modal-eyebrow">Покупка билетов</div>
+    <div class="ticket-modal-title" id="ticketModalTitle">КАСТОМ: БИГ РАШН ФЕСТ 12 ИЮНЯ</div>
+    <div class="ticket-modal-iframe-wrap">
+      <div class="external-widget-placeholder" data-voroh-placeholder>
+        <div>
+          <h3>Voroh</h3>
+          <p>Нажми, чтобы открыть виджет покупки.</p>
+          <button type="button" class="btn-main" data-load-voroh>Открыть покупку билета</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═════════════════════════════════════════════════════ -->
+<footer>
+  <div class="socials">
+    <a href="https://t.me/custom_843" target="_blank" rel="noopener" class="social-ico" aria-label="Telegram">
+      <!-- removed duplicate lock icon -->
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.04 15.34l-.37 5.2c.52 0 .75-.22 1.02-.49l2.45-2.34 5.08 3.72c.93.52 1.59.25 1.84-.86l3.34-15.64c.33-1.39-.5-1.93-1.41-1.6L1.5 9.87c-1.36.53-1.34 1.28-.24 1.62l4.88 1.52L17.5 5.93c.54-.33 1.03-.15.62.18L9.04 15.34z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/custom.843?igsh=MW56eTl0b2FhZ203OQ==" target="_blank" rel="noopener" class="social-ico" aria-label="Instagram">
+      <!-- removed duplicate lock icon -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+    </a>
+    <a href="https://vk.ru/custom843.kazan" target="_blank" rel="noopener" class="social-ico" aria-label="VK">
+      <!-- removed duplicate lock icon -->
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.48 18.75c-5.55 0-9.36-4.05-9.52-10.76h2.96c.11 4.91 2.35 6.96 4.06 7.38V8h2.86v4.26c1.63-.18 3.36-2.11 3.94-4.26h2.82c-.44 2.66-2.29 4.59-3.6 5.39 1.31.65 3.4 2.34 4.21 5.36h-3.12c-.63-1.98-2.23-3.52-4.25-3.73v3.73h-.36z"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@custom_843?_r=1&_t=ZS-96UOwNMbkpg" target="_blank" rel="noopener" class="social-ico" aria-label="TikTok">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-1.13-.73-1.88-2-1.88-3.45h-3.1v12.05a2.56 2.56 0 1 1-2.56-2.56c.25 0 .49.04.72.11V8.82a5.67 5.67 0 1 0 4.94 5.6V8.25a7.05 7.05 0 0 0 4.12 1.32V6.48c-.82 0-1.58-.24-2.24-.66z"/></svg>
+    </a>
+  </div>
+  <div style="text-align:center; font-size:12px; color:rgba(255,255,255,0.35); margin-bottom:20px;">
+    *Деятельность Meta признана экстремистской и запрещена в РФ
+  </div>
+  <div class="footer-inner">
+    <div class="footer-brand">БИГ РАШН ФЕСТ</div>
+    <div class="footer-info">Big Russian Fest 2026 · Казань · 12–14 июня<br>Open-Air · Афтерпати Фест · X Media Basket</div>
+    <div class="footer-age">18+</div>
+  </div>
+  <div class="legal-footer">
+    <div>
+      <div class="legal-footer__title">Организатор</div>
+      <div class="legal-footer__text">
+        Организатор: <strong>КАСТОМ, 2020</strong><br>
+        ИНН: <strong>165710447869</strong><br>
+        Контакты: <a href="mailto:info@custom843.ru">info@custom843.ru</a>
+      </div>
+    </div>
+    <div>
+      <div class="legal-footer__title">Документы</div>
+      <div class="legal-footer__links">
+        <a href="offer.html">Публичная оферта</a>
+        <a href="rules.html">Правила посещения</a>
+        <a href="refund.html">Условия возврата</a>
+        <a href="privacy-policy.html">Политика обработки персональных данных</a>
+        <a href="personal-data-consent.html">Согласие на обработку персональных данных</a>
+        <a href="cookie-policy.html">Политика cookies</a>
+      </div>
+    </div>
+    <div>
+      <div class="legal-footer__title">Билеты и данные</div>
+      <div class="legal-footer__text">
+        Оформление и оплата билетов осуществляется через билетный сервис Voroh.ru. При переходе к покупке применяются также документы и условия билетного сервиса.
+        Мероприятие 18+. На входе может проверяться возраст по оригиналу документа без копирования паспортных данных. Организатор не обрабатывает полные данные банковских карт.
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══ COOKIE CONSENT ══════════════════════════════════════════════ -->
+<div id="cookieBanner" class="cookie-banner" hidden>
+  <div class="cookie-banner__content">
+    <div class="cookie-banner__text">
+      Используем cookies и Яндекс.Метрику для аналитики сайта. <a href="cookie-policy.html">Подробнее</a>.
+    </div>
+    <div class="cookie-banner__actions">
+      <button type="button" class="cookie-accept" id="cookieAccept">Принять</button>
+      <button type="button" class="cookie-decline" id="cookieDecline">Отклонить</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── Site/cache version ────────────────────────────────────────────
+  const SITE_VERSION = '20260605214846';
+  (function enforceFreshVersion(){
+    const url = new URL(window.location.href);
+    const currentVersion = url.searchParams.get('v');
+    if (currentVersion !== SITE_VERSION) {
+      url.searchParams.set('v', SITE_VERSION);
+      window.location.replace(url.toString());
+    }
+  })();
+
+  // ── Cookie banner ────────────────────────────────────────────────
+  const CUSTOM843_COOKIE_KEY = 'custom843_cookie_seen';
+  function initCookieBanner(){
+    const banner = document.getElementById('cookieBanner');
+    const saved = localStorage.getItem(CUSTOM843_COOKIE_KEY);
+    if (!saved && banner) banner.hidden = false;
+    const close = () => { localStorage.setItem(CUSTOM843_COOKIE_KEY,'1'); if(banner) banner.hidden=true; };
+    document.getElementById('cookieAccept')?.addEventListener('click', close);
+    document.getElementById('cookieDecline')?.addEventListener('click', close);
+  }
+  initCookieBanner();
+
+  function loadVorohInto(container){
+    if(!container || container.dataset.loaded === 'true') return;
+    const iframe = document.createElement('iframe');
+    iframe.className = 'widget-tabs__iframe';
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    iframe.src = 'https://voroh.ru/widget/event/1022485/019dde62-7328-883d-9b05-90109fbb5925/';
+    iframe.setAttribute('sandbox','allow-scripts allow-same-origin allow-forms allow-popups allow-downloads');
+    iframe.setAttribute('allow','clipboard-write');
+    container.innerHTML = ''; container.appendChild(iframe); container.dataset.loaded = 'true';
+  }
+  document.addEventListener('click',(e)=>{
+    const btn=e.target.closest('[data-load-voroh]'); if(!btn) return;
+    const container=btn.closest('[data-voroh-placeholder]'); loadVorohInto(container);
+  });
+
+  function initSideTicketWidget(){
+    const widget = document.getElementById('sideTicketWidget');
+    const toggle = document.getElementById('sideTicketToggle');
+    const panel = document.getElementById('sideTicketPanel');
+    if(!widget || !toggle || !panel) return;
+    const setOpen = (open) => {
+      widget.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+      if(open) {
+        ym(109054298,'reachGoal','TICKET_CLICK');
+        const container = panel.querySelector('[data-voroh-placeholder]');
+        loadVorohInto(container);
+      }
+    };
+    toggle.addEventListener('click', () => setOpen(!widget.classList.contains('is-open')));
+    widget.querySelector('[data-side-ticket-close]')?.addEventListener('click', () => setOpen(false));
+    document.addEventListener('click', (e) => {
+      if(widget.classList.contains('is-open') && !widget.contains(e.target)) setOpen(false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') setOpen(false);
+    });
+  }
+  initSideTicketWidget();
+
+  // ── Countdown ────────────────────────────────────────────────────
+  function updateCountdown() {
+    const target = new Date('2026-06-12T22:00:00+03:00').getTime();
+    const now = Date.now();
+    const diff = target - now;
+
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '00';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-mins').textContent = '00';
+      document.getElementById('cd-secs').textContent = '00';
+      return;
+    }
+
+    const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs  = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('cd-days').textContent  = String(days).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ── Scroll reveal ────────────────────────────────────────────────
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // ── Day tabs ─────────────────────────────────────────────────────
+  function switchDay(id) {
+    document.querySelectorAll('.lineup-day').forEach(d => d.classList.remove('active'));
+    document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    const tabs = Array.from(document.querySelectorAll('.day-tab'));
+    const idx = Math.max(0, ['day1', 'day2', 'day3'].indexOf(id));
+    if (tabs[idx]) tabs[idx].classList.add('active');
+
+    // re-trigger reveals in newly shown day
+    const newReveals = document.getElementById(id).querySelectorAll('.reveal:not(.visible)');
+    setTimeout(() => { newReveals.forEach(el => el.classList.add('visible')); }, 50);
+  }
+
+  // ── Secret program reveals ───────────────────────────────────────
+  function checkSecretReveals() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    document.querySelectorAll('.secret-item').forEach(item => {
+      const revealDate = new Date(item.dataset.reveal);
+      revealDate.setHours(0, 0, 0, 0);
+      const name = item.dataset.name;
+      const sub  = item.dataset.sub;
+
+      if (today >= revealDate) {
+        // Reveal: replace ??? with real name and time
+        item.querySelector('.prog-time').textContent = item.dataset.time || '';
+        item.querySelector('.prog-name').textContent = name;
+        item.querySelector('.prog-name').classList.remove('prog-secret');
+        item.querySelector('.prog-sub').textContent = sub;
+        item.querySelector('.prog-sub').classList.remove('secret-date-label');
+        item.classList.add('revealed');
+        // Remove lock badge if present
+        const lock = item.querySelector('.secret-lock');
+        if (lock) lock.remove();
+      } else {
+        // Still secret — add lock badge
+        if (!item.querySelector('.secret-lock')) {
+          const lock = document.createElement('div');
+          lock.className = 'secret-lock';
+          const parts = item.dataset.reveal.split('-'); // ['2026','05','10']
+          lock.innerHTML = '🔒 ' + parts[2] + '.' + parts[1];
+          item.appendChild(lock);
+        }
+      }
+    });
+  }
+  checkSecretReveals();
+
+  // ── Nav: scroll shadow ───────────────────────────────────────────
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 80) {
+      nav.style.background = 'rgba(10,10,10,0.95)';
+      nav.style.backdropFilter = 'blur(12px)';
+    } else {
+      nav.style.background = 'linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, transparent 100%)';
+      nav.style.backdropFilter = 'blur(0px)';
+    }
+  });
+
+  // ── FAQ accordion ────────────────────────────────────────────────
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      // close all
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      // toggle current
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ── Ticket modal popup near countdown ────────────────────────────
+  const ticketModalOverlay = document.getElementById('ticketModalOverlay');
+  const ticketModalClose = document.getElementById('ticketModalClose');
+  const countdownEl = document.querySelector('.countdown');
+  let ticketModalShown = false;
+
+  function openTicketModal() {
+    if (!ticketModalOverlay || ticketModalShown) return;
+    ticketModalOverlay.classList.add('show');
+    ticketModalOverlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    ticketModalShown = true;
+  }
+
+  function closeTicketModal() {
+    if (!ticketModalOverlay) return;
+    ticketModalOverlay.classList.remove('show');
+    ticketModalOverlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (ticketModalClose) ticketModalClose.addEventListener('click', closeTicketModal);
+  if (ticketModalOverlay) {
+    ticketModalOverlay.addEventListener('click', (e) => {
+      if (e.target === ticketModalOverlay) closeTicketModal();
+    });
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && ticketModalOverlay?.classList.contains('show')) closeTicketModal();
+  });
+
+  if (countdownEl) {
+    const countdownObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !ticketModalShown) {
+          setTimeout(openTicketModal, 900);
+        }
+      });
+    }, { threshold: 0.55 });
+    countdownObserver.observe(countdownEl);
+  }
+</script>
+</body>
+</html>
