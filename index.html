@@ -493,12 +493,69 @@
   }
 
   .hero-cta-wrap {
-    margin-top: 20px;
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin: 22px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+    gap: 14px;
+    width: min(720px, 100%);
     padding-bottom: 40px;
+  }
+  .entry-card {
+    position: relative;
+    display: grid;
+    gap: 10px;
+    padding: 18px 18px 20px;
+    border: 1px solid rgba(255, 243, 230, 0.16);
+    background: linear-gradient(180deg, rgba(33,12,8,0.82), rgba(56,22,14,0.74));
+    box-shadow: 0 18px 50px rgba(0,0,0,0.24);
+    text-decoration: none;
+    color: var(--white);
+    overflow: hidden;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+  }
+  .entry-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 211, 161, 0.46);
+    background: linear-gradient(180deg, rgba(255,138,42,0.22), rgba(56,22,14,0.78));
+  }
+  .entry-card__time {
+    font-family: var(--font-impact);
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: .9;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .entry-card__title {
+    font-family: var(--font-body);
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--blue-stripe);
+  }
+  .entry-card__text {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.35;
+    color: rgba(255,243,230,0.78);
+  }
+  .entry-card__cta {
+    display: inline-flex;
+    width: fit-content;
+    margin-top: 2px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--red);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .entry-card--free .entry-card__cta {
+    background: linear-gradient(180deg, #30b7ff, #1178d9);
   }
   .btn-main {
     background: var(--red);
@@ -1863,6 +1920,9 @@
     .mini-preso-grid { grid-template-columns: 1fr; }
     .hero-story-card { padding: 22px 20px; border-radius: 22px; }
     .hero-side-card { padding: 22px 20px; border-radius: 22px; }
+    .hero-cta-wrap { grid-template-columns: 1fr; width: 100%; padding: 0 18px 34px; }
+    .entry-card { padding: 16px 16px 18px; }
+    .entry-card__time { font-size: 30px; }
     .mini-preso-highlights,
     .artists-grid { grid-template-columns: 1fr; }
     .hero-story-title { font-size: clamp(38px, 14vw, 64px); }
@@ -2519,8 +2579,18 @@
     </div>
 
     <div class="hero-cta-wrap">
-      <a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="btn-main" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">КУПИТЬ БИЛЕТ</a>
-      <a href="#about" class="btn-ghost">ПРО ЛЕТО →</a>
+      <a href="https://t.me/custom_843" target="_blank" rel="noopener" class="entry-card entry-card--free" onclick="ym(109054298,'reachGoal','TELEGRAM_CLICK')">
+        <span class="entry-card__time">19:00–22:00</span>
+        <span class="entry-card__title">Вход бесплатный</span>
+        <span class="entry-card__text">По подписке на наш Telegram-канал.</span>
+        <span class="entry-card__cta">Подписаться</span>
+      </a>
+      <a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="entry-card entry-card--ticket" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">
+        <span class="entry-card__time">22:00–05:00</span>
+        <span class="entry-card__title">Вход по билету</span>
+        <span class="entry-card__text">После 22:00 действует платный вход.</span>
+        <span class="entry-card__cta">Купить билет</span>
+      </a>
     </div>
   </div>
 
@@ -2528,11 +2598,11 @@
     <div class="hero-story-grid">
       <div class="hero-story-card">
         <div class="story-eyebrow">Ночная сцена у воды</div>
-        <div class="hero-story-title">Музыка, люди и стиль <span>собираются здесь в одну длинную летнюю ночь.</span></div>
-        <div class="hero-story-text">Custom — это <strong>хип-хоп</strong>, резиденты, гости, сильный визуал и ночная энергия. 17 июля всё это собирается у воды: на закате, в пике ночи и на рассвете.</div>
+        <div class="hero-story-title">До 22:00 — свободный вход. <span>После 22:00 — ночная программа по билету.</span></div>
+        <div class="hero-story-text">С 19:00 до 22:00 заходи бесплатно по подписке на Telegram-канал Custom. С 22:00 до 05:00 вход по билету: DJ-сеты, хедлайнер, бар и длинная ночь у воды.</div>
         <div class="hero-story-actions">
-          <a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="btn-main" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">ЗАБРАТЬ БИЛЕТ</a>
-          <a href="#program" class="ghost-link">Смотреть программу ночи →</a>
+          <a href="https://t.me/custom_843" target="_blank" rel="noopener" class="btn-main" onclick="ym(109054298,'reachGoal','TELEGRAM_CLICK')">ПОДПИСАТЬСЯ</a>
+          <a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="ghost-link" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">Купить билет →</a>
         </div>
       </div>
 
