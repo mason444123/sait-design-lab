@@ -465,7 +465,7 @@
   }
   .hero-story-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+    grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr);
     gap: 24px;
     align-items: stretch;
   }
@@ -540,40 +540,6 @@
     line-height: 1.18;
   }
   .hero-story-text strong { color: var(--blue-stripe); font-weight: 700; }
-  .hero-story-points {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-    margin-top: 24px;
-  }
-  .story-point {
-    min-height: 132px;
-    padding: 18px 18px 16px;
-    border-radius: 18px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-    border: 1px solid rgba(255,243,230,0.1);
-  }
-  .story-point-num {
-    color: rgba(255,243,230,0.42);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-  }
-  .story-point-title {
-    margin-top: 10px;
-    font-family: var(--font-impact);
-    font-size: 28px;
-    line-height: 0.95;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-  }
-  .story-point-text {
-    margin-top: 8px;
-    color: rgba(255,243,230,0.78);
-    font-size: 16px;
-    line-height: 1.18;
-  }
   .hero-story-actions {
     display: flex;
     gap: 14px;
@@ -583,11 +549,11 @@
   }
   .hero-side-card {
     border-radius: 26px;
-    padding: 26px;
+    padding: 28px 28px 26px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 20px;
+    justify-content: center;
+    gap: 22px;
   }
   .hero-side-kicker {
     display: block;
@@ -819,8 +785,8 @@
     text-transform: uppercase;
   }
   .side-ticket-buy {
-    background: linear-gradient(180deg, #22c55e 0%, #16a34a 55%, #0f7a35 100%);
-    box-shadow: 0 10px 28px rgba(22,163,74,.28), inset 0 1px 0 rgba(255,255,255,.22);
+    background: linear-gradient(180deg, #ffb15f 0%, #ff8a2a 55%, #d85a12 100%);
+    box-shadow: 0 10px 28px rgba(255,138,42,.26), inset 0 1px 0 rgba(255,255,255,.22);
   }
   .side-ticket-support {
     background: rgba(255,255,255,.08);
@@ -993,12 +959,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
+    align-items: stretch;
   }
   .stat-block {
+    min-height: 148px;
     padding: 24px;
     border: 1px solid rgba(255,255,255,0.08);
     border-top: 3px solid var(--red);
     background: rgba(255,255,255,0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
   .stat-num {
     font-family: var(--font-impact);
@@ -1284,11 +1255,12 @@
   /* Artist grid */
   .artists-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
     margin-top: 8px;
-    align-items: start;
+    align-items: stretch;
   }
+  .artists-grid .artist-card-featured { grid-column: 1 / -1; }
   .artist-card {
     background: rgba(0,0,0,0.4);
     border: 1px solid rgba(255,255,255,0.08);
@@ -1404,11 +1376,11 @@
     width: fit-content;
     margin-top: 12px;
     padding: 12px 22px;
-    background: linear-gradient(180deg, #22c55e 0%, #16a34a 55%, #0f7a35 100%);
+    background: linear-gradient(180deg, #ffb15f 0%, #ff8a2a 55%, #d85a12 100%);
     color: #fff;
-    border: 1px solid rgba(134, 239, 172, 0.75);
+    border: 1px solid rgba(255, 211, 161, 0.75);
     border-radius: 999px;
-    box-shadow: 0 0 18px rgba(34, 197, 94, 0.35);
+    box-shadow: 0 0 14px rgba(255, 138, 42, 0.24);
     font-family: var(--font-body);
     font-weight: 800;
     font-size: 13px;
@@ -1422,7 +1394,7 @@
     grid-column: 1 / -1;
     padding: 0;
     background: #050505;
-    border-color: rgba(34, 197, 94, 0.45);
+    border-color: rgba(255, 138, 42, 0.38);
   }
   .media-basket-poster .artist-card-img { aspect-ratio: 16/20; object-fit: cover; object-position: center top; }
   .media-basket-poster .artist-card-body { padding: 22px; }
@@ -1433,11 +1405,11 @@
     max-width: 38ch;
   }
   .media-basket-poster .artist-card-name,
-  .media-basket-artist-card .artist-card-name { color: #39ff7a; text-shadow: 0 0 14px rgba(57,255,122,.45); }
+  .media-basket-artist-card .artist-card-name { color: #ff9b3d; text-shadow: 0 0 10px rgba(255,138,42,.32); }
   .media-basket-artist-card {
     padding: 0;
     background: #050505;
-    border-color: rgba(34, 197, 94, 0.35);
+    border-color: rgba(255, 138, 42, 0.32);
   }
   .media-basket-artist-card .artist-card-img {
     aspect-ratio: 4 / 5;
@@ -1445,103 +1417,6 @@
     object-position: center top;
   }
   .media-basket-artist-card .artist-card-body { padding: 18px 18px 20px; }
-
-  /* ─── VENUE ──────────────────────────────────────────── */
-  #venue {
-    background: var(--black);
-    position: relative;
-    overflow: hidden;
-  }
-  .venue-grid {
-    display: grid;
-    grid-template-columns: 5fr 4fr;
-    gap: 60px;
-    align-items: start;
-  }
-  .venue-visual {
-    position: relative;
-  }
-  .venue-img-placeholder {
-    width: 100%;
-    aspect-ratio: 16/9;
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(255,255,255,0.08);
-    overflow: hidden;
-    position: relative;
-  }
-  /* SVG stage illustration */
-  .venue-img-placeholder svg {
-    width: 100%;
-    height: 100%;
-  }
-  .venue-img-placeholder .venue-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 45%;
-    display: block;
-  }
-  .venue-label-chip {
-    position: absolute;
-    bottom: 16px; left: 16px;
-    background: rgba(0,0,0,0.85);
-    border: 1px solid rgba(255,255,255,0.12);
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    color: rgba(255,255,255,0.7);
-    padding: 8px 16px;
-    text-transform: uppercase;
-  }
-  .venue-info h3 {
-    font-family: var(--font-impact);
-    font-size: clamp(32px, 4vw, 54px);
-    color: var(--white);
-    text-transform: uppercase;
-    line-height: 0.95;
-    margin-bottom: 20px;
-    letter-spacing: 0.03em;
-  }
-  .venue-info h3 span { color: var(--red); }
-  .venue-info p {
-    font-family: var(--font-body);
-    font-size: 18px;
-    line-height: 1.55;
-    color: rgba(255,255,255,0.65);
-    margin-bottom: 16px;
-  }
-  .venue-details {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 24px;
-  }
-  .venue-detail-row {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-  .vd-key {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    color: rgba(255,255,255,0.35);
-    text-transform: uppercase;
-    min-width: 80px;
-  }
-  .vd-val {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 18px;
-    color: var(--white);
-  }
 
   /* ─── PROGRAM ────────────────────────────────────────── */
   #program {
@@ -1599,7 +1474,7 @@
     border: 2px solid #ffd3a1;
   }
   .prog-item.headliner-item::before,
-  .prog-item.special-guest-item::before { background: var(--red); border-color: #ff4455; width: 14px; height: 14px; left: -36px; top: 20px; }
+  .prog-item.special-guest-item::before { background: #ff8a2a; border-color: #ffd3a1; width: 12px; height: 12px; left: -35px; top: 21px; }
   .prog-time {
     font-family: var(--font-body);
     font-weight: 700;
@@ -1619,8 +1494,8 @@
   .prog-item.headliner-item .prog-name { color: var(--white); }
   .prog-item.special-guest-item .prog-name,
   .prog-name .after-party-name {
-    color: #ff2a3d;
-    text-shadow: 0 0 10px rgba(255, 42, 61, 0.75), 0 0 26px rgba(224, 28, 44, 0.45);
+    color: #ff9b3d;
+    text-shadow: 0 0 7px rgba(255, 138, 42, 0.48), 0 0 16px rgba(255, 111, 71, 0.22);
   }
   .prog-sub {
     font-family: var(--font-body);
@@ -1643,10 +1518,10 @@
     margin-top: 6px;
   }
   .prog-collab-tag.after-party-tag {
-    background: rgba(255, 42, 61, 0.12);
-    border-color: rgba(255, 42, 61, 0.55);
-    color: #ff2a3d;
-    text-shadow: 0 0 10px rgba(255, 42, 61, 0.75), 0 0 26px rgba(224, 28, 44, 0.45);
+    background: rgba(255, 138, 42, 0.14);
+    border-color: rgba(255, 211, 161, 0.48);
+    color: #ff9b3d;
+    text-shadow: 0 0 7px rgba(255, 138, 42, 0.45), 0 0 16px rgba(255, 111, 71, 0.2);
   }
 
   /* ─── EXPERIENCE ─────────────────────────────────────── */
@@ -1881,19 +1756,13 @@
     .mini-preso-grid { grid-template-columns: 1fr; }
     .hero-story-card { padding: 22px 20px; border-radius: 22px; }
     .hero-side-card { padding: 22px 20px; border-radius: 22px; }
-    .hero-story-points,
-    .mini-preso-highlights { grid-template-columns: 1fr; }
+    .mini-preso-highlights,
+    .artists-grid { grid-template-columns: 1fr; }
     .hero-story-title { font-size: clamp(38px, 14vw, 64px); }
     .hero-story-text,
     .mini-preso-copy p { font-size: 19px; }
     .about-grid { grid-template-columns: 1fr; }
     .about-stats { grid-template-columns: 1fr 1fr; }
-    .headliner-card { grid-template-columns: 1fr; }
-    .headliner-info { padding: 28px 22px; }
-    .headliner-name { font-size: clamp(32px, 9vw, 54px); }
-    .role-tags { gap: 8px; }
-    .role-tag { width: 100%; justify-content: flex-start; }
-    .venue-grid { grid-template-columns: 1fr; }
     .program-grid { grid-template-columns: 1fr; }
     .exp-grid { grid-template-columns: 1fr; }
     .countdown { gap: 4px; }
@@ -2483,7 +2352,6 @@
     <li><a href="#about">О событии</a></li>
     <li><a href="#mini-preso">Команда</a></li>
     <li><a href="#program">Программа</a></li>
-    <li><a href="#venue">Место</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="nav-cta">Купить билет</a></li>
   </ul>
@@ -2538,23 +2406,6 @@
         <div class="story-eyebrow">Ночная сцена у воды</div>
         <div class="hero-story-title">Музыка, люди и стиль <span>собираются здесь в одну длинную летнюю ночь.</span></div>
         <div class="hero-story-text">Custom — это <strong>хип-хоп</strong>, резиденты, гости, сильный визуал и ночная энергия. 17 июля всё это собирается у воды: на закате, в пике ночи и на рассвете.</div>
-        <div class="hero-story-points">
-          <div class="story-point">
-            <div class="story-point-num">01 / люди</div>
-            <div class="story-point-title">Резиденты и гости</div>
-            <div class="story-point-text">Свои диджеи, близкие к сцене люди и специальный гость создают понятный музыкальный контекст этой ночи.</div>
-          </div>
-          <div class="story-point">
-            <div class="story-point-num">02 / ночь</div>
-            <div class="story-point-title">От заката до утра</div>
-            <div class="story-point-text">Событие длится не два часа, а целую ночь: приезд по свету, разгон вечером и финал уже на рассвете.</div>
-          </div>
-          <div class="story-point">
-            <div class="story-point-num">03 / атмосфера</div>
-            <div class="story-point-title">Вода, свет, движение</div>
-            <div class="story-point-text">Пляж, бар, кино, шезлонги и танцпол делают площадку местом, где хочется не только танцевать, но и остаться дольше.</div>
-          </div>
-        </div>
         <div class="hero-story-actions">
           <a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="btn-main" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">ЗАБРАТЬ БИЛЕТ</a>
           <a href="#program" class="ghost-link">Смотреть программу ночи →</a>
@@ -2623,7 +2474,6 @@
             <span class="rail-pill">пляж</span>
             <span class="rail-pill">закат</span>
             <span class="rail-pill">музыка</span>
-            <span class="rail-pill">Кремль</span>
           </div>
         </div>
       </div>
@@ -2670,7 +2520,6 @@
           <div class="stat-label">Старт</div>
         </div>
         <div class="stat-block">
-          <div class="stat-pre">До</div>
           <div class="stat-num">05:00</div>
           <div class="stat-label">Финал</div>
           <div class="stat-sub">встречаем рассвет</div>
@@ -2724,58 +2573,6 @@
           <div class="artist-num">04 / ПЛОЩАДКА</div>
           <div class="artist-card-name" style="font-size: 34px;">БАР · ГРИЛЬ · КИНО</div>
           <div class="artist-card-sub">Барная зона, гриль и кинотеатр под открытым небом поддерживают ночь вне сцены.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ VENUE ══════════════════════════════════════════════════════ -->
-<section id="venue">
-  <div class="section-inner">
-    <div class="venue-grid">
-      <div class="venue-visual reveal">
-        <div class="venue-img-placeholder">
-          <img class="venue-photo"
-               src="assets/beach-party-poster.jpg?v=20260625214800"
-               srcset="assets/beach-party-poster.jpg?v=20260625214800 800w, assets/beach-party-poster.jpg?v=20260625214800 1600w"
-               sizes="(max-width: 900px) 100vw, 50vw"
-               alt="Пляжная площадка вечеринки в Казани"
-               loading="lazy">
-          <span class="venue-label-chip">Односторонка Гривки, 1Б</span>
-        </div>
-      </div>
-
-      <div class="venue-info reveal reveal-delay-2">
-        <div class="section-label">МЕСТО</div>
-        <h3>Пляж.<br>Вода.<br><span>Кремль на фоне</span></h3>
-        <p>Площадка пляжной вечеринки в Казани с видом на Казанский Кремль. Это не клубный короб, а летняя открытая сцена у воды с длинным временем пребывания.</p>
-        <p>Сюда приходят не только танцевать, но и зависать: сидеть, гулять, смотреть кино, ловить закат и встречать рассвет.</p>
-        <div class="venue-details">
-          <div class="venue-detail-row">
-            <span class="vd-key">Дата</span>
-            <span class="vd-val">17 июля</span>
-          </div>
-          <div class="venue-detail-row">
-            <span class="vd-key">Адрес</span>
-            <span class="vd-val">Односторонка Гривки, 1Б</span>
-          </div>
-          <div class="venue-detail-row">
-            <span class="vd-key">Вид</span>
-            <span class="vd-val">На Казанский Кремль</span>
-          </div>
-          <div class="venue-detail-row">
-            <span class="vd-key">Формат</span>
-            <span class="vd-val">Пляжная вечеринка / Open-Air</span>
-          </div>
-          <div class="venue-detail-row">
-            <span class="vd-key">Активности</span>
-            <span class="vd-val">Катамараны · Шезлонги · Волейбол · Гриль</span>
-          </div>
-          <div class="venue-detail-row">
-            <span class="vd-key">Время</span>
-            <span class="vd-val">19:00 — 05:00</span>
-          </div>
         </div>
       </div>
     </div>
