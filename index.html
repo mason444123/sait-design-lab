@@ -145,7 +145,7 @@
   .nav-logo span { color: var(--red); }
   .nav-links {
     display: flex;
-    gap: 32px;
+    gap: 24px;
     align-items: center;
     list-style: none;
   }
@@ -168,6 +168,100 @@
     font-size: 12px !important;
   }
   .nav-cta:hover { background: #ff2233; color: var(--white) !important; }
+  .nav-menu-wrap {
+    position: relative;
+    display: block;
+  }
+  .nav-menu-toggle {
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    flex-direction: column;
+    border: 1px solid rgba(255,243,230,0.2);
+    border-radius: 16px;
+    background: rgba(8,8,10,0.68);
+    color: var(--white);
+    cursor: pointer;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.36);
+    transition: transform .18s ease, border-color .18s ease, background .18s ease;
+  }
+  .nav-menu-toggle:hover,
+  .nav-menu-wrap.is-open .nav-menu-toggle {
+    transform: translateY(-1px);
+    border-color: rgba(255,138,76,0.72);
+    background: rgba(255,138,76,0.16);
+  }
+  .nav-menu-toggle span {
+    width: 22px;
+    height: 2px;
+    display: block;
+    border-radius: 999px;
+    background: var(--white);
+    transition: transform .2s ease, opacity .2s ease;
+  }
+  .nav-menu-wrap.is-open .nav-menu-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-menu-wrap.is-open .nav-menu-toggle span:nth-child(2) { opacity: 0; }
+  .nav-menu-wrap.is-open .nav-menu-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-menu-panel {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    width: min(340px, calc(100vw - 32px));
+    padding: 14px;
+    border: 1px solid rgba(255,243,230,0.14);
+    border-radius: 24px;
+    background: rgba(10,10,14,0.96);
+    box-shadow: 0 28px 70px rgba(0,0,0,0.64), 0 0 32px rgba(255,138,42,0.14);
+    backdrop-filter: blur(18px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px) scale(.98);
+    transform-origin: top right;
+    transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
+  }
+  .nav-menu-wrap.is-open .nav-menu-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    transition: opacity .2s ease, transform .2s ease, visibility 0s;
+  }
+  .nav-menu-panel a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 14px 14px;
+    border-radius: 16px;
+    color: rgba(255,243,230,0.86);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+  }
+  .nav-menu-panel a:hover {
+    color: var(--white);
+    background: rgba(255,138,76,0.12);
+    border-color: rgba(255,138,76,0.26);
+  }
+  .nav-menu-panel a::after {
+    content: '→';
+    color: #ff9b3d;
+    font-size: 16px;
+    letter-spacing: 0;
+  }
+  .nav-menu-panel .nav-menu-buy {
+    margin-top: 8px;
+    justify-content: center;
+    background: linear-gradient(180deg, #ffb15f 0%, #ff8a2a 55%, #d85a12 100%);
+    color: #fff;
+  }
+  .nav-menu-panel .nav-menu-buy::after { content: ''; }
 
   /* ─── HERO ───────────────────────────────────────────── */
   #hero {
@@ -1502,7 +1596,7 @@
   }
   .prog-item.headliner-item .prog-name { color: var(--white); }
   .prog-item.special-guest-item .prog-name,
-  .prog-name .after-party-name {
+  .prog-name .program-accent-name {
     color: #ff9b3d;
     text-shadow: 0 0 7px rgba(255, 138, 42, 0.48), 0 0 16px rgba(255, 111, 71, 0.22);
   }
@@ -1755,6 +1849,8 @@
   @media (max-width: 768px) {
     nav { padding: 8px 20px; }
     .nav-links { display: none; }
+    .nav-menu-wrap { display: block; }
+    .nav-menu-toggle { width: 46px; height: 46px; border-radius: 15px; }
     .section-inner { padding: 60px 24px; }
     .hero-editorial-overlay {
       width: calc(100vw - 28px);
@@ -1772,7 +1868,11 @@
     .mini-preso-copy p { font-size: 19px; }
     .about-grid { grid-template-columns: 1fr; }
     .about-stats { grid-template-columns: 1fr 1fr; }
-    .program-grid { grid-template-columns: 1fr; }
+    .program-grid,
+    .project-grid { grid-template-columns: 1fr; }
+    .project-card { grid-template-columns: 54px 1fr; padding: 18px; }
+    .project-card-num { width: 46px; height: 46px; border-radius: 14px; font-size: 22px; }
+    .project-intro-card { padding: 24px; }
     .exp-grid { grid-template-columns: 1fr; }
     .countdown { gap: 4px; }
     .cd-block { min-width: 72px; }
@@ -1851,6 +1951,119 @@
     }
     .footer-inner { flex-direction: column; align-items: flex-start; }
     .cta-inner { padding: 60px 24px; }
+  }
+
+  /* ─── PROJECT SECTIONS ───────────────────────────────────────── */
+  #shop,
+  #past-events {
+    position: relative;
+    overflow: hidden;
+    background: var(--black);
+  }
+  #shop::before,
+  #past-events::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 52% 42% at 18% 22%, rgba(255,138,42,0.13) 0%, transparent 62%),
+      radial-gradient(ellipse 46% 38% at 88% 70%, rgba(255,211,161,0.08) 0%, transparent 62%);
+  }
+  .project-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+    gap: 24px;
+    align-items: stretch;
+    margin-top: 34px;
+  }
+  .project-intro-card,
+  .project-card {
+    border-radius: 26px;
+    border: 1px solid rgba(255,243,230,0.1);
+    background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.025));
+    box-shadow: 0 22px 70px rgba(0,0,0,0.28);
+  }
+  .project-intro-card {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .project-intro-card p {
+    color: rgba(255,243,230,0.78);
+    font-size: 20px;
+    line-height: 1.24;
+  }
+  .project-intro-kicker {
+    color: rgba(255,243,230,0.52);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+  }
+  .project-intro-title {
+    margin-top: 12px;
+    font-family: var(--font-impact);
+    font-size: clamp(42px, 5vw, 76px);
+    line-height: .9;
+    letter-spacing: .025em;
+    text-transform: uppercase;
+  }
+  .project-list {
+    display: grid;
+    gap: 14px;
+  }
+  .project-card {
+    padding: 22px;
+    display: grid;
+    grid-template-columns: 74px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  .project-card-num {
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,138,42,0.14);
+    border: 1px solid rgba(255,138,42,0.34);
+    color: #ffb15f;
+    font-family: var(--font-impact);
+    font-size: 28px;
+    line-height: 1;
+  }
+  .project-card-title {
+    font-family: var(--font-impact);
+    font-size: clamp(28px, 3vw, 42px);
+    line-height: .95;
+    letter-spacing: .025em;
+    text-transform: uppercase;
+  }
+  .project-card-text {
+    margin-top: 8px;
+    color: rgba(255,243,230,0.72);
+    font-size: 16px;
+    line-height: 1.25;
+  }
+  .project-status {
+    display: inline-flex;
+    width: fit-content;
+    margin-top: 14px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    color: #ffd7b0;
+    background: rgba(255,138,42,0.12);
+    border: 1px solid rgba(255,138,42,0.32);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
   }
 
   /* ─── FAQ ──────────────────────────────────────────────────────── */
@@ -2361,9 +2574,26 @@
     <li><a href="#about">О событии</a></li>
     <li><a href="#mini-preso">Команда</a></li>
     <li><a href="#program">Программа</a></li>
+    <li><a href="#shop">Магазин</a></li>
+    <li><a href="#past-events">Прошлые события</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="nav-cta">Купить билет</a></li>
   </ul>
+  <div class="nav-menu-wrap" id="pageMenu">
+    <button class="nav-menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="pageMenuPanel">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-menu-panel" id="pageMenuPanel" aria-hidden="true">
+      <a href="#hero">Главная</a>
+      <a href="#about">О событии</a>
+      <a href="#mini-preso">Команда</a>
+      <a href="#program">Программа</a>
+      <a href="#shop">Магазин</a>
+      <a href="#past-events">Прошлые события</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="nav-menu-buy" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">Купить билет</a>
+    </div>
+  </div>
 </nav>
 
 <!-- ═══ HERO ═══════════════════════════════════════════════════════ -->
@@ -2637,8 +2867,8 @@
           <div class="prog-day-title">Что есть на месте</div>
         </div>
         <div class="prog-timeline">
-          <div class="prog-item headliner-item after-party-entry-item">
-            <div class="prog-name"><span class="after-party-name">БАРНАЯ ЗОНА</span> · КИНОТЕАТР ПОД ОТКРЫТЫМ НЕБОМ</div>
+          <div class="prog-item headliner-item program-place-entry-item">
+            <div class="prog-name"><span class="program-accent-name">БАРНАЯ ЗОНА</span> · КИНОТЕАТР ПОД ОТКРЫТЫМ НЕБОМ</div>
             <div class="prog-sub">Плюс шезлонги, вода и летний ночной вайб</div>
           </div>
         </div>
@@ -2723,6 +2953,76 @@
   </div>
 </section>
 
+<!-- ═══ SHOP ═══════════════════════════════════════════════════════ -->
+<section id="shop">
+  <div class="section-inner">
+    <div class="section-label reveal">МАГАЗИН</div>
+    <div class="section-title reveal">СКОРО ЗДЕСЬ БУДЕТ МЕРЧ И БИЛЕТНЫЕ ПАКЕТЫ</div>
+    <div class="project-grid">
+      <div class="project-intro-card reveal">
+        <div>
+          <div class="project-intro-kicker">Custom store</div>
+          <div class="project-intro-title">магазин проекта</div>
+        </div>
+        <p>Пока это минимальная вкладка-заглушка, чтобы сайт уже ощущался как большой проект, а не только афиша одного события.</p>
+      </div>
+      <div class="project-list">
+        <div class="project-card reveal reveal-delay-1">
+          <div class="project-card-num">01</div>
+          <div>
+            <div class="project-card-title">мерч</div>
+            <div class="project-card-text">Футболки, аксессуары и лимитированные вещи Custom. Добавим сюда позиции, когда будет готов визуал.</div>
+            <span class="project-status">скоро</span>
+          </div>
+        </div>
+        <div class="project-card reveal reveal-delay-2">
+          <div class="project-card-num">02</div>
+          <div>
+            <div class="project-card-title">пакеты</div>
+            <div class="project-card-text">Билеты, VIP и специальные предложения можно будет собрать в отдельную витрину без перегруза главной страницы.</div>
+            <span class="project-status">в разработке</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PAST EVENTS ════════════════════════════════════════════════ -->
+<section id="past-events">
+  <div class="section-inner">
+    <div class="section-label reveal">ПРОШЛЫЕ СОБЫТИЯ</div>
+    <div class="section-title reveal">ПРОШЛЫЕ СОБЫТИЯ CUSTOM БЕЗ ЛИШНЕЙ ХРОНОЛОГИИ</div>
+    <div class="project-grid">
+      <div class="project-intro-card reveal">
+        <div>
+          <div class="project-intro-kicker">history</div>
+          <div class="project-intro-title">что уже было</div>
+        </div>
+        <p>Здесь позже можно собрать фото, афиши и короткие отчёты по прошедшим вечеринкам. Сейчас оставил аккуратный минимальный блок.</p>
+      </div>
+      <div class="project-list">
+        <div class="project-card reveal reveal-delay-1">
+          <div class="project-card-num">01</div>
+          <div>
+            <div class="project-card-title">вечеринки</div>
+            <div class="project-card-text">Место для подборки прошлых событий Custom: название, дата, локация и 2–3 сильных кадра.</div>
+            <span class="project-status">добавим фото</span>
+          </div>
+        </div>
+        <div class="project-card reveal reveal-delay-2">
+          <div class="project-card-num">02</div>
+          <div>
+            <div class="project-card-title">коллабы</div>
+            <div class="project-card-text">Отдельный ряд под совместные проекты, спецформаты и события с партнёрами.</div>
+            <span class="project-status">по минимуму</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ FAQ ════════════════════════════════════════════════════════ -->
 <section id="faq">
   <div class="section-inner" style="position:relative; z-index:2;">
@@ -2752,7 +3052,7 @@
           <p><strong>Стандарт</strong> — танцпол и движ.</p>
           <p><strong>Комфорт</strong> — отдельный вход, лучший обзор и бар.</p>
           <p><strong>Групповой на троих</strong> — выгоднее на 15%.</p>
-          <p><strong>VIP</strong> — мерч и проход за сцену.</p>
+          <p><strong>VIP</strong> — комфортная зона и отдельные бонусы.</p>
           <p style="color: var(--red); font-weight: 700;">Цены растут каждую неделю.</p>
         </div>
       </div>
@@ -2784,8 +3084,8 @@
       <div class="faq-item reveal">
         <button class="faq-q" type="button">Что будет на площадке? Будут ли столы?<span class="faq-toggle">+</span></button>
         <div class="faq-a">
-          <p>Основная сцена, VIP-зона за сценой, несколько баров, фуд-корт, фото-зоны и курилки. Танцпол — в центре.</p>
-          <p><strong>Столы</strong> доступны по VIP-пакету: отдельная зона с персональным обслуживанием. Количество ограничено — брать нужно заранее через поддержку.</p>
+          <p>На площадке — музыка, барная зона, шезлонги, катамараны, пляжный волейбол, гриль и кинотеатр под открытым небом.</p>
+          <p><strong>Столы</strong> и отдельные зоны лучше уточнять заранее через поддержку: количество мест ограничено.</p>
         </div>
       </div>
 
@@ -2855,7 +3155,7 @@
   <div class="cta-inner">
     <div class="cta-eyebrow reveal">Осталось совсем немного</div>
     <div class="cta-headline reveal">НЕ<br>ПРОПУСТИ</div>
-    <div class="cta-sub reveal">три дня, которые <strong>услышит вся страна</strong></div>
+    <div class="cta-sub reveal">пляжная ночь, которую <strong>лучше забрать заранее</strong></div>
 
     <div class="countdown reveal">
       <div class="cd-block">
@@ -3125,6 +3425,29 @@
     });
   }
   checkSecretReveals();
+
+  // ── Page menu ───────────────────────────────────────────────────
+  function initPageMenu() {
+    const menu = document.getElementById('pageMenu');
+    if (!menu) return;
+    const toggle = menu.querySelector('.nav-menu-toggle');
+    const panel = document.getElementById('pageMenuPanel');
+    if (!toggle || !panel) return;
+    const setOpen = (open) => {
+      menu.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      panel.setAttribute('aria-hidden', String(!open));
+    };
+    toggle.addEventListener('click', () => setOpen(!menu.classList.contains('is-open')));
+    panel.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('click', (e) => {
+      if (menu.classList.contains('is-open') && !menu.contains(e.target)) setOpen(false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setOpen(false);
+    });
+  }
+  initPageMenu();
 
   // ── Nav: scroll shadow ───────────────────────────────────────────
   window.addEventListener('scroll', () => {
