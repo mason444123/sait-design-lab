@@ -549,11 +549,14 @@
   }
   .hero-side-card {
     border-radius: 26px;
-    padding: 28px 28px 26px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 30px 30px 28px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
     gap: 22px;
+  }
+  .hero-side-head {
+    display: grid;
+    gap: 12px;
   }
   .hero-side-kicker {
     display: block;
@@ -563,51 +566,57 @@
     line-height: 1.25;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    margin-bottom: 14px;
   }
   .hero-side-title {
     display: block;
     font-family: var(--font-impact);
-    font-size: 44px;
-    line-height: 1;
-    letter-spacing: 0.03em;
+    font-size: clamp(46px, 5vw, 72px);
+    line-height: 0.9;
+    letter-spacing: 0.025em;
     text-transform: uppercase;
     clear: both;
   }
-  .hero-side-title span { color: var(--blue-stripe); }
+  .hero-side-title span { display: block; color: var(--blue-stripe); font-size: 0.72em; }
   .hero-side-copy {
-    color: rgba(255,243,230,0.84);
-    font-size: 18px;
-    line-height: 1.2;
+    color: rgba(255,243,230,0.88);
+    font-size: clamp(19px, 1.7vw, 24px);
+    line-height: 1.12;
+    max-width: 26ch;
   }
   .hero-side-list {
     display: grid;
-    gap: 10px;
+    align-content: center;
+    gap: 0;
+    border-top: 1px solid rgba(255,243,230,0.12);
+    border-bottom: 1px solid rgba(255,243,230,0.12);
   }
   .hero-side-list div {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(84px, 0.75fr) minmax(0, 1.25fr);
+    align-items: center;
     gap: 16px;
-    padding: 12px 0;
+    padding: 14px 0;
     border-bottom: 1px solid rgba(255,243,230,0.1);
     font-size: 15px;
     letter-spacing: 0.04em;
   }
+  .hero-side-list div:last-child { border-bottom: 0; }
   .hero-side-list dt {
     color: rgba(255,243,230,0.52);
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 800;
   }
   .hero-side-list dd {
     text-align: right;
     color: var(--white);
-    font-weight: 700;
+    font-weight: 800;
+    line-height: 1.18;
   }
   .hero-side-foot {
-    padding-top: 4px;
-    color: rgba(255,243,230,0.64);
-    font-size: 14px;
-    line-height: 1.2;
+    color: rgba(255,243,230,0.72);
+    font-size: 16px;
+    line-height: 1.22;
+    padding-top: 2px;
   }
 
   /* ─── FIXED TICKET DRAWER ────────────────────────────── */
@@ -2413,7 +2422,7 @@
       </div>
 
       <aside class="hero-side-card reveal reveal-delay-1">
-        <div>
+        <div class="hero-side-head">
           <div class="hero-side-kicker">Ближайшая точка сборки</div>
           <div class="hero-side-title">17 июля <span>/ beach night</span></div>
           <div class="hero-side-copy">Пляжная вечеринка с видом на Кремль: вода, катамараны, шезлонги, гриль, DJ-сеты, хедлайнер и длинная ночь до 05:00.</div>
@@ -2446,10 +2455,6 @@
           <div class="mini-highlight reveal reveal-delay-2">
             <div class="mini-highlight-title">Люди</div>
             <div class="mini-highlight-text">На события Custom приходят не просто «посмотреть». Приходят встретиться, танцевать, знакомиться и быть частью вечера.</div>
-          </div>
-          <div class="mini-highlight reveal reveal-delay-3">
-            <div class="mini-highlight-title">Атмосфера</div>
-            <div class="mini-highlight-text">Площадка, свет, фото и детали собираются в цельное событие, которое запоминается не только афишей.</div>
           </div>
         </div>
       </div>
