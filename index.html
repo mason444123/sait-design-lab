@@ -440,6 +440,205 @@
   }
   .btn-ghost:hover { border-color: var(--white); transform: scale(1.02); }
 
+  .ghost-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--white);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.82;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .ghost-link:hover { opacity: 1; transform: translateX(4px); }
+
+  .hero-editorial-overlay {
+    position: relative;
+    z-index: 12;
+    width: min(1360px, calc(100vw - 72px));
+    margin: -26px auto 0;
+    padding: 0 0 32px;
+  }
+  .hero-story-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+  .hero-story-card,
+  .hero-side-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,243,230,0.12);
+    background: linear-gradient(180deg, rgba(33,12,8,0.92) 0%, rgba(56,22,14,0.88) 100%);
+    box-shadow: 0 24px 90px rgba(0,0,0,0.28);
+    backdrop-filter: blur(18px);
+  }
+  .hero-story-card {
+    padding: 36px 34px 34px;
+    border-radius: 28px;
+  }
+  .hero-story-card::before,
+  .hero-side-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), transparent 36%, transparent 64%, rgba(255,209,102,0.08));
+    pointer-events: none;
+  }
+  .hero-story-card::after {
+    content: '';
+    position: absolute;
+    right: -16%;
+    top: -18%;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,209,102,0.26) 0%, rgba(255,209,102,0) 72%);
+    filter: blur(4px);
+    pointer-events: none;
+  }
+  .story-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    color: rgba(255,243,230,0.72);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .story-eyebrow::before {
+    content: '';
+    width: 34px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--blue-stripe), transparent);
+  }
+  .hero-story-title {
+    max-width: 760px;
+    font-family: var(--font-impact);
+    font-size: clamp(42px, 6vw, 84px);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .hero-story-title span {
+    display: block;
+    color: var(--blue-stripe);
+  }
+  .hero-story-text {
+    margin-top: 18px;
+    max-width: 820px;
+    color: rgba(255,243,230,0.9);
+    font-size: clamp(20px, 2vw, 28px);
+    line-height: 1.18;
+  }
+  .hero-story-text strong { color: var(--blue-stripe); font-weight: 700; }
+  .hero-story-points {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .story-point {
+    min-height: 132px;
+    padding: 18px 18px 16px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255,243,230,0.1);
+  }
+  .story-point-num {
+    color: rgba(255,243,230,0.42);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .story-point-title {
+    margin-top: 10px;
+    font-family: var(--font-impact);
+    font-size: 28px;
+    line-height: 0.95;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  .story-point-text {
+    margin-top: 8px;
+    color: rgba(255,243,230,0.78);
+    font-size: 16px;
+    line-height: 1.18;
+  }
+  .hero-story-actions {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 26px;
+  }
+  .hero-side-card {
+    border-radius: 26px;
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .hero-side-kicker {
+    color: rgba(255,243,230,0.58);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .hero-side-title {
+    font-family: var(--font-impact);
+    font-size: 44px;
+    line-height: 0.9;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  .hero-side-title span { color: var(--blue-stripe); }
+  .hero-side-copy {
+    color: rgba(255,243,230,0.84);
+    font-size: 18px;
+    line-height: 1.2;
+  }
+  .hero-side-list {
+    display: grid;
+    gap: 10px;
+  }
+  .hero-side-list div {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,243,230,0.1);
+    font-size: 15px;
+    letter-spacing: 0.04em;
+  }
+  .hero-side-list dt {
+    color: rgba(255,243,230,0.52);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .hero-side-list dd {
+    text-align: right;
+    color: var(--white);
+    font-weight: 700;
+  }
+  .hero-side-foot {
+    padding-top: 4px;
+    color: rgba(255,243,230,0.64);
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
   /* ─── FIXED TICKET DRAWER ────────────────────────────── */
   .side-ticket-widget {
     position: fixed;
@@ -801,17 +1000,114 @@
     font-size: 58px;
     line-height: 1;
     color: var(--white);
-    letter-spacing: -0.02em;
   }
-  .stat-pre {
-    font-family: var(--font-body);
-    font-weight: 700;
+  .stat-label {
+    margin-top: 6px;
+    color: rgba(255,255,255,0.72);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 13px;
+  }
+  .mini-preso-band {
+    position: relative;
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, rgba(255,138,76,0.16) 0%, rgba(255,138,76,0.03) 100%),
+      linear-gradient(135deg, rgba(255,209,102,0.08), rgba(255,111,71,0.05), transparent 70%);
+    border-top: 1px solid rgba(255,243,230,0.08);
+    border-bottom: 1px solid rgba(255,243,230,0.08);
+  }
+  .mini-preso-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+    gap: 28px;
+    align-items: start;
+  }
+  .mini-preso-copy {
+    display: grid;
+    gap: 16px;
+  }
+  .mini-preso-copy p {
+    color: rgba(255,243,230,0.84);
+    font-size: 22px;
+    line-height: 1.22;
+  }
+  .mini-preso-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .mini-highlight {
+    padding: 18px 18px 16px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,243,230,0.08);
+  }
+  .mini-highlight-title {
+    font-family: var(--font-impact);
+    font-size: 24px;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .mini-highlight-text {
+    margin-top: 8px;
+    color: rgba(255,243,230,0.72);
     font-size: 15px;
+    line-height: 1.18;
+  }
+  .mini-preso-rail {
+    position: relative;
+    display: grid;
+    gap: 12px;
+  }
+  .rail-card {
+    position: relative;
+    overflow: hidden;
+    padding: 22px 22px 20px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(37,14,10,0.88) 0%, rgba(63,24,16,0.78) 100%);
+    border: 1px solid rgba(255,243,230,0.08);
+  }
+  .rail-label {
+    color: rgba(255,243,230,0.46);
+    font-size: 12px;
+    font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--red);
-    margin-bottom: 4px;
   }
+  .rail-title {
+    margin-top: 10px;
+    font-family: var(--font-impact);
+    font-size: 30px;
+    line-height: 0.92;
+    text-transform: uppercase;
+  }
+  .rail-copy {
+    margin-top: 10px;
+    color: rgba(255,243,230,0.78);
+    font-size: 16px;
+    line-height: 1.18;
+  }
+  .rail-pill-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+  .rail-pill {
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,243,230,0.12);
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,243,230,0.82);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .mini-preso-band .section-inner { padding-top: 58px; padding-bottom: 58px; }
+
   .stat-num span { color: var(--red); }
   .stat-label {
     font-family: var(--font-body);
@@ -891,49 +1187,6 @@
       rgba(255,255,255,1) 360deg
     );
   }
-
-  .day-tabs {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-    margin-bottom: 40px;
-    position: relative;
-    z-index: 2;
-    border-bottom: 0;
-  }
-  .day-tab {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 72px;
-    text-align: center;
-    font-family: var(--font-impact);
-    font-size: 17px;
-    line-height: 1.08;
-    letter-spacing: 0.05em;
-    color: rgba(255,255,255,0.82);
-    background: rgba(255, 138, 76, 0.10);
-    border: 1px solid rgba(255, 211, 161, 0.18);
-    border-bottom: 1px solid rgba(255, 211, 161, 0.18);
-    border-radius: 18px;
-    padding: 16px 18px;
-    cursor: pointer;
-    margin-bottom: 0;
-    transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
-    text-transform: uppercase;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
-    overflow-wrap: anywhere;
-  }
-  .day-tab.active {
-    color: #fff7ed;
-    background: linear-gradient(180deg, rgba(255, 138, 76, 0.28) 0%, rgba(186, 74, 31, 0.36) 100%);
-    border-color: rgba(255, 181, 117, 0.58);
-    box-shadow: 0 10px 26px rgba(0,0,0,0.26), 0 0 0 1px rgba(255, 181, 117, 0.18);
-    transform: translateY(-1px);
-  }
-
-  .lineup-day { display: none; position: relative; z-index: 2; }
-  .lineup-day.active { display: block; }
 
   /* HEADLINER */
   .headliner-card {
@@ -1614,23 +1867,23 @@
     nav { padding: 8px 20px; }
     .nav-links { display: none; }
     .section-inner { padding: 60px 24px; }
+    .hero-editorial-overlay {
+      width: calc(100vw - 28px);
+      margin-top: -16px;
+      padding-bottom: 24px;
+    }
+    .hero-story-grid,
+    .mini-preso-grid { grid-template-columns: 1fr; }
+    .hero-story-card { padding: 22px 20px; border-radius: 22px; }
+    .hero-side-card { padding: 22px 20px; border-radius: 22px; }
+    .hero-story-points,
+    .mini-preso-highlights { grid-template-columns: 1fr; }
+    .hero-story-title { font-size: clamp(38px, 14vw, 64px); }
+    .hero-story-text,
+    .mini-preso-copy p { font-size: 19px; }
     .about-grid { grid-template-columns: 1fr; }
     .about-stats { grid-template-columns: 1fr 1fr; }
     .headliner-card { grid-template-columns: 1fr; }
-    .day-tabs {
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-bottom: 28px;
-    }
-    .day-tab {
-      min-height: 0;
-      font-size: 16px;
-      line-height: 1.12;
-      justify-content: flex-start;
-      text-align: left;
-      padding: 14px 16px;
-      border-radius: 16px;
-    }
     .headliner-info { padding: 28px 22px; }
     .headliner-name { font-size: clamp(32px, 9vw, 54px); }
     .role-tags { gap: 8px; }
@@ -2203,8 +2456,6 @@
     </div>
     <div class="side-ticket-panel__widget">
       <div class="widget-inner-iframe">
-        <link rel="stylesheet" href="https://voroh.ru/sources/widget/dist/assets/widget-popup-style.css?v=1778061813">
-        <script src="https://voroh.ru/sources/widget/dist/assets/widget-popup.js?v=1778061813"></script>
         <iframe class="widget-tabs__iframe" referrerpolicy="same-origin" data-analytic="iframe" frameborder="0" id="widget-iframe" src="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads" allow="clipboard-write"></iframe>
       </div>
     </div>
@@ -2224,9 +2475,10 @@
          alt="КАСТОМ: ПЛЯЖНАЯ ВЕЧЕРИНКА">
   </a>
   <ul class="nav-links">
-    <li><a href="#lineup">Лайнап</a></li>
-    <li><a href="#venue">Место</a></li>
+    <li><a href="#about">О событии</a></li>
+    <li><a href="#mini-preso">Команда</a></li>
     <li><a href="#program">Программа</a></li>
+    <li><a href="#venue">Место</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="nav-cta">Купить билет</a></li>
   </ul>
@@ -2272,7 +2524,106 @@
 
     <div class="hero-cta-wrap">
       <a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="btn-main" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">КУПИТЬ БИЛЕТ</a>
-      <a href="#program" class="btn-ghost">ПРОГРАММА →</a>
+      <a href="#about" class="btn-ghost">ПРО ЛЕТО →</a>
+    </div>
+  </div>
+
+  <div class="hero-editorial-overlay reveal">
+    <div class="hero-story-grid">
+      <div class="hero-story-card">
+        <div class="story-eyebrow">Ночная сцена у воды</div>
+        <div class="hero-story-title">Музыка, люди и стиль <span>собираются здесь в одну длинную летнюю ночь.</span></div>
+        <div class="hero-story-text">Custom — это <strong>хип-хоп</strong>, резиденты, гости, сильный визуал и ночная энергия. 17 июля всё это собирается у воды: на закате, в пике ночи и на рассвете.</div>
+        <div class="hero-story-points">
+          <div class="story-point">
+            <div class="story-point-num">01 / люди</div>
+            <div class="story-point-title">Резиденты и гости</div>
+            <div class="story-point-text">Свои диджеи, близкие к сцене люди и специальный гость создают понятный музыкальный контекст этой ночи.</div>
+          </div>
+          <div class="story-point">
+            <div class="story-point-num">02 / ночь</div>
+            <div class="story-point-title">От заката до утра</div>
+            <div class="story-point-text">Событие длится не два часа, а целую ночь: приезд по свету, разгон вечером и финал уже на рассвете.</div>
+          </div>
+          <div class="story-point">
+            <div class="story-point-num">03 / атмосфера</div>
+            <div class="story-point-title">Вода, свет, движение</div>
+            <div class="story-point-text">Пляж, бар, кино, шезлонги и танцпол делают площадку местом, где хочется не только танцевать, но и остаться дольше.</div>
+          </div>
+        </div>
+        <div class="hero-story-actions">
+          <a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="btn-main" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">ЗАБРАТЬ БИЛЕТ</a>
+          <a href="#program" class="ghost-link">Смотреть программу ночи →</a>
+        </div>
+      </div>
+
+      <aside class="hero-side-card reveal reveal-delay-1">
+        <div>
+          <div class="hero-side-kicker">Ближайшая точка сборки</div>
+          <div class="hero-side-title">17 июля <span>/ beach night</span></div>
+          <div class="hero-side-copy">Пляжная вечеринка с видом на Кремль: вода, катамараны, шезлонги, гриль, DJ-сеты, хедлайнер и длинная ночь до 05:00.</div>
+        </div>
+        <dl class="hero-side-list">
+          <div><dt>Где</dt><dd>Односторонка Гривки, 1Б</dd></div>
+          <div><dt>Когда</dt><dd>19:00 — 05:00</dd></div>
+          <div><dt>Что внутри</dt><dd>Вода · бар · кино · волейбол</dd></div>
+          <div><dt>Состояние</dt><dd>Лето в пике</dd></div>
+        </dl>
+        <div class="hero-side-foot">Сначала ловим закат у воды, потом — самый плотный момент ночи, и только после этого отпускаем гостей встречать рассвет.</div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="mini-preso" class="mini-preso-band">
+  <div class="section-inner">
+    <div class="mini-preso-grid">
+      <div class="mini-preso-copy reveal">
+        <div class="section-label">О КОМАНДЕ CUSTOM</div>
+        <div class="section-title">НЕ ПРОСТО ВЕЧЕРИНКИ — СВОЯ ХИП-ХОП СЦЕНА</div>
+        <p><strong>Custom</strong> — промо-команда и комьюнити, которое собирает ночные события вокруг хип-хопа, резидентов, гостей, стиля и людей на танцполе.</p>
+        <p>Их формат держится на своей тусовке: b2b-сеты, коллаборации с площадками и командами, фотоотчёты, видео и живой архив движения — чтобы событие продолжалось не только ночью, но и после неё.</p>
+        <div class="mini-preso-highlights">
+          <div class="mini-highlight reveal reveal-delay-1">
+            <div class="mini-highlight-title">Музыка</div>
+            <div class="mini-highlight-text">Хип-хоп как ядро, резиденты как основа ночи, гости и b2b-форматы как способ постоянно менять энергию.</div>
+          </div>
+          <div class="mini-highlight reveal reveal-delay-2">
+            <div class="mini-highlight-title">Люди</div>
+            <div class="mini-highlight-text">Custom работает не как сухой ивент-бренд, а как круг своих: стильные гости, образы, танцпол и ощущение комьюнити.</div>
+          </div>
+          <div class="mini-highlight reveal reveal-delay-3">
+            <div class="mini-highlight-title">Архив</div>
+            <div class="mini-highlight-text">Фото, видео, reels и «ищи себя» — часть продукта. Каждая ночь остаётся в визуальной памяти команды.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mini-preso-rail reveal reveal-delay-2">
+        <div class="rail-card">
+          <div class="rail-label">Как выросло движение</div>
+          <div class="rail-title">от локальных ночей к коллабам</div>
+          <div class="rail-copy">В архиве читается последовательность: ранние фотоотчёты, мартовские Custom-вечера, Custom × Werkstatt, весенние и летние события, коллаборации и гости из других городов.</div>
+          <div class="rail-pill-row">
+            <span class="rail-pill">26.02</span>
+            <span class="rail-pill">12.03</span>
+            <span class="rail-pill">26.03</span>
+            <span class="rail-pill">01.07</span>
+            <span class="rail-pill">23.07</span>
+          </div>
+        </div>
+        <div class="rail-card">
+          <div class="rail-label">Драматургия Custom</div>
+          <div class="rail-title">ночь → танцпол → до утра</div>
+          <div class="rail-copy">Повторяющийся код бренда: старт поздно вечером, плотная музыкальная дуга, резиденты плечом к плечу и финал уже ближе к утру.</div>
+          <div class="rail-pill-row">
+            <span class="rail-pill">резиденты</span>
+            <span class="rail-pill">b2b</span>
+            <span class="rail-pill">гости</span>
+            <span class="rail-pill">фотоотчёты</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -2335,127 +2686,41 @@
   <div class="lineup-bg"></div>
   <div class="lineup-sunburst"><div class="lineup-sunburst-inner"></div></div>
   <div class="section-inner" style="position:relative; z-index:2;">
-    <div class="section-label reveal">АФИША</div>
-    <div class="section-title reveal">ГЛАВНЫЙ ВИЗУАЛ</div>
+    <div class="section-label reveal">ЧТО БУДЕТ НА ПЛОЩАДКЕ</div>
+    <div class="section-title reveal">МУЗЫКА, ВОДА, ОТДЫХ И НОЧНОЙ СЦЕНАРИЙ</div>
 
-    <div class="day-tabs reveal">
-      <div class="day-tab active" onclick="switchDay('day1')">17 ИЮЛЯ — ПЛЯЖНАЯ НОЧЬ</div>
-      <div class="day-tab" onclick="switchDay('day2')">ЗОНЫ И АКТИВНОСТИ</div>
-      <div class="day-tab" onclick="switchDay('day3')">МУЗЫКА И АТМОСФЕРА</div>
-    </div>
-
-    <!-- DAY 1 -->
-    <div class="lineup-day active" id="day1">
-      <!-- HERO POSTER -->
-      <div class="headliner-card reveal">
-        <img src="assets/beach-party-poster.jpg?v=20260625214800" alt="Кастом — пляжная вечеринка" class="headliner-img">
-        <div class="headliner-info">
-          <div class="headliner-name">КАСТОМ<br>ПЛЯЖНАЯ<br>ВЕЧЕРИНКА</div>
-          <div class="headliner-desc">Главный визуал события: закатная палитра, вода, сцена, танцпол и летняя курортная энергия. Это не классический концертный постер, а афиша-впечатление.</div>
-          <div class="headliner-desc">По афише считывается одно: приходишь не просто на выступление, а на длинную пляжную ночь с музыкой, баром, активностями и рассветом у воды.</div>
-          <div class="role-tags">
-            <span class="role-tag">01 /</span>
-            <span class="role-tag">ГЛАВНАЯ АФИША</span>
-          </div>
+    <div class="artists-grid" style="margin-top: 36px;">
+      <div class="artist-card artist-card-featured special-guest-poster reveal">
+        <img src="assets/beach-party-poster.jpg?v=20260625214800" alt="Кастом — пляжная вечеринка" class="artist-card-img" loading="lazy">
+        <div class="artist-card-body">
+          <div class="artist-num">01 / АФИША СОБЫТИЯ</div>
+          <div class="artist-card-name" style="font-size: 42px;">ПЛЯЖНАЯ<br>НОЧЬ</div>
+          <div class="artist-card-sub">17 июля · Казань · 19:00–05:00 · вид на Кремль</div>
+          <div class="artist-card-ticket-note">Главный визуал события: пляж, музыка, закат, ночной танцпол и длинный летний маршрут до рассвета.</div>
         </div>
       </div>
 
-      <div class="headliner-card reveal reveal-delay-1">
-        <img src="assets/beach-party-poster.jpg?v=20260625214800" alt="Зоны пляжной вечеринки" class="headliner-img" loading="lazy">
-        <div class="headliner-info">
-          <div class="headliner-name">ЗОНЫ<br>ОТДЫХА<br>& АКТИВНОСТИ</div>
-          <div class="headliner-desc">На афише сразу перечислены сценарии отдыха: <strong>катамараны</strong>, <strong>шезлонги</strong>, <strong>гриль-зона</strong> и <strong>пляжный волейбол</strong>. Это делает событие не только музыкальным, но и дневным по ощущениям.</div>
-          <div class="role-tags">
-            <span class="role-tag">02 /</span>
-            <span class="role-tag">ПЛЯЖНЫЙ ФОРМАТ</span>
-          </div>
+      <div class="artist-card reveal reveal-delay-1">
+        <div class="artist-card-body">
+          <div class="artist-num">02 / МУЗЫКА</div>
+          <div class="artist-card-name" style="font-size: 34px;">DJ-СЕТЫ<br>И ХЕДЛАЙНЕР</div>
+          <div class="artist-card-sub">Главная музыкальная линия вечера — от первых сетов до кульминации ночью.</div>
         </div>
       </div>
 
-      <div class="headliner-card reveal reveal-delay-2">
-        <img src="assets/beach-party-poster.jpg?v=20260625214800" alt="Музыка и барная зона" class="headliner-img" loading="lazy">
-        <div class="headliner-info">
-          <div class="headliner-name">МУЗЫКА<br>БАР<br>КИНО</div>
-          <div class="headliner-desc">Кроме сцены и танцпола, афиша обещает <strong>барную зону</strong>, <strong>кинотеатр под открытым небом</strong>, <strong>DJ-сеты</strong> и выступление <strong>хедлайнера</strong>.</div>
-          <div class="role-tags">
-            <span class="role-tag">03 /</span>
-            <span class="role-tag">НОЧНАЯ АТМОСФЕРА</span>
-          </div>
+      <div class="artist-card reveal reveal-delay-2">
+        <div class="artist-card-body">
+          <div class="artist-num">03 / ОТДЫХ</div>
+          <div class="artist-card-name" style="font-size: 34px;">КАТАМАРАНЫ<br>И ШЕЗЛОНГИ</div>
+          <div class="artist-card-sub">Можно переключаться между танцполом, водой и спокойными зонами отдыха.</div>
         </div>
       </div>
 
-      <div class="headliner-card reveal reveal-delay-3">
-        <img src="assets/beach-party-poster.jpg?v=20260625214800" alt="Рассвет у воды" class="headliner-img" loading="lazy">
-        <div class="headliner-info">
-          <div class="headliner-name">ЗАКАТ<br>НОЧЬ<br>РАССВЕТ</div>
-          <div class="headliner-desc">Финальный образ афиши — длинная летняя ночь на пляже. Не просто слот 2 часа, а целая смена настроений: приезд на закате, пик ночью, рассвет под конец.</div>
-          <div class="role-tags">
-            <span class="role-tag">04 /</span>
-            <span class="role-tag">19:00 → 05:00</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="artists-grid">
-        <div class="artist-card artist-card-featured special-guest-poster reveal reveal-delay-4">
-          <img src="assets/beach-party-poster.jpg?v=20260625214800" alt="Специальный гость пляжной вечеринки" class="artist-card-img" loading="lazy">
-          <div class="artist-card-body">
-            <div class="artist-num">05 / СПЕЦИАЛЬНЫЙ ГОСТЬ</div>
-            <div class="artist-card-name" style="font-size: 40px;">СПЕЦИАЛЬНЫЙ<br>ГОСТЬ</div>
-            <div class="artist-card-sub">Кастом · 17 июля · Казань</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DAY 2 -->
-    <div class="lineup-day" id="day2">
-      <div class="artists-grid">
-        <div class="artist-card special-guest-card reveal" style="grid-column: 1 / -1; text-align: center; padding: 40px 32px;">
-          <div class="artist-num">АКТИВНОСТИ /</div>
-          <div class="artist-card-name" style="font-size: 36px; color: var(--white);">КАТАМАРАНЫ · ШЕЗЛОНГИ · ГРИЛЬ-ЗОНА</div>
-          <div class="artist-card-sub">Пляжный волейбол, барная зона и кинотеатр под открытым небом</div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- DAY 3 -->
-    <div class="lineup-day" id="day3">
-      <div class="artists-grid">
-        <div class="artist-card artist-card-featured media-basket-poster reveal">
-          <img src="assets/beach-party-poster.jpg?v=20260625214800" alt="Пляжная вечеринка — хедлайнер и DJ" class="artist-card-img" loading="lazy">
-          <div class="artist-card-body">
-            <div class="artist-num">МУЗЫКА / 17 ИЮЛЯ</div>
-            <div class="artist-card-name" style="font-size: 36px;">DJ СЕТЫ<br>+ ХЕДЛАЙНЕР</div>
-            <div class="artist-card-sub">Специальный гость · барная зона · летний танцпол</div>
-            <div class="artist-card-ticket-note">Сохраняем главную афишу как основной носитель атмосферы и данных события.</div>
-            <a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="artist-card-ticket-btn" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">Купить билет</a>
-          </div>
-        </div>
-        <div class="artist-card artist-card-featured media-basket-artist-card reveal reveal-delay-1">
-          <img src="assets/beach-party-poster.jpg?v=20260625214800" alt="Катамараны" class="artist-card-img" loading="lazy">
-          <div class="artist-card-body">
-            <div class="artist-num">ПЛЯЖ /</div>
-            <div class="artist-card-name">КАТАМАРАНЫ</div>
-            <div class="artist-card-sub">Отдых на воде и летний вайб</div>
-          </div>
-        </div>
-        <div class="artist-card artist-card-featured media-basket-artist-card reveal reveal-delay-2">
-          <img src="assets/beach-party-poster.jpg?v=20260625214800" alt="Шезлонги и бар" class="artist-card-img" loading="lazy">
-          <div class="artist-card-body">
-            <div class="artist-num">ОТДЫХ /</div>
-            <div class="artist-card-name">ШЕЗЛОНГИ</div>
-            <div class="artist-card-sub">Барная зона, релакс и вид на воду</div>
-          </div>
-        </div>
-        <div class="artist-card artist-card-featured media-basket-artist-card reveal reveal-delay-3">
-          <img src="assets/beach-party-poster.jpg?v=20260625214800" alt="Кинотеатр под открытым небом" class="artist-card-img" loading="lazy">
-          <div class="artist-card-body">
-            <div class="artist-num">НОЧЬ /</div>
-            <div class="artist-card-name">OPEN AIR КИНО</div>
-            <div class="artist-card-sub">Кинотеатр под открытым небом и длинная ночь до рассвета</div>
-          </div>
+      <div class="artist-card reveal reveal-delay-3">
+        <div class="artist-card-body">
+          <div class="artist-num">04 / ПЛОЩАДКА</div>
+          <div class="artist-card-name" style="font-size: 34px;">БАР · ГРИЛЬ · КИНО</div>
+          <div class="artist-card-sub">Барная зона, гриль и кинотеатр под открытым небом поддерживают ночь вне сцены.</div>
         </div>
       </div>
     </div>
@@ -2555,7 +2820,7 @@
           <div class="prog-item">
             <div class="prog-time">05:00</div>
             <div class="prog-name">Рассвет и финал</div>
-            <div class="prog-sub">Встречаем рассвет и провожаем закат наоборот уже вчерашний</div>
+            <div class="prog-sub">Спокойный финал ночи у воды</div>
           </div>
         </div>
       </div>
@@ -2661,7 +2926,7 @@
 
     <div class="faq-grid">
       <div class="faq-item reveal">
-        <button class="faq-q" type="button">Зачем мне быть на пляжной вечеринке?<span class="faq-toggle">+</span></button>
+        <button class="faq-q" type="button">Почему стоит приехать пораньше?<span class="faq-toggle">+</span></button>
         <div class="faq-a">
           <p>Это пляжная ночь с видом на <strong>Казанский Кремль</strong>, где можно совместить музыку, отдых, воду и летнюю атмосферу в одном месте.</p>
           <p>Старт — <strong>17 июля в 19:00</strong>. До утра работают DJ-сеты, активности и зоны отдыха.</p>
@@ -2707,7 +2972,7 @@
       <div class="faq-item reveal">
         <button class="faq-q" type="button">Что если пойдёт дождь?<span class="faq-toggle">+</span></button>
         <div class="faq-a">
-          <p>Дождливая погода — не повод менять планы. Праздник состоится при любых условиях.</p>
+          <p>Дождь сам по себе не отменяет событие. Актуальные обновления по погоде и формату работы площадки организаторы сообщат ближе к дате.</p>
         </div>
       </div>
 
@@ -2730,7 +2995,7 @@
       <div class="faq-item reveal">
         <button class="faq-q" type="button">Можно ли купить билет на входе?<span class="faq-toggle">+</span></button>
         <div class="faq-a">
-          <p>Ты сможешь приобрести билет на входе, но <strong>лучше купи заранее</strong> — ведь их цена закономерно повысится, либо их и вовсе может не остаться!</p>
+          <p>Билет можно будет купить и на входе, если они останутся в наличии. Но спокойнее взять заранее — так проще зафиксировать место и не следить за остатками в последний момент.</p>
         </div>
       </div>
 
@@ -2745,7 +3010,7 @@
       <div class="faq-item reveal">
         <button class="faq-q" type="button">Какой дресс-код?<span class="faq-toggle">+</span></button>
         <div class="faq-a">
-          <p>Мы не намереваемся делать строгий дресс-код, однако на фестивале будет много камер, и мы будем рады, если ты поддержишь наш вайб и выгуляешь свой <strong>лучший аутфит</strong>!</p>
+          <p>Строгого дресс-кода нет. Но это летняя ночь у воды, поэтому лучше выбирать то, в чём комфортно двигаться, отдыхать и оставаться до рассвета.</p>
         </div>
       </div>
 
@@ -2826,7 +3091,6 @@
 
     <div class="reveal" style="margin-top: 24px;">
       <div style="font-family: var(--font-body); font-size: 13px; color: rgba(255,255,255,0.3); letter-spacing: 0.15em; text-transform: uppercase;">17 ИЮЛЯ · КАЗАНЬ · ОДНОСТОРОНКА ГРИВКИ, 1Б · 19:00–05:00 · 18+</div>
-      <div style="font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.28); margin-top: 8px;">Данные взяты из присланной афиши: пляжная вечеринка, вид на Казанский Кремль, DJ-сеты, хедлайнер и активности у воды.</div>
     </div>
   </div>
 </section>
@@ -3020,20 +3284,6 @@
     });
   }, { threshold: 0.12 });
   revealEls.forEach(el => io.observe(el));
-
-  // ── Day tabs ─────────────────────────────────────────────────────
-  function switchDay(id) {
-    document.querySelectorAll('.lineup-day').forEach(d => d.classList.remove('active'));
-    document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    const tabs = Array.from(document.querySelectorAll('.day-tab'));
-    const idx = Math.max(0, ['day1', 'day2', 'day3'].indexOf(id));
-    if (tabs[idx]) tabs[idx].classList.add('active');
-
-    // re-trigger reveals in newly shown day
-    const newReveals = document.getElementById(id).querySelectorAll('.reveal:not(.visible)');
-    setTimeout(() => { newReveals.forEach(el => el.classList.add('visible')); }, 50);
-  }
 
   // ── Secret program reveals ───────────────────────────────────────
   function checkSecretReveals() {
