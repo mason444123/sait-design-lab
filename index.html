@@ -182,17 +182,19 @@
     flex-direction: column;
     border: 1px solid rgba(255,243,230,0.2);
     border-radius: 16px;
-    background: rgba(8,8,10,0.68);
+    background: rgba(8,8,10,0.34);
     color: var(--white);
     cursor: pointer;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.36);
-    transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    border-radius: 999px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.28), inset 0 0 0 1px rgba(255,255,255,0.04);
+    transition: transform .22s cubic-bezier(.2,.9,.25,1), border-color .18s ease, background .18s ease, box-shadow .18s ease;
   }
   .nav-menu-toggle:hover,
   .nav-menu-wrap.is-open .nav-menu-toggle {
-    transform: translateY(-1px);
-    border-color: rgba(255,138,76,0.72);
-    background: rgba(255,138,76,0.16);
+    transform: translateY(-1px) rotate(4deg) scale(1.04);
+    border-color: rgba(255,138,76,0.62);
+    background: rgba(255,138,76,0.11);
+    box-shadow: 0 16px 34px rgba(0,0,0,0.34), 0 0 24px rgba(255,138,42,0.18);
   }
   .nav-menu-toggle span {
     width: 22px;
@@ -203,7 +205,7 @@
     transition: transform .2s ease, opacity .2s ease;
   }
   .nav-menu-wrap.is-open .nav-menu-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .nav-menu-wrap.is-open .nav-menu-toggle span:nth-child(2) { opacity: 0; }
+  .nav-menu-wrap.is-open .nav-menu-toggle span:nth-child(2) { opacity: 0; transform: scaleX(0.25); }
   .nav-menu-wrap.is-open .nav-menu-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .nav-menu-panel {
     position: absolute;
@@ -1850,7 +1852,7 @@
     nav { padding: 8px 20px; }
     .nav-links { display: none; }
     .nav-menu-wrap { display: block; }
-    .nav-menu-toggle { width: 46px; height: 46px; border-radius: 15px; }
+    .nav-menu-toggle { width: 46px; height: 46px; border-radius: 999px; }
     .section-inner { padding: 60px 24px; }
     .hero-editorial-overlay {
       width: calc(100vw - 28px);
@@ -1868,11 +1870,7 @@
     .mini-preso-copy p { font-size: 19px; }
     .about-grid { grid-template-columns: 1fr; }
     .about-stats { grid-template-columns: 1fr 1fr; }
-    .program-grid,
-    .project-grid { grid-template-columns: 1fr; }
-    .project-card { grid-template-columns: 54px 1fr; padding: 18px; }
-    .project-card-num { width: 46px; height: 46px; border-radius: 14px; font-size: 22px; }
-    .project-intro-card { padding: 24px; }
+    .program-grid { grid-template-columns: 1fr; }
     .exp-grid { grid-template-columns: 1fr; }
     .countdown { gap: 4px; }
     .cd-block { min-width: 72px; }
@@ -1951,119 +1949,6 @@
     }
     .footer-inner { flex-direction: column; align-items: flex-start; }
     .cta-inner { padding: 60px 24px; }
-  }
-
-  /* ─── PROJECT SECTIONS ───────────────────────────────────────── */
-  #shop,
-  #past-events {
-    position: relative;
-    overflow: hidden;
-    background: var(--black);
-  }
-  #shop::before,
-  #past-events::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background:
-      radial-gradient(ellipse 52% 42% at 18% 22%, rgba(255,138,42,0.13) 0%, transparent 62%),
-      radial-gradient(ellipse 46% 38% at 88% 70%, rgba(255,211,161,0.08) 0%, transparent 62%);
-  }
-  .project-grid {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
-    gap: 24px;
-    align-items: stretch;
-    margin-top: 34px;
-  }
-  .project-intro-card,
-  .project-card {
-    border-radius: 26px;
-    border: 1px solid rgba(255,243,230,0.1);
-    background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.025));
-    box-shadow: 0 22px 70px rgba(0,0,0,0.28);
-  }
-  .project-intro-card {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 24px;
-  }
-  .project-intro-card p {
-    color: rgba(255,243,230,0.78);
-    font-size: 20px;
-    line-height: 1.24;
-  }
-  .project-intro-kicker {
-    color: rgba(255,243,230,0.52);
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-  }
-  .project-intro-title {
-    margin-top: 12px;
-    font-family: var(--font-impact);
-    font-size: clamp(42px, 5vw, 76px);
-    line-height: .9;
-    letter-spacing: .025em;
-    text-transform: uppercase;
-  }
-  .project-list {
-    display: grid;
-    gap: 14px;
-  }
-  .project-card {
-    padding: 22px;
-    display: grid;
-    grid-template-columns: 74px 1fr;
-    gap: 18px;
-    align-items: start;
-  }
-  .project-card-num {
-    width: 58px;
-    height: 58px;
-    border-radius: 18px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255,138,42,0.14);
-    border: 1px solid rgba(255,138,42,0.34);
-    color: #ffb15f;
-    font-family: var(--font-impact);
-    font-size: 28px;
-    line-height: 1;
-  }
-  .project-card-title {
-    font-family: var(--font-impact);
-    font-size: clamp(28px, 3vw, 42px);
-    line-height: .95;
-    letter-spacing: .025em;
-    text-transform: uppercase;
-  }
-  .project-card-text {
-    margin-top: 8px;
-    color: rgba(255,243,230,0.72);
-    font-size: 16px;
-    line-height: 1.25;
-  }
-  .project-status {
-    display: inline-flex;
-    width: fit-content;
-    margin-top: 14px;
-    padding: 7px 12px;
-    border-radius: 999px;
-    color: #ffd7b0;
-    background: rgba(255,138,42,0.12);
-    border: 1px solid rgba(255,138,42,0.32);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: .14em;
-    text-transform: uppercase;
   }
 
   /* ─── FAQ ──────────────────────────────────────────────────────── */
@@ -2574,8 +2459,8 @@
     <li><a href="#about">О событии</a></li>
     <li><a href="#mini-preso">Команда</a></li>
     <li><a href="#program">Программа</a></li>
-    <li><a href="#shop">Магазин</a></li>
-    <li><a href="#past-events">Прошлые события</a></li>
+    <li><a href="shop.html">Магазин</a></li>
+    <li><a href="past-events.html">Прошлые события</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="nav-cta">Купить билет</a></li>
   </ul>
@@ -2588,8 +2473,8 @@
       <a href="#about">О событии</a>
       <a href="#mini-preso">Команда</a>
       <a href="#program">Программа</a>
-      <a href="#shop">Магазин</a>
-      <a href="#past-events">Прошлые события</a>
+      <a href="shop.html">Магазин</a>
+      <a href="past-events.html">Прошлые события</a>
       <a href="#faq">FAQ</a>
       <a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="nav-menu-buy" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">Купить билет</a>
     </div>
@@ -2948,76 +2833,6 @@
         </svg>
         <div class="exp-card-title">Отдых и активности</div>
         <div class="exp-card-text">Катамараны, шезлонги, гриль-зона, пляжный волейбол, барная зона и кинотеатр под открытым небом.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ SHOP ═══════════════════════════════════════════════════════ -->
-<section id="shop">
-  <div class="section-inner">
-    <div class="section-label reveal">МАГАЗИН</div>
-    <div class="section-title reveal">СКОРО ЗДЕСЬ БУДЕТ МЕРЧ И БИЛЕТНЫЕ ПАКЕТЫ</div>
-    <div class="project-grid">
-      <div class="project-intro-card reveal">
-        <div>
-          <div class="project-intro-kicker">Custom store</div>
-          <div class="project-intro-title">магазин проекта</div>
-        </div>
-        <p>Пока это минимальная вкладка-заглушка, чтобы сайт уже ощущался как большой проект, а не только афиша одного события.</p>
-      </div>
-      <div class="project-list">
-        <div class="project-card reveal reveal-delay-1">
-          <div class="project-card-num">01</div>
-          <div>
-            <div class="project-card-title">мерч</div>
-            <div class="project-card-text">Футболки, аксессуары и лимитированные вещи Custom. Добавим сюда позиции, когда будет готов визуал.</div>
-            <span class="project-status">скоро</span>
-          </div>
-        </div>
-        <div class="project-card reveal reveal-delay-2">
-          <div class="project-card-num">02</div>
-          <div>
-            <div class="project-card-title">пакеты</div>
-            <div class="project-card-text">Билеты, VIP и специальные предложения можно будет собрать в отдельную витрину без перегруза главной страницы.</div>
-            <span class="project-status">в разработке</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ PAST EVENTS ════════════════════════════════════════════════ -->
-<section id="past-events">
-  <div class="section-inner">
-    <div class="section-label reveal">ПРОШЛЫЕ СОБЫТИЯ</div>
-    <div class="section-title reveal">ПРОШЛЫЕ СОБЫТИЯ CUSTOM БЕЗ ЛИШНЕЙ ХРОНОЛОГИИ</div>
-    <div class="project-grid">
-      <div class="project-intro-card reveal">
-        <div>
-          <div class="project-intro-kicker">history</div>
-          <div class="project-intro-title">что уже было</div>
-        </div>
-        <p>Здесь позже можно собрать фото, афиши и короткие отчёты по прошедшим вечеринкам. Сейчас оставил аккуратный минимальный блок.</p>
-      </div>
-      <div class="project-list">
-        <div class="project-card reveal reveal-delay-1">
-          <div class="project-card-num">01</div>
-          <div>
-            <div class="project-card-title">вечеринки</div>
-            <div class="project-card-text">Место для подборки прошлых событий Custom: название, дата, локация и 2–3 сильных кадра.</div>
-            <span class="project-status">добавим фото</span>
-          </div>
-        </div>
-        <div class="project-card reveal reveal-delay-2">
-          <div class="project-card-num">02</div>
-          <div>
-            <div class="project-card-title">коллабы</div>
-            <div class="project-card-text">Отдельный ряд под совместные проекты, спецформаты и события с партнёрами.</div>
-            <span class="project-status">по минимуму</span>
-          </div>
-        </div>
       </div>
     </div>
   </div>

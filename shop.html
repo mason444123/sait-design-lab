@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Магазин Custom</title>
+  <meta name="description" content="Магазин проекта Custom: мерч, билеты и специальные пакеты.">
+  <style>
+    :root { --bg:#070707; --card:rgba(255,255,255,.06); --line:rgba(255,243,230,.12); --text:#fff3e6; --muted:rgba(255,243,230,.72); --orange:#ff9b3d; --orange2:#ff6f47; }
+    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth} body{min-height:100vh;background:radial-gradient(ellipse 70% 52% at 15% 8%,rgba(255,138,42,.18),transparent 60%),linear-gradient(180deg,#120905 0%,#070707 72%);color:var(--text);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden} a{color:inherit}
+    .top{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(18px,4vw,48px);background:linear-gradient(180deg,rgba(0,0,0,.74),transparent)}
+    .brand{font-weight:900;letter-spacing:.14em;text-transform:uppercase;text-decoration:none}.back{padding:12px 16px;border:1px solid var(--line);border-radius:999px;text-decoration:none;background:rgba(255,255,255,.04);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    main{width:min(1180px,100%);margin:0 auto;padding:140px clamp(20px,5vw,56px) 90px}.label{color:rgba(255,243,230,.52);font-size:12px;font-weight:900;letter-spacing:.22em;text-transform:uppercase}.title{margin-top:18px;font-size:clamp(56px,10vw,132px);line-height:.85;font-weight:1000;letter-spacing:.02em;text-transform:uppercase}.lead{max-width:760px;margin-top:24px;color:var(--muted);font-size:clamp(20px,2vw,28px);line-height:1.18}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:44px}.card{min-height:260px;padding:28px;border:1px solid var(--line);border-radius:30px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.025));box-shadow:0 22px 70px rgba(0,0,0,.3)}.num{color:var(--orange);font-size:13px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}.card h2{margin-top:18px;font-size:clamp(34px,5vw,64px);line-height:.9;text-transform:uppercase}.card p{margin-top:16px;color:var(--muted);font-size:18px;line-height:1.25}.status{display:inline-flex;margin-top:24px;padding:8px 13px;border-radius:999px;background:rgba(255,138,42,.13);border:1px solid rgba(255,138,42,.35);color:#ffd7b0;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.cta{margin-top:36px;display:inline-flex;padding:16px 24px;border-radius:999px;background:linear-gradient(180deg,#ffb15f,#ff8a2a 58%,#d85a12);text-decoration:none;font-weight:900;text-transform:uppercase;letter-spacing:.12em}@media(max-width:760px){.grid{grid-template-columns:1fr}.title{font-size:clamp(46px,17vw,82px)}main{padding-top:118px}.top{padding:14px 18px}.brand{font-size:13px}.back{font-size:11px}}
+  </style>
+</head>
+<body>
+  <header class="top"><a class="brand" href="index.html">Custom</a><a class="back" href="index.html">← На главную</a></header>
+  <main>
+    <div class="label">Custom store</div>
+    <h1 class="title">Магазин проекта</h1>
+    <p class="lead">Здесь будет отдельная витрина проекта: мерч, специальные пакеты и всё, что не должно перегружать главную страницу события.</p>
+    <div class="grid">
+      <article class="card"><div class="num">01 / мерч</div><h2>одежда и аксессуары</h2><p>Футболки, аксессуары и лимитированные вещи Custom. Добавим позиции, когда будет готов визуал и наличие.</p><span class="status">скоро</span></article>
+      <article class="card"><div class="num">02 / пакеты</div><h2>билеты и бонусы</h2><p>Отдельное место под VIP, групповые предложения и специальные условия без перегруза основного лендинга.</p><span class="status">в разработке</span></article>
+    </div>
+    <a class="cta" href="index.html#cta">Купить билет</a>
+  </main>
+</body>
+</html>
