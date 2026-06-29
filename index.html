@@ -180,13 +180,12 @@
     justify-content: center;
     gap: 5px;
     flex-direction: column;
-    border: 1px solid rgba(255,243,230,0.2);
-    border-radius: 16px;
-    background: rgba(8,8,10,0.34);
+    border: 1px solid rgba(255,243,230,0.06);
+    border-radius: 999px;
+    background: rgba(8,8,10,0.08);
     color: var(--white);
     cursor: pointer;
-    border-radius: 999px;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.28), inset 0 0 0 1px rgba(255,255,255,0.04);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.10), inset 0 0 0 1px rgba(255,255,255,0.02);
     transition: transform .22s cubic-bezier(.2,.9,.25,1), border-color .18s ease, background .18s ease, box-shadow .18s ease;
   }
   .nav-menu-toggle:hover,
@@ -213,11 +212,12 @@
     right: 0;
     width: min(340px, calc(100vw - 32px));
     padding: 14px;
-    border: 1px solid rgba(255,243,230,0.14);
+    border: 1px solid rgba(255,243,230,0.04);
     border-radius: 24px;
-    background: rgba(10,10,14,0.96);
-    box-shadow: 0 28px 70px rgba(0,0,0,0.64), 0 0 32px rgba(255,138,42,0.14);
-    backdrop-filter: blur(18px);
+    background: rgba(10,10,14,0.12);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-8px) scale(.98);
@@ -248,8 +248,8 @@
   }
   .nav-menu-panel a:hover {
     color: var(--white);
-    background: rgba(255,138,76,0.12);
-    border-color: rgba(255,138,76,0.26);
+    background: rgba(255,138,76,0.08);
+    border-color: rgba(255,138,76,0.14);
   }
   .nav-menu-panel a::after {
     content: '→';
@@ -257,13 +257,8 @@
     font-size: 16px;
     letter-spacing: 0;
   }
-  .nav-menu-panel .nav-menu-buy {
-    margin-top: 8px;
-    justify-content: center;
-    background: linear-gradient(180deg, #ffb15f 0%, #ff8a2a 55%, #d85a12 100%);
-    color: #fff;
-  }
-  .nav-menu-panel .nav-menu-buy::after { content: ''; }
+  .nav-menu-panel .nav-menu-buy { display: none !important; }
+  .nav-menu-text { display: inline-flex; }
 
   /* ─── HERO ───────────────────────────────────────────── */
   #hero {
@@ -2527,21 +2522,19 @@
     <li><a href="shop.html">Магазин</a></li>
     <li><a href="past-events.html">Прошлые события</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="nav-cta">Купить билет</a></li>
   </ul>
   <div class="nav-menu-wrap" id="pageMenu">
     <button class="nav-menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="pageMenuPanel">
       <span></span><span></span><span></span>
     </button>
+    <span class="nav-menu-text">Меню</span>
     <div class="nav-menu-panel" id="pageMenuPanel" aria-hidden="true">
       <a href="#hero">Главная</a>
       <a href="#about">О событии</a>
-      <a href="#mini-preso">Команда</a>
-      <a href="#program">Программа</a>
+      <a href="#lineup">Программа</a>
       <a href="shop.html">Магазин</a>
       <a href="past-events.html">Прошлые события</a>
       <a href="#faq">FAQ</a>
-      <a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="nav-menu-buy" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">Купить билет</a>
     </div>
   </div>
 </nav>
@@ -2575,14 +2568,6 @@
       <span class="fest-openair-label">ВИД НА КАЗАНСКИЙ КРЕМЛЬ</span>
     </div>
 
-    <div class="hero-address-row">
-      <span class="addr-chip">17 июля</span>
-      <span class="addr-chip">19:00 — 05:00</span>
-      <span class="addr-chip">Односторонка Гривки, 1Б</span>
-      <span class="addr-chip">Вид на Казанский Кремль</span>
-      <span class="addr-chip">18+</span>
-    </div>
-
     <div class="hero-cta-wrap">
       <a href="#about" class="btn-ghost">ПРО ЛЕТО →</a>
     </div>
@@ -2596,7 +2581,6 @@
         <div class="hero-story-text">С 19:00 до 22:00 заходи бесплатно по подписке на Telegram-канал Custom. С 22:00 до 05:00 вход по билету: DJ-сеты, хедлайнер, бар и длинная ночь у воды.</div>
         <div class="hero-story-actions">
           <a href="https://t.me/custom_843" target="_blank" rel="noopener" class="btn-main" onclick="ym(109054298,'reachGoal','TELEGRAM_CLICK')">ПОДПИСАТЬСЯ</a>
-          <a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="ghost-link" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">Купить билет →</a>
         </div>
       </div>
 
@@ -2638,32 +2622,11 @@
       <div class="mini-preso-copy reveal">
         <div class="section-label">О КОМАНДЕ CUSTOM</div>
         <div class="section-title">CUSTOM — ПРО МУЗЫКУ, ЛЮДЕЙ И ЛЕТНИЙ ВАЙБ</div>
-        <p><strong>Custom</strong> — казанская команда, которая делает вечеринки с хип-хопом, R&B, танцами и вниманием к тому, как всё выглядит на площадке.</p>
+        <p><strong>Custom</strong> — казанская команда, которая делает вечеринки с хип-хопом, R&B, танцами и вниманием к тому, как всё выглядит на площадке. На этот раз команда переносит свой формат к воде: закат, бар, активности, танцпол и летняя площадка, где можно провести вечер красиво и без лишнего пафоса.</p>
         <p>Здесь важен не только лайнап. Важны люди, свет, звук, бар, кадры на память и ощущение живого вечера, куда приходишь за музыкой, а остаёшься из-за атмосферы.</p>
-        <div class="mini-preso-highlights">
-          <div class="mini-highlight reveal reveal-delay-1">
-            <div class="mini-highlight-title">Музыка</div>
-            <div class="mini-highlight-text">Хип-хоп, R&B, знакомые треки и свежая селекция — без случайного шума, с понятным настроением.</div>
-          </div>
-          <div class="mini-highlight reveal reveal-delay-2">
-            <div class="mini-highlight-title">Люди</div>
-            <div class="mini-highlight-text">На события Custom приходят не просто «посмотреть». Приходят встретиться, танцевать, знакомиться и быть частью вечера.</div>
-          </div>
-        </div>
       </div>
 
       <div class="mini-preso-rail reveal reveal-delay-2">
-        <div class="rail-card">
-          <div class="rail-label">Почему им верят</div>
-          <div class="rail-title">делают события, куда возвращаются</div>
-          <div class="rail-copy">Custom давно собирает вокруг себя живую аудиторию в Казани. Это не безликая вечеринка на один раз, а команда со своим вкусом и понятной энергией.</div>
-          <div class="rail-pill-row">
-            <span class="rail-pill">Казань</span>
-            <span class="rail-pill">хип-хоп</span>
-            <span class="rail-pill">танцы</span>
-            <span class="rail-pill">лето</span>
-          </div>
-        </div>
         <div class="rail-card">
           <div class="rail-label">17 июля</div>
           <div class="rail-title">пляж, музыка и вид на Кремль</div>
@@ -2696,41 +2659,7 @@
   </div>
 </div>
 
-<!-- ═══ ABOUT ══════════════════════════════════════════════════════ -->
-<section id="about">
-  <div class="section-inner">
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <div class="section-label">О СОБЫТИИ</div>
-        <div class="big-quote">Встречаем рассвет.<br><span>И провожаем закат у воды.</span></div>
-        <p><strong>17 июля</strong> Кастом собирает пляжную вечеринку с видом на <strong>Казанский Кремль</strong>. С вечера и до самого утра гостей ждут музыка, вода, отдых и летняя атмосфера на площадке <strong>Односторонка Гривки, 1Б</strong>.</p>
-        <p>В программе — <strong>DJ-сеты и выступление хедлайнера</strong>, катамараны, шезлонги, гриль-зона, пляжный волейбол, барная зона и кинотеатр под открытым небом.</p>
-        <p>Это ночь, где можно сначала поймать закат у воды, а потом встретить рассвет под музыку. <strong>И многое другое — на месте.</strong></p>
-        <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
-          <span class="role-tag">ПЛЯЖНАЯ ВЕЧЕРИНКА</span>
-          <span class="role-tag">DJ СЕТЫ / ХЕДЛАЙНЕР</span>
-          <span class="role-tag">17 ИЮЛЯ · КАЗАНЬ</span>
-        </div>
-      </div>
-      <div class="about-stats reveal reveal-delay-2">
-        <div class="stat-block">
-          <div class="stat-num">19:00</div>
-          <div class="stat-label">Старт</div>
-        </div>
-        <div class="stat-block">
-          <div class="stat-num">05:00</div>
-          <div class="stat-label">Финал</div>
-          <div class="stat-sub">встречаем рассвет</div>
-        </div>
-        <div class="stat-block">
-          <div class="stat-num">7</div>
-          <div class="stat-label">Зон отдыха и активностей</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- ABOUT SECTION SAVED TO _saved_about_section.html -->
 <!-- ═══ LINEUP ═════════════════════════════════════════════════════ -->
 <section id="lineup">
   <div class="lineup-bg"></div>
@@ -2921,127 +2850,22 @@
   <div class="section-inner" style="position:relative; z-index:2;">
     <div class="section-label reveal">FAQ</div>
     <div class="section-title reveal">ИНФОРМАЦИЯ</div>
-
     <div class="faq-grid">
       <div class="faq-item reveal">
-        <button class="faq-q" type="button">Почему стоит приехать пораньше?<span class="faq-toggle">+</span></button>
-        <div class="faq-a">
-          <p>Это пляжная ночь с видом на <strong>Казанский Кремль</strong>, где можно совместить музыку, отдых, воду и летнюю атмосферу в одном месте.</p>
-          <p>Старт — <strong>17 июля в 19:00</strong>. До утра работают DJ-сеты, активности и зоны отдыха.</p>
-        </div>
+        <button class="faq-q" type="button">Когда вход свободный?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>С <strong>19:00 до 22:00</strong> — вход по подписке на Telegram.</p></div>
       </div>
-
       <div class="faq-item reveal">
-        <button class="faq-q" type="button">Как устроена программа?<span class="faq-toggle">+</span></button>
-        <div class="faq-a">
-          <p><strong>19:00</strong> — старт, пляжный отдых и закат. Далее — DJ-сеты, выступление хедлайнера и специальный гость.</p>
-          <p>Ночь продолжается до <strong>05:00</strong>: бар, шезлонги, кинотеатр под открытым небом и финал на рассвете.</p>
-        </div>
+        <button class="faq-q" type="button">Когда нужен билет?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p><strong>После 22:00</strong> — вход по билету.</p></div>
       </div>
-
       <div class="faq-item reveal">
-        <button class="faq-q" type="button">Какие билеты доступны и чем отличаются?<span class="faq-toggle">+</span></button>
-        <div class="faq-a">
-          <p><strong>Стандарт</strong> — танцпол и движ.</p>
-          <p><strong>Комфорт</strong> — отдельный вход, лучший обзор и бар.</p>
-          <p><strong>Групповой на троих</strong> — выгоднее на 15%.</p>
-          <p><strong>VIP</strong> — комфортная зона и отдельные бонусы.</p>
-          <p style="color: var(--red); font-weight: 700;">Цены растут каждую неделю.</p>
-        </div>
-      </div>
-
-      <div class="faq-item reveal">
-        <button class="faq-q" type="button">Во сколько начало и конец?<span class="faq-toggle">+</span></button>
-        <div class="faq-a">
-          <p><strong>17 июля</strong> — старт в <strong>19:00</strong>, заканчиваем в <strong>05:00</strong>. Лучше приходить пораньше, чтобы успеть и закат, и всю ночную программу.</p>
-          <p>Формат — длинная пляжная вечеринка, а не короткий концертный слот.</p>
-          <p>Билеты уже на сайте Voroh — переходи и покупай заранее.</p>
-        </div>
-      </div>
-
-      <div class="faq-item reveal">
-        <button class="faq-q" type="button">Как добраться?<span class="faq-toggle">+</span></button>
-        <div class="faq-a">
-          <p><strong>Односторонка Гривки, 1Б</strong>, Казань. Пляжная площадка с видом на Казанский Кремль.</p>
-          <p>Парковка рядом ограничена — лучше без машины.</p>
-        </div>
-      </div>
-
-      <div class="faq-item reveal">
-        <button class="faq-q" type="button">Что если пойдёт дождь?<span class="faq-toggle">+</span></button>
-        <div class="faq-a">
-          <p>Дождь сам по себе не отменяет событие. Актуальные обновления по погоде и формату работы площадки организаторы сообщат ближе к дате.</p>
-        </div>
-      </div>
-
-      <div class="faq-item reveal">
-        <button class="faq-q" type="button">Что будет на площадке? Будут ли столы?<span class="faq-toggle">+</span></button>
-        <div class="faq-a">
-          <p>На площадке — музыка, барная зона, шезлонги, катамараны, пляжный волейбол, гриль и кинотеатр под открытым небом.</p>
-          <p><strong>Столы</strong> и отдельные зоны лучше уточнять заранее через поддержку: количество мест ограничено.</p>
-        </div>
-      </div>
-
-      <div class="faq-item reveal">
-        <button class="faq-q" type="button">Какое барное меню будет?<span class="faq-toggle">+</span></button>
-        <div class="faq-a">
-          <p>Несколько баров с коктейлями, крепким, пивом и безалкогольными напитками. Полное меню с ценами опубликуем ближе к дате в соцсетях.</p>
-          <p>Оплата — карта и наличные.</p>
-        </div>
-      </div>
-
-      <div class="faq-item reveal">
-        <button class="faq-q" type="button">Можно ли купить билет на входе?<span class="faq-toggle">+</span></button>
-        <div class="faq-a">
-          <p>Билет можно будет купить и на входе, если они останутся в наличии. Но спокойнее взять заранее — так проще зафиксировать место и не следить за остатками в последний момент.</p>
-        </div>
-      </div>
-
-      <div class="faq-item reveal">
-        <button class="faq-q" type="button">Нужно ли брать паспорт?<span class="faq-toggle">+</span></button>
-        <div class="faq-a">
-          <p>Фестиваль <strong>18+</strong>, на входе проверяем возраст. <strong>Оригинал паспорта необходимо брать с собой!</strong></p>
-          <p>Это основной документ, подтверждающий возраст гостя, и без него вход на мероприятие может быть затруднен.</p>
-        </div>
-      </div>
-
-      <div class="faq-item reveal">
-        <button class="faq-q" type="button">Какой дресс-код?<span class="faq-toggle">+</span></button>
-        <div class="faq-a">
-          <p>Строгого дресс-кода нет. Но это летняя ночь у воды, поэтому лучше выбирать то, в чём комфортно двигаться, отдыхать и оставаться до рассвета.</p>
-        </div>
-      </div>
-
-      <div class="faq-item reveal">
-        <button class="faq-q" type="button">Можно ли вернуть билет?<span class="faq-toggle">+</span></button>
-        <div class="faq-a">
-          <p>Да, возврат билета возможен. Возврат оформляется через поддержку площадки <a href="https://voroh.ru" target="_blank" rel="noopener" style="color: var(--red); text-decoration: underline;">Voroh.ru</a>, где покупался билет.</p>
-          <p><strong>Условия по времени:</strong></p>
-          <div class="refund-table">
-            <div class="refund-row full">
-              <span>10 дней до события и раньше</span>
-              <span>100% возврат</span>
-            </div>
-            <div class="refund-row">
-              <span>5–9 дней</span>
-              <span>50%</span>
-            </div>
-            <div class="refund-row">
-              <span>3–4 дня</span>
-              <span>30%</span>
-            </div>
-            <div class="refund-row none">
-              <span>Меньше 3 дней</span>
-              <span>Возврат не осуществляется</span>
-            </div>
-          </div>
-          <div class="fz-note">РЕГУЛИРУЕТСЯ ФЗ №193</div>
-        </div>
+        <button class="faq-q" type="button">Где проходит вечеринка?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p><strong>Односторонка Гривки, 1Б</strong>, вид на Казанский Кремль.</p></div>
       </div>
     </div>
   </div>
 </section>
-
 <!-- ═══ CTA + COUNTDOWN ════════════════════════════════════════════ -->
 <section id="cta">
   <div class="cta-sunburst"><div class="cta-sunburst-inner sunburst-inner"></div></div>
