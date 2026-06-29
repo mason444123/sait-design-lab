@@ -24,7 +24,11 @@
     .title{margin-top:18px;font-size:clamp(56px,10vw,132px);line-height:.85;font-weight:1000;letter-spacing:.02em;text-transform:uppercase}
     .lead{max-width:860px;margin-top:24px;color:var(--muted);font-size:clamp(20px,2vw,28px);line-height:1.18}
     .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:44px;align-items:stretch}
-    .card{position:relative;display:flex;flex-direction:column;padding:18px;border:1px solid rgba(255,155,61,.18);border-radius:30px;background:linear-gradient(180deg,rgba(255,155,61,.12),rgba(255,111,71,.055) 52%,rgba(7,7,7,.58));box-shadow:0 22px 70px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,243,230,.08);cursor:pointer;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+    @keyframes cardEnter{from{opacity:0;transform:translateY(30px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+    .card{position:relative;display:flex;flex-direction:column;padding:18px;border:1px solid rgba(255,155,61,.18);border-radius:30px;background:linear-gradient(180deg,rgba(255,155,61,.12),rgba(255,111,71,.055) 52%,rgba(7,7,7,.58));box-shadow:0 22px 70px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,243,230,.08);cursor:pointer;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;animation:cardEnter .6s cubic-bezier(.16,1,.3,1) both}
+    .card:nth-child(2){animation-delay:.08s}
+    .card:nth-child(3){animation-delay:.16s}
+    .card:nth-child(4){animation-delay:.24s}
     .card:hover{transform:translateY(-4px);border-color:rgba(255,155,61,.38);box-shadow:0 28px 80px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,243,230,.12)}
     .num{color:var(--orange);font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
     .card-media{margin-top:14px;border-radius:22px;overflow:hidden;background:rgba(255,255,255,.03);aspect-ratio:4/5}
@@ -34,9 +38,10 @@
     .card-meta{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap}
     .chip{display:inline-flex;padding:8px 12px;border-radius:999px;background:rgba(255,138,42,.13);border:1px solid rgba(255,138,42,.28);color:#ffd7b0;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
     .status{display:inline-flex;width:max-content;margin-top:auto;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,243,230,.14);color:#fff3e6;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
-    .product-modal{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:28px;background:rgba(0,0,0,.72);backdrop-filter:blur(10px)}
-    .product-modal.open{display:flex}
-    .product-panel{width:min(1120px,100%);max-height:min(92vh,980px);overflow:auto;border-radius:34px;border:1px solid rgba(255,243,230,.12);background:linear-gradient(180deg,rgba(24,12,8,.98),rgba(12,10,10,.98));box-shadow:0 30px 120px rgba(0,0,0,.55);padding:24px}
+    .product-modal{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:28px;background:rgba(0,0,0,0);backdrop-filter:blur(0);opacity:0;pointer-events:none;transition:opacity .28s ease,backdrop-filter .28s ease,background .28s ease}
+    .product-modal.open{opacity:1;pointer-events:auto;background:rgba(0,0,0,.72);backdrop-filter:blur(10px)}
+    .product-panel{width:min(1120px,100%);max-height:min(92vh,980px);overflow:auto;border-radius:34px;border:1px solid rgba(255,243,230,.12);background:linear-gradient(180deg,rgba(24,12,8,.98),rgba(12,10,10,.98));box-shadow:0 30px 120px rgba(0,0,0,.55);padding:24px;transform:scale(.95) translateY(24px);opacity:0;transition:transform .34s cubic-bezier(.16,1,.3,1),opacity .3s ease}
+    .product-modal.open .product-panel{transform:scale(1) translateY(0);opacity:1}
     .product-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
     .product-eyebrow{color:rgba(255,243,230,.5);font-size:12px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}
     .product-title{margin-top:10px;font-size:clamp(36px,5vw,74px);line-height:.9;text-transform:uppercase;font-weight:1000}
@@ -45,7 +50,8 @@
     .product-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:24px;margin-top:22px}
     .gallery{display:grid;gap:14px}
     .gallery-stage{position:relative;border-radius:26px;overflow:hidden;background:#120d0b;border:1px solid rgba(255,243,230,.08);aspect-ratio:4/5}
-    .gallery-stage img{width:100%;height:100%;object-fit:contain;display:block;background:#120d0b}
+    .gallery-stage img{width:100%;height:100%;object-fit:contain;display:block;background:#120d0b;transition:opacity .3s ease;touch-action:pan-y}
+    .gallery-stage img.fading{opacity:0}
     .gallery-nav{display:flex;justify-content:space-between;gap:12px}
     .nav-btn{flex:1;padding:14px 18px;border-radius:999px;border:1px solid rgba(255,243,230,.14);background:rgba(255,255,255,.05);color:#fff3e6;font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .2s ease,border-color .2s ease,transform .2s ease}
     .nav-btn:hover{background:rgba(255,138,42,.12);border-color:rgba(255,138,42,.3);transform:translateY(-1px)}
@@ -58,7 +64,9 @@
     .info-label{color:rgba(255,243,230,.48);font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
     .info-value{margin-top:10px;font-size:22px;line-height:1.2;font-weight:900;text-transform:uppercase}
     .photo-note{margin-top:10px;color:var(--muted);font-size:16px;line-height:1.4}
-    .buy-btn{display:inline-flex;justify-content:center;align-items:center;padding:18px 24px;border-radius:999px;background:linear-gradient(180deg,#ffb15f,#ff8a2a 58%,#d85a12);text-decoration:none;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:#fff;font-size:13px;box-shadow:0 18px 40px rgba(216,90,18,.25)}
+    .buy-btn{display:inline-flex;justify-content:center;align-items:center;padding:18px 24px;border-radius:999px;background:linear-gradient(180deg,#ffb15f,#ff8a2a 58%,#d85a12);text-decoration:none;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:#fff;font-size:13px;box-shadow:0 18px 40px rgba(216,90,18,.25);transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+    .buy-btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 24px 50px rgba(216,90,18,.35);filter:brightness(1.08)}
+    .buy-btn:active{transform:scale(.98)}
     .buy-note{color:rgba(255,243,230,.56);font-size:13px;line-height:1.45}
     @media(max-width:1080px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product-layout{grid-template-columns:1fr}.product-panel{padding:18px}}
     @media(max-width:760px){.grid{grid-template-columns:1fr}.title{font-size:clamp(46px,17vw,82px)}main{padding-top:118px;padding-bottom:46px}.top{padding:14px 18px}.brand{font-size:13px}.back{font-size:11px}.product-modal{padding:12px}.product-panel{border-radius:26px}.product-title{font-size:clamp(30px,10vw,48px)}.gallery-stage,.thumb{aspect-ratio:4/5}}
@@ -218,8 +226,12 @@
 
     function renderGallery() {
       const image = activeProduct.images[activeIndex];
-      galleryImage.src = image.src;
-      galleryImage.alt = `${activeProduct.title} футболка Custom — ${image.side}`;
+      galleryImage.classList.add('fading');
+      setTimeout(() => {
+        galleryImage.src = image.src;
+        galleryImage.alt = `${activeProduct.title} футболка Custom — ${image.side}`;
+        galleryImage.classList.remove('fading');
+      }, 180);
       sideEl.textContent = image.side;
       noteEl.textContent = image.note;
       thumbs.innerHTML = activeProduct.images.map((img, idx) => `
@@ -264,6 +276,29 @@
       activeIndex = (activeIndex + 1) % activeProduct.images.length;
       renderGallery();
     });
+
+    // Touch swipe for mobile gallery
+    const galleryStageEl = document.querySelector('.gallery-stage');
+    let touchStartX = 0, touchStartY = 0;
+    galleryStageEl.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+    galleryStageEl.addEventListener('touchend', (e) => {
+      if (!activeProduct) return;
+      const touchEndX = e.changedTouches[0].screenX;
+      const touchEndY = e.changedTouches[0].screenY;
+      const dx = touchStartX - touchEndX;
+      const dy = touchStartY - touchEndY;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        if (dx > 0) {
+          activeIndex = (activeIndex + 1) % activeProduct.images.length;
+        } else {
+          activeIndex = (activeIndex - 1 + activeProduct.images.length) % activeProduct.images.length;
+        }
+        renderGallery();
+      }
+    }, { passive: true });
 
     closeBtn.addEventListener('click', closeProduct);
     modal.addEventListener('click', (e) => {
