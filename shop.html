@@ -179,7 +179,8 @@
     let activeIndex = 0;
 
     function telegramLink(product) {
-      const text = `Здравствуйте! Хочу заказать ${product.color.toLowerCase()} футболку Custom. Подскажите, пожалуйста, по наличию, размерам и дальнейшему оформлению заказа.`;
+      const acc = { orange: 'оранжевую', black: 'чёрную', blue: 'синюю', white: 'белую' };
+      const text = `Здравствуйте! Хочу заказать ${acc[product.id]} футболку Custom. Подскажите, пожалуйста, по наличию, размерам и дальнейшему оформлению заказа.`;
       return `https://t.me/custom_843?text=${encodeURIComponent(text)}`;
     }
 
