@@ -1,315 +1,312 @@
-<!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Магазин Custom</title>
-  <meta name="description" content="Магазин проекта Custom: футболки Custom в нескольких цветах.">
-  <style>
-    :root {
-      --bg:#070707; --card:rgba(255,255,255,.06); --line:rgba(255,243,230,.12); --text:#fff3e6;
-      --muted:rgba(255,243,230,.72); --orange:#ff9b3d; --orange2:#ff6f47; --panel:rgba(18,10,8,.92);
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{min-height:100%;scroll-behavior:smooth;background:#070707}
-    body{min-height:100vh;min-height:100svh;background:#070707;color:var(--text);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden;position:relative}
-    body:before{content:'';position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse 70% 52% at 15% 8%,rgba(255,138,42,.18),transparent 60%),radial-gradient(ellipse 60% 42% at 82% 92%,rgba(255,111,71,.10),transparent 64%),linear-gradient(180deg,#120905 0%,#080504 58%,#070707 100%)}
-    body:after{content:'';position:fixed;left:0;right:0;bottom:0;height:32vh;z-index:-1;background:linear-gradient(180deg,transparent,rgba(7,7,7,.92) 72%,#070707)}
-    a{color:inherit}
-    .top{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(18px,4vw,48px);background:linear-gradient(180deg,rgba(0,0,0,.74),transparent)}
-    .brand{font-weight:900;letter-spacing:.14em;text-transform:uppercase;text-decoration:none}
-    .back{padding:12px 16px;border:1px solid var(--line);border-radius:999px;text-decoration:none;background:rgba(255,255,255,.04);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-    main{width:min(1280px,100%);min-height:100vh;min-height:100svh;margin:0 auto;padding:140px clamp(20px,5vw,56px) 64px}
-    .label{color:rgba(255,243,230,.52);font-size:12px;font-weight:900;letter-spacing:.22em;text-transform:uppercase}
-    .title{margin-top:18px;font-size:clamp(56px,10vw,132px);line-height:.85;font-weight:1000;letter-spacing:.02em;text-transform:uppercase}
-    .lead{max-width:860px;margin-top:24px;color:var(--muted);font-size:clamp(20px,2vw,28px);line-height:1.18}
-    .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:44px;align-items:stretch}
-    @keyframes cardEnter{from{opacity:0;transform:translateY(30px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
-    .card{position:relative;display:flex;flex-direction:column;padding:14px;border:1px solid rgba(255,243,230,.08);border-radius:24px;background:rgba(255,255,255,.025);box-shadow:none;cursor:pointer;transition:transform .25s cubic-bezier(.16,1,.3,1),border-color .25s ease,box-shadow .25s ease;animation:cardEnter .6s cubic-bezier(.16,1,.3,1) both;overflow:hidden}
-    .card:nth-child(2){animation-delay:.08s}
-    .card:nth-child(3){animation-delay:.16s}
-    .card:nth-child(4){animation-delay:.24s}
-    .card:hover{transform:translateY(-6px);border-color:rgba(255,138,42,.35);box-shadow:0 0 24px rgba(255,138,42,.15),0 20px 50px rgba(0,0,0,.3)}
-    .num{color:var(--orange);font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;opacity:.7}
-    .card-media{margin-top:12px;border-radius:18px;overflow:hidden;background:#120d0b;aspect-ratio:4/5;transition:transform .25s ease}
-    .card:hover .card-media{transform:scale(1.02)}
-    .card-media img{width:100%;height:100%;object-fit:contain;display:block}
-    .card h2{margin-top:14px;font-size:clamp(24px,2.2vw,32px);line-height:.95;text-transform:uppercase;font-weight:800}
-    .card .poetry{margin-top:10px;color:rgba(255,243,230,.52);font-size:13px;line-height:1.35;font-weight:400}
-    .product-modal{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:28px;background:rgba(0,0,0,0);backdrop-filter:blur(0);opacity:0;pointer-events:none;transition:opacity .28s ease,backdrop-filter .28s ease,background .28s ease}
-    .product-modal.open{opacity:1;pointer-events:auto;background:rgba(0,0,0,.72);backdrop-filter:blur(10px)}
-    .product-panel{width:min(1120px,100%);max-height:min(92vh,980px);overflow:auto;border-radius:34px;border:1px solid rgba(255,243,230,.12);background:linear-gradient(180deg,rgba(24,12,8,.98),rgba(12,10,10,.98));box-shadow:0 30px 120px rgba(0,0,0,.55);padding:24px;transform:scale(.95) translateY(24px);opacity:0;transition:transform .34s cubic-bezier(.16,1,.3,1),opacity .3s ease}
-    .product-modal.open .product-panel{transform:scale(1) translateY(0);opacity:1}
-    .product-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
-    .product-eyebrow{color:rgba(255,243,230,.5);font-size:12px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}
-    .product-title{margin-top:10px;font-size:clamp(36px,5vw,74px);line-height:.9;text-transform:uppercase;font-weight:1000}
-    .product-sub{margin-top:10px;color:var(--muted);font-size:18px;line-height:1.35;max-width:700px}
-    .close{width:48px;height:48px;border-radius:999px;border:1px solid rgba(255,243,230,.16);background:rgba(255,255,255,.05);color:#fff;font-size:28px;cursor:pointer}
-    .product-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:24px;margin-top:22px}
-    .gallery{display:grid;gap:14px}
-    .gallery-stage{position:relative;border-radius:26px;overflow:hidden;background:#120d0b;border:1px solid rgba(255,243,230,.08);aspect-ratio:4/5}
-    .gallery-stage img{width:100%;height:100%;object-fit:contain;display:block;background:#120d0b;transition:opacity .3s ease;touch-action:pan-y}
-    .gallery-stage img.fading{opacity:0}
-    .gallery-nav{display:flex;justify-content:space-between;gap:12px}
-    .nav-btn{flex:1;padding:14px 18px;border-radius:999px;border:1px solid rgba(255,243,230,.14);background:rgba(255,255,255,.05);color:#fff3e6;font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .2s ease,border-color .2s ease,transform .2s ease}
-    .nav-btn:hover{background:rgba(255,138,42,.12);border-color:rgba(255,138,42,.3);transform:translateY(-1px)}
-    .thumbs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-    .thumb{cursor:pointer;border-radius:18px;overflow:hidden;border:1px solid rgba(255,243,230,.08);background:rgba(255,255,255,.03);aspect-ratio:4/5}
-    .thumb.active{border-color:rgba(255,138,42,.48);box-shadow:0 0 0 1px rgba(255,138,42,.26)}
-    .thumb img{width:100%;height:100%;object-fit:contain;display:block;background:#120d0b}
-    .product-side{display:flex;flex-direction:column;gap:18px}
-    .info-card{padding:22px;border-radius:24px;border:1px solid rgba(255,243,230,.1);background:rgba(255,255,255,.03)}
-    .info-label{color:rgba(255,243,230,.48);font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
-    .info-value{margin-top:10px;font-size:22px;line-height:1.2;font-weight:900;text-transform:uppercase}
-    .photo-note{margin-top:10px;color:var(--muted);font-size:16px;line-height:1.4}
-    .buy-btn{display:inline-flex;justify-content:center;align-items:center;padding:18px 24px;border-radius:999px;background:linear-gradient(180deg,#ffb15f,#ff8a2a 58%,#d85a12);text-decoration:none;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:#fff;font-size:13px;box-shadow:0 18px 40px rgba(216,90,18,.25);transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
-    .buy-btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 24px 50px rgba(216,90,18,.35);filter:brightness(1.08)}
-    .buy-btn:active{transform:scale(.98)}
-    .buy-note{color:rgba(255,243,230,.56);font-size:13px;line-height:1.45}
-    @media(max-width:1080px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product-layout{grid-template-columns:1fr}.product-panel{padding:18px}}
-    @media(max-width:760px){.grid{grid-template-columns:1fr}.title{font-size:clamp(46px,17vw,82px)}main{padding-top:118px;padding-bottom:46px}.top{padding:14px 18px}.brand{font-size:13px}.back{font-size:11px}.product-modal{padding:12px}.product-panel{border-radius:26px}.product-title{font-size:clamp(30px,10vw,48px)}.gallery-stage,.thumb{aspect-ratio:4/5}}
-  </style>
-</head>
-<body>
-  <header class="top"><a class="brand" href="index.html">Custom</a><a class="back" href="index.html">← На главную</a></header>
-  <main>
-    <div class="label">Custom store</div>
-    <h1 class="title">Магазин проекта</h1>
-    <p class="lead">Футболки Custom в четырёх цветах. Открывай карточку, листай переднюю и заднюю сторону, выбирай свой вариант и сразу переходи в Telegram с готовым сообщением на покупку.</p>
-    <div class="grid" id="productGrid"></div>
-  </main>
-
-  <div class="product-modal" id="productModal" aria-hidden="true">
-    <div class="product-panel" role="dialog" aria-modal="true" aria-labelledby="productTitle">
-      <div class="product-top">
-        <div>
-          <div class="product-eyebrow">Карточка товара</div>
-          <div class="product-title" id="productTitle">Футболка Custom</div>
-          <div class="product-sub" id="productSub"></div>
-        </div>
-        <button class="close" id="productClose" aria-label="Закрыть">×</button>
-      </div>
-      <div class="product-layout">
-        <div class="gallery">
-          <div class="gallery-stage">
-            <img id="galleryImage" src="" alt="">
-          </div>
-          <div class="gallery-nav">
-            <button class="nav-btn" id="prevPhoto" type="button">← Назад</button>
-            <button class="nav-btn" id="nextPhoto" type="button">Вперёд →</button>
-          </div>
-          <div class="thumbs" id="thumbs"></div>
-        </div>
-        <div class="product-side">
-          <div class="info-card">
-            <div class="info-label">Цвет</div>
-            <div class="info-value" id="productColor"></div>
-          </div>
-          <div class="info-card">
-            <div class="info-label">Сторона</div>
-            <div class="info-value" id="productSide"></div>
-            <div class="photo-note" id="photoNote"></div>
-          </div>
-          <div class="info-card">
-            <div class="info-label">О модели</div>
-            <div class="photo-note" id="productDescription"></div>
-          </div>
-          <a class="buy-btn" id="buyBtn" href="#" target="_blank" rel="noopener">Купить через Telegram</a>
-          <div class="buy-note">Кнопка откроет Telegram с уже подготовленным сообщением о выбранной футболке.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const products = [
-      {
-        id: 'orange',
-        number: '01 / футболка',
-        title: 'Оранжевая',
-        color: 'Оранжевая',
-        short: 'Тёплый яркий вариант Custom с очень заметным настроением.',
-        description: 'Самая акцентная футболка в линейке: яркий оранжевый цвет, который сразу читается в кадре, на улице и на вечернем свете.',
-        images: [
-          { src: 'assets/shop/B2b (orange-top).png', side: 'Передняя сторона', note: 'Оранжевая футболка Custom — передняя сторона. Яркий вариант, который сразу цепляет взгляд и хорошо смотрится в живом движении.' },
-          { src: 'assets/shop/B2b (orange-back).png', side: 'Задняя сторона', note: 'Оранжевая футболка Custom — задняя сторона. Сохраняет тот же мощный цвет и выглядит как полноценный мерч, а не просто базовая вещь.' }
-        ]
-      },
-      {
-        id: 'black',
-        number: '02 / футболка',
-        title: 'Чёрная',
-        color: 'Чёрная',
-        short: 'Самый универсальный и плотный по вайбу вариант.',
-        description: 'Чёрная футболка — безопасный и всегда сильный выбор: выглядит собранно, подходит под любой образ и хорошо держит графику.',
-        images: [
-          { src: 'assets/shop/B2b (black-top).png', side: 'Передняя сторона', note: 'Чёрная футболка Custom — передняя сторона. Самый универсальный вариант для тех, кто любит чистый и уверенный мерч.' },
-          { src: 'assets/shop/B2b (black-back).png', side: 'Задняя сторона', note: 'Чёрная футболка Custom — задняя сторона. Сзади выглядит так же цельно и может быть основной вещью, а не просто сувениром.' }
-        ]
-      },
-      {
-        id: 'blue',
-        number: '03 / футболка',
-        title: 'Синяя',
-        color: 'Синяя',
-        short: 'Холодный заметный цвет с более редким ощущением.',
-        description: 'Синяя футболка выделяется спокойнее, чем оранжевая, но выглядит свежо и нестандартно. Хороший вариант, если хочется цвет, но без перегруза.',
-        images: [
-          { src: 'assets/shop/B2b (blue-top).png', side: 'Передняя сторона', note: 'Синяя футболка Custom — передняя сторона. Цвет выглядит свежо и чуть более редким, чем стандартные мерчевые решения.' },
-          { src: 'assets/shop/B2b (blue-back).png', side: 'Задняя сторона', note: 'Синяя футболка Custom — задняя сторона. Сзади работает так же уверенно и сохраняет яркость образа.' }
-        ]
-      },
-      {
-        id: 'white',
-        number: '04 / футболка',
-        title: 'Белая',
-        color: 'Белая',
-        short: 'Самый чистый и летний вариант линейки.',
-        description: 'Белая футболка даёт лёгкое летнее ощущение и лучше всего раскрывается днём, на солнце и в чистых casual-образах.',
-        images: [
-          { src: 'assets/shop/B2b (white-top).png', side: 'Передняя сторона', note: 'Белая футболка Custom — передняя сторона. Чистый летний вариант, который выглядит легко и аккуратно.' },
-          { src: 'assets/shop/B2b (white-back).png', side: 'Задняя сторона', note: 'Белая футболка Custom — задняя сторона. Светлый вариант с более воздушным ощущением и хорошей читаемостью.' }
-        ]
-      }
-    ];
-
-    const grid = document.getElementById('productGrid');
-    const modal = document.getElementById('productModal');
-    const closeBtn = document.getElementById('productClose');
-    const titleEl = document.getElementById('productTitle');
-    const subEl = document.getElementById('productSub');
-    const colorEl = document.getElementById('productColor');
-    const sideEl = document.getElementById('productSide');
-    const noteEl = document.getElementById('photoNote');
-    const descEl = document.getElementById('productDescription');
-    const galleryImage = document.getElementById('galleryImage');
-    const thumbs = document.getElementById('thumbs');
-    const buyBtn = document.getElementById('buyBtn');
-    const prevBtn = document.getElementById('prevPhoto');
-    const nextBtn = document.getElementById('nextPhoto');
-
-    let activeProduct = null;
-    let activeIndex = 0;
-
-    function telegramLink(product) {
-      const text = `Здравствуйте! Хочу заказать ${product.color.toLowerCase()} футболку Custom. Подскажите, пожалуйста, по наличию, размерам и дальнейшему оформлению заказа.`;
-      return `https://t.me/custom_843?text=${encodeURIComponent(text)}`;
-    }
-
-    function renderCards() {
-      grid.innerHTML = products.map(product => `
-        <article class="card" data-product="${product.id}" tabindex="0" role="button" aria-label="Открыть карточку товара ${product.title}">
-          <div class="num">${product.number}</div>
-          <div class="card-media"><img src="${product.images[0].src}" alt="${product.title} футболка Custom"></div>
-          <h2>${product.title}<br>футболка</h2>
-          <p>${product.short}</p>
-          <div class="card-meta">
-            <span class="chip">2 стороны</span>
-            <span class="chip">merch</span>
-          </div>
-          <span class="status">Открыть карточку</span>
-        </article>
-      `).join('');
-
-      grid.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('click', () => openProduct(card.dataset.product));
-        card.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            openProduct(card.dataset.product);
-          }
-        });
-      });
-    }
-
-    function renderGallery() {
-      const image = activeProduct.images[activeIndex];
-      galleryImage.classList.add('fading');
-      setTimeout(() => {
-        galleryImage.src = image.src;
-        galleryImage.alt = `${activeProduct.title} футболка Custom — ${image.side}`;
-        galleryImage.classList.remove('fading');
-      }, 180);
-      sideEl.textContent = image.side;
-      noteEl.textContent = image.note;
-      thumbs.innerHTML = activeProduct.images.map((img, idx) => `
-        <button class="thumb ${idx === activeIndex ? 'active' : ''}" type="button" data-index="${idx}" aria-label="${img.side}">
-          <img src="${img.src}" alt="${activeProduct.title} — ${img.side}">
-        </button>
-      `).join('');
-      thumbs.querySelectorAll('.thumb').forEach(btn => btn.addEventListener('click', () => {
-        activeIndex = Number(btn.dataset.index);
-        renderGallery();
-      }));
-    }
-
-    function openProduct(id) {
-      activeProduct = products.find(p => p.id === id);
-      activeIndex = 0;
-      titleEl.textContent = `${activeProduct.title} футболка`;
-      subEl.textContent = activeProduct.short;
-      colorEl.textContent = activeProduct.color;
-      descEl.textContent = activeProduct.description;
-      buyBtn.href = telegramLink(activeProduct);
-      renderGallery();
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeProduct() {
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    prevBtn.addEventListener('click', () => {
-      if (!activeProduct) return;
-      activeIndex = (activeIndex - 1 + activeProduct.images.length) % activeProduct.images.length;
-      renderGallery();
-    });
-
-    nextBtn.addEventListener('click', () => {
-      if (!activeProduct) return;
-      activeIndex = (activeIndex + 1) % activeProduct.images.length;
-      renderGallery();
-    });
-
-    // Touch swipe for mobile gallery
-    const galleryStageEl = document.querySelector('.gallery-stage');
-    let touchStartX = 0, touchStartY = 0;
-    galleryStageEl.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-      touchStartY = e.changedTouches[0].screenY;
-    }, { passive: true });
-    galleryStageEl.addEventListener('touchend', (e) => {
-      if (!activeProduct) return;
-      const touchEndX = e.changedTouches[0].screenX;
-      const touchEndY = e.changedTouches[0].screenY;
-      const dx = touchStartX - touchEndX;
-      const dy = touchStartY - touchEndY;
-      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
-        if (dx > 0) {
-          activeIndex = (activeIndex + 1) % activeProduct.images.length;
-        } else {
-          activeIndex = (activeIndex - 1 + activeProduct.images.length) % activeProduct.images.length;
-        }
-        renderGallery();
-      }
-    }, { passive: true });
-
-    closeBtn.addEventListener('click', closeProduct);
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeProduct();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (!modal.classList.contains('open')) return;
-      if (e.key === 'Escape') closeProduct();
-      if (e.key === 'ArrowLeft') prevBtn.click();
-      if (e.key === 'ArrowRight') nextBtn.click();
-    });
-
-    renderCards();
-  </script>
-</body>
-</html>
+1|1|1|1|<!doctype html>
+2|2|2|2|<html lang="ru">
+3|3|3|3|<head>
+4|4|4|4|  <meta charset="utf-8">
+5|5|5|5|  <meta name="viewport" content="width=device-width, initial-scale=1">
+6|6|6|6|  <title>Магазин Custom</title>
+7|7|7|7|  <meta name="description" content="Магазин проекта Custom: футболки Custom в нескольких цветах.">
+8|8|8|8|  <style>
+9|9|9|9|    :root {
+10|10|10|10|      --bg:#070707; --card:rgba(255,255,255,.06); --line:rgba(255,243,230,.12); --text:#fff3e6;
+11|11|11|11|      --muted:rgba(255,243,230,.72); --orange:#ff9b3d; --orange2:#ff6f47; --panel:rgba(18,10,8,.92);
+12|12|12|12|    }
+13|13|13|13|    *{box-sizing:border-box;margin:0;padding:0}
+14|14|14|14|    html{min-height:100%;scroll-behavior:smooth;background:#070707}
+15|15|15|15|    body{min-height:100vh;min-height:100svh;background:#070707;color:var(--text);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden;position:relative}
+16|16|16|16|    body:before{content:'';position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse 70% 52% at 15% 8%,rgba(255,138,42,.18),transparent 60%),radial-gradient(ellipse 60% 42% at 82% 92%,rgba(255,111,71,.10),transparent 64%),linear-gradient(180deg,#120905 0%,#080504 58%,#070707 100%)}
+17|17|17|17|    body:after{content:'';position:fixed;left:0;right:0;bottom:0;height:32vh;z-index:-1;background:linear-gradient(180deg,transparent,rgba(7,7,7,.92) 72%,#070707)}
+18|18|18|18|    a{color:inherit}
+19|19|19|19|    .top{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(18px,4vw,48px);background:linear-gradient(180deg,rgba(0,0,0,.74),transparent)}
+20|20|20|20|    .brand{font-weight:900;letter-spacing:.14em;text-transform:uppercase;text-decoration:none}
+21|21|21|21|    .back{padding:12px 16px;border:1px solid var(--line);border-radius:999px;text-decoration:none;background:rgba(255,255,255,.04);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+22|22|22|22|    main{width:min(1280px,100%);min-height:100vh;min-height:100svh;margin:0 auto;padding:140px clamp(20px,5vw,56px) 64px}
+23|23|23|23|    .label{color:rgba(255,243,230,.52);font-size:12px;font-weight:900;letter-spacing:.22em;text-transform:uppercase}
+24|24|24|24|    .title{margin-top:18px;font-size:clamp(56px,10vw,132px);line-height:.85;font-weight:1000;letter-spacing:.02em;text-transform:uppercase}
+25|25|25|25|    .lead{max-width:860px;margin-top:24px;color:var(--muted);font-size:clamp(20px,2vw,28px);line-height:1.18}
+26|26|26|26|    .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:44px;align-items:stretch}
+27|27|27|27|    @keyframes cardEnter{from{opacity:0;transform:translateY(30px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+28|28|28|28|    .card{position:relative;display:flex;flex-direction:column;padding:0;border:1px solid rgba(255,243,230,.06);border-radius:24px;background:rgba(255,255,255,.02);cursor:pointer;transition:transform .25s cubic-bezier(.16,1,.3,1),border-color .25s ease,box-shadow .25s ease,filter .25s ease;animation:cardEnter .6s cubic-bezier(.16,1,.3,1) both;overflow:hidden}
+29|29|29|29|    .card:nth-child(2){animation-delay:.08s}
+30|30|30|30|    .card:nth-child(3){animation-delay:.16s}
+31|31|31|31|    .card:nth-child(4){animation-delay:.24s}
+32|32|32|32|    .card:hover{transform:translateY(-6px) scale(1.01);border-color:rgba(255,138,42,.38);box-shadow:0 0 34px rgba(255,138,42,.20),0 22px 55px rgba(0,0,0,.35);filter:brightness(1.06)}
+33|33|33|33|    .card-media{border-radius:0;overflow:hidden;background:#120d0b;aspect-ratio:4/5;transition:transform .3s cubic-bezier(.16,1,.3,1)}
+34|34|34|34|    .card:hover .card-media{transform:scale(1.03)}
+35|35|35|35|    .card-media img{width:100%;height:100%;object-fit:contain;display:block}
+36|36|36|36|    .card-body{padding:20px 18px 22px}
+37|37|37|37|    .card h2{font-size:clamp(22px,2vw,30px);line-height:.95;text-transform:uppercase;font-weight:800;letter-spacing:.01em}
+38|38|38|38|    .card .poetry{margin-top:10px;color:rgba(255,243,230,.56);font-size:14px;line-height:1.4;font-weight:400}
+39|39|39|39|    .product-modal{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:28px;background:rgba(0,0,0,0);backdrop-filter:blur(0);opacity:0;pointer-events:none;transition:opacity .28s ease,backdrop-filter .28s ease,background .28s ease}
+40|40|40|40|    .product-modal.open{opacity:1;pointer-events:auto;background:rgba(0,0,0,.72);backdrop-filter:blur(10px)}
+41|41|41|41|    .product-panel{width:min(1120px,100%);max-height:min(92vh,980px);overflow:auto;border-radius:34px;border:1px solid rgba(255,243,230,.12);background:linear-gradient(180deg,rgba(24,12,8,.98),rgba(12,10,10,.98));box-shadow:0 30px 120px rgba(0,0,0,.55);padding:24px;transform:scale(.95) translateY(24px);opacity:0;transition:transform .34s cubic-bezier(.16,1,.3,1),opacity .3s ease}
+42|42|42|42|    .product-modal.open .product-panel{transform:scale(1) translateY(0);opacity:1}
+43|43|43|43|    .product-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+44|44|44|44|    .product-eyebrow{color:rgba(255,243,230,.5);font-size:12px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}
+45|45|45|45|    .product-title{margin-top:10px;font-size:clamp(36px,5vw,74px);line-height:.9;text-transform:uppercase;font-weight:1000}
+46|46|46|46|    .product-sub{margin-top:10px;color:var(--muted);font-size:18px;line-height:1.35;max-width:700px}
+47|47|47|47|    .close{width:48px;height:48px;border-radius:999px;border:1px solid rgba(255,243,230,.16);background:rgba(255,255,255,.05);color:#fff;font-size:28px;cursor:pointer}
+48|48|48|48|    .product-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:24px;margin-top:22px}
+49|49|49|49|    .gallery{display:grid;gap:14px}
+50|50|50|50|    .gallery-stage{position:relative;border-radius:26px;overflow:hidden;background:#120d0b;border:1px solid rgba(255,243,230,.08);aspect-ratio:4/5}
+51|51|51|51|    .gallery-stage img{width:100%;height:100%;object-fit:contain;display:block;background:#120d0b;transition:opacity .3s ease;touch-action:pan-y}
+52|52|52|52|    .gallery-stage img.fading{opacity:0}
+53|53|53|53|    .gallery-nav{display:flex;justify-content:space-between;gap:12px}
+54|54|54|54|    .nav-btn{flex:1;padding:14px 18px;border-radius:999px;border:1px solid rgba(255,243,230,.14);background:rgba(255,255,255,.05);color:#fff3e6;font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .2s ease,border-color .2s ease,transform .2s ease}
+55|55|55|55|    .nav-btn:hover{background:rgba(255,138,42,.12);border-color:rgba(255,138,42,.3);transform:translateY(-1px)}
+56|56|56|56|    .thumbs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+57|57|57|57|    .thumb{cursor:pointer;border-radius:18px;overflow:hidden;border:1px solid rgba(255,243,230,.08);background:rgba(255,255,255,.03);aspect-ratio:4/5}
+58|58|58|58|    .thumb.active{border-color:rgba(255,138,42,.48);box-shadow:0 0 0 1px rgba(255,138,42,.26)}
+59|59|59|59|    .thumb img{width:100%;height:100%;object-fit:contain;display:block;background:#120d0b}
+60|60|60|60|    .product-side{display:flex;flex-direction:column;gap:18px}
+61|61|61|61|    .info-card{padding:22px;border-radius:24px;border:1px solid rgba(255,243,230,.1);background:rgba(255,255,255,.03)}
+62|62|62|62|    .info-label{color:rgba(255,243,230,.48);font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+63|63|63|63|    .info-value{margin-top:10px;font-size:22px;line-height:1.2;font-weight:900;text-transform:uppercase}
+64|64|64|64|    .photo-note{margin-top:10px;color:var(--muted);font-size:16px;line-height:1.4}
+65|65|65|65|    .buy-btn{display:inline-flex;justify-content:center;align-items:center;padding:18px 24px;border-radius:999px;background:linear-gradient(180deg,#ffb15f,#ff8a2a 58%,#d85a12);text-decoration:none;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:#fff;font-size:13px;box-shadow:0 18px 40px rgba(216,90,18,.25);transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+66|66|66|66|    .buy-btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 24px 50px rgba(216,90,18,.35);filter:brightness(1.08)}
+67|67|67|67|    .buy-btn:active{transform:scale(.98)}
+68|68|68|68|    .buy-note{color:rgba(255,243,230,.56);font-size:13px;line-height:1.45}
+69|69|69|69|    @media(max-width:1080px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product-layout{grid-template-columns:1fr}.product-panel{padding:18px}}
+70|70|70|70|    @media(max-width:760px){.grid{grid-template-columns:1fr}.title{font-size:clamp(46px,17vw,82px)}main{padding-top:118px;padding-bottom:46px}.top{padding:14px 18px}.brand{font-size:13px}.back{font-size:11px}.product-modal{padding:12px}.product-panel{border-radius:26px}.product-title{font-size:clamp(30px,10vw,48px)}.gallery-stage,.thumb{aspect-ratio:4/5}}
+71|71|71|71|  </style>
+72|72|72|72|</head>
+73|73|73|73|<body>
+74|74|74|74|  <header class="top"><a class="brand" href="index.html">Custom</a><a class="back" href="index.html">← На главную</a></header>
+75|75|75|75|  <main>
+76|76|76|76|    <div class="label">Custom store</div>
+77|77|77|77|    <h1 class="title">Магазин проекта</h1>
+78|78|78|78|    <p class="lead">Футболки Custom в четырёх цветах. Открывай карточку, листай переднюю и заднюю сторону, выбирай свой вариант и сразу переходи в Telegram с готовым сообщением на покупку.</p>
+79|79|79|79|    <div class="grid" id="productGrid"></div>
+80|80|80|80|  </main>
+81|81|81|81|
+82|82|82|82|  <div class="product-modal" id="productModal" aria-hidden="true">
+83|83|83|83|    <div class="product-panel" role="dialog" aria-modal="true" aria-labelledby="productTitle">
+84|84|84|84|      <div class="product-top">
+85|85|85|85|        <div>
+86|86|86|86|          <div class="product-eyebrow">Карточка товара</div>
+87|87|87|87|          <div class="product-title" id="productTitle">Футболка Custom</div>
+88|88|88|88|          <div class="product-sub" id="productSub"></div>
+89|89|89|89|        </div>
+90|90|90|90|        <button class="close" id="productClose" aria-label="Закрыть">×</button>
+91|91|91|91|      </div>
+92|92|92|92|      <div class="product-layout">
+93|93|93|93|        <div class="gallery">
+94|94|94|94|          <div class="gallery-stage">
+95|95|95|95|            <img id="galleryImage" src="" alt="">
+96|96|96|96|          </div>
+97|97|97|97|          <div class="gallery-nav">
+98|98|98|98|            <button class="nav-btn" id="prevPhoto" type="button">← Назад</button>
+99|99|99|99|            <button class="nav-btn" id="nextPhoto" type="button">Вперёд →</button>
+100|100|100|100|          </div>
+101|101|101|101|          <div class="thumbs" id="thumbs"></div>
+102|102|102|102|        </div>
+103|103|103|103|        <div class="product-side">
+104|104|104|104|          <div class="info-card">
+105|105|105|105|            <div class="info-label">Цвет</div>
+106|106|106|106|            <div class="info-value" id="productColor"></div>
+107|107|107|107|          </div>
+108|108|108|108|          <div class="info-card">
+109|109|109|109|            <div class="info-label">Сторона</div>
+110|110|110|110|            <div class="info-value" id="productSide"></div>
+111|111|111|111|            <div class="photo-note" id="photoNote"></div>
+112|112|112|112|          </div>
+113|113|113|113|          <div class="info-card">
+114|114|114|114|            <div class="info-label">О модели</div>
+115|115|115|115|            <div class="photo-note" id="productDescription"></div>
+116|116|116|116|          </div>
+117|117|117|117|          <a class="buy-btn" id="buyBtn" href="#" target="_blank" rel="noopener">Купить через Telegram</a>
+118|118|118|118|          <div class="buy-note">Кнопка откроет Telegram с уже подготовленным сообщением о выбранной футболке.</div>
+119|119|119|119|        </div>
+120|120|120|120|      </div>
+121|121|121|121|    </div>
+122|122|122|122|  </div>
+123|123|123|123|
+124|124|124|124|  <script>
+125|125|125|125|    const products = [
+126|126|126|126|      {
+127|127|127|127|        id: 'orange',
+128|128|128|128|
+129|129|129|129|        title: 'Оранжевая',
+130|130|130|130|        color: 'Оранжевая',
+131|131|131|131|        poetry: 'Не просто цвет — настроение. Тёплый акцент, который делает образ ярче и живее.',
+132|132|132|132|        description: 'Самая акцентная футболка в линейке: яркий оранжевый цвет, который сразу читается в кадре, на улице и на вечернем свете.',
+133|133|133|133|        images: [
+134|134|134|134|          { src: 'assets/shop/B2b (orange-top).png', side: 'Передняя сторона', note: 'Оранжевая футболка Custom — передняя сторона. Яркий вариант, который сразу цепляет взгляд и хорошо смотрится в живом движении.' },
+135|135|135|135|          { src: 'assets/shop/B2b (orange-back).png', side: 'Задняя сторона', note: 'Оранжевая футболка Custom — задняя сторона. Сохраняет тот же мощный цвет и выглядит как полноценный мерч, а не просто базовая вещь.' }
+136|136|136|136|        ]
+137|137|137|137|      },
+138|138|138|138|      {
+139|139|139|139|        id: 'black',
+140|140|140|140|
+141|141|141|141|        title: 'Чёрная',
+142|142|142|142|        color: 'Чёрная',
+143|143|143|143|        poetry: 'Спокойная сила. Чёрный — не отсутствие цвета, а уверенность в каждом движении.',
+144|144|144|144|        description: 'Чёрная футболка — безопасный и всегда сильный выбор: выглядит собранно, подходит под любой образ и хорошо держит графику.',
+145|145|145|145|        images: [
+146|146|146|146|          { src: 'assets/shop/B2b (black-top).png', side: 'Передняя сторона', note: 'Чёрная футболка Custom — передняя сторона. Самый универсальный вариант для тех, кто любит чистый и уверенный мерч.' },
+147|147|147|147|          { src: 'assets/shop/B2b (black-back).png', side: 'Задняя сторона', note: 'Чёрная футболка Custom — задняя сторона. Сзади выглядит так же цельно и может быть основной вещью, а не просто сувениром.' }
+148|148|148|148|        ]
+149|149|149|149|      },
+150|150|150|150|      {
+151|151|151|151|        id: 'blue',
+152|152|152|152|
+153|153|153|153|        title: 'Синяя',
+154|154|154|154|        color: 'Синяя',
+155|155|155|155|        poetry: 'Свежий взгляд. Синий — редкий цвет, который привлекает внимание без крика.',
+156|156|156|156|        description: 'Синяя футболка выделяется спокойнее, чем оранжевая, но выглядит свежо и нестандартно. Хороший вариант, если хочется цвет, но без перегруза.',
+157|157|157|157|        images: [
+158|158|158|158|          { src: 'assets/shop/B2b (blue-top).png', side: 'Передняя сторона', note: 'Синяя футболка Custom — передняя сторона. Цвет выглядит свежо и чуть более редким, чем стандартные мерчевые решения.' },
+159|159|159|159|          { src: 'assets/shop/B2b (blue-back).png', side: 'Задняя сторона', note: 'Синяя футболка Custom — задняя сторона. Сзади работает так же уверенно и сохраняет яркость образа.' }
+160|160|160|160|        ]
+161|161|161|161|      },
+162|162|162|162|      {
+163|163|163|163|        id: 'white',
+164|164|164|164|
+165|165|165|165|        title: 'Белая',
+166|166|166|166|        color: 'Белая',
+167|167|167|167|        poetry: 'Чистый лист. Белый — лёгкость, которая говорит о стиле без лишних слов.',
+168|168|168|168|        description: 'Белая футболка даёт лёгкое летнее ощущение и лучше всего раскрывается днём, на солнце и в чистых casual-образах.',
+169|169|169|169|        images: [
+170|170|170|170|          { src: 'assets/shop/B2b (white-top).png', side: 'Передняя сторона', note: 'Белая футболка Custom — передняя сторона. Чистый летний вариант, который выглядит легко и аккуратно.' },
+171|171|171|171|          { src: 'assets/shop/B2b (white-back).png', side: 'Задняя сторона', note: 'Белая футболка Custom — задняя сторона. Светлый вариант с более воздушным ощущением и хорошей читаемостью.' }
+172|172|172|172|        ]
+173|173|173|173|      }
+174|174|174|174|    ];
+175|175|175|175|
+176|176|176|176|    const grid = document.getElementById('productGrid');
+177|177|177|177|    const modal = document.getElementById('productModal');
+178|178|178|178|    const closeBtn = document.getElementById('productClose');
+179|179|179|179|    const titleEl = document.getElementById('productTitle');
+180|180|180|180|    const subEl = document.getElementById('productSub');
+181|181|181|181|    const colorEl = document.getElementById('productColor');
+182|182|182|182|    const sideEl = document.getElementById('productSide');
+183|183|183|183|    const noteEl = document.getElementById('photoNote');
+184|184|184|184|    const descEl = document.getElementById('productDescription');
+185|185|185|185|    const galleryImage = document.getElementById('galleryImage');
+186|186|186|186|    const thumbs = document.getElementById('thumbs');
+187|187|187|187|    const buyBtn = document.getElementById('buyBtn');
+188|188|188|188|    const prevBtn = document.getElementById('prevPhoto');
+189|189|189|189|    const nextBtn = document.getElementById('nextPhoto');
+190|190|190|190|
+191|191|191|191|    let activeProduct = null;
+192|192|192|192|    let activeIndex = 0;
+193|193|193|193|
+194|194|194|194|    function telegramLink(product) {
+195|195|195|195|      const text = `Здравствуйте! Хочу заказать ${product.color.toLowerCase()} футболку Custom. Подскажите, пожалуйста, по наличию, размерам и дальнейшему оформлению заказа.`;
+196|196|196|196|      return `https://t.me/custom_843?text=${encodeURIComponent(text)}`;
+197|197|197|197|    }
+198|198|198|198|
+199|199|199|199|    function renderCards() {
+200|200|200|200|      grid.innerHTML = products.map(product => `
+201|201|201|201|        <article class="card" data-product="${product.id}" tabindex="0" role="button" aria-label="Открыть карточку товара ${product.title}">
+202|          <div class="card-media"><img src="${product.images[0].src}" alt="${product.title} футболка Custom"></div>
+203|          <div class="card-body">
+204|            <h2>${product.title}</h2>
+205|            <p class="poetry">${product.poetry}</p>
+206|          </div>
+207|        </article>
+208|212|212|212|      `).join('');
+209|213|213|213|
+210|214|214|214|      grid.querySelectorAll('.card').forEach(card => {
+211|215|215|215|        card.addEventListener('click', () => openProduct(card.dataset.product));
+212|216|216|216|        card.addEventListener('keydown', (e) => {
+213|217|217|217|          if (e.key === 'Enter' || e.key === ' ') {
+214|218|218|218|            e.preventDefault();
+215|219|219|219|            openProduct(card.dataset.product);
+216|220|220|220|          }
+217|221|221|221|        });
+218|222|222|222|      });
+219|223|223|223|    }
+220|224|224|224|
+221|225|225|225|    function renderGallery() {
+222|226|226|226|      const image = activeProduct.images[activeIndex];
+223|227|227|227|      galleryImage.classList.add('fading');
+224|228|228|228|      setTimeout(() => {
+225|229|229|229|        galleryImage.src = image.src;
+226|230|230|230|        galleryImage.alt = `${activeProduct.title} футболка Custom — ${image.side}`;
+227|231|231|231|        galleryImage.classList.remove('fading');
+228|232|232|232|      }, 180);
+229|233|233|233|      sideEl.textContent = image.side;
+230|234|234|234|      noteEl.textContent = image.note;
+231|235|235|235|      thumbs.innerHTML = activeProduct.images.map((img, idx) => `
+232|236|236|236|        <button class="thumb ${idx === activeIndex ? 'active' : ''}" type="button" data-index="${idx}" aria-label="${img.side}">
+233|237|237|237|          <img src="${img.src}" alt="${activeProduct.title} — ${img.side}">
+234|238|238|238|        </button>
+235|239|239|239|      `).join('');
+236|240|240|240|      thumbs.querySelectorAll('.thumb').forEach(btn => btn.addEventListener('click', () => {
+237|241|241|241|        activeIndex = Number(btn.dataset.index);
+238|242|242|242|        renderGallery();
+239|243|243|243|      }));
+240|244|244|244|    }
+241|245|245|245|
+242|246|246|246|    function openProduct(id) {
+243|247|247|247|      activeProduct = products.find(p => p.id === id);
+244|248|248|248|      activeIndex = 0;
+245|249|249|249|      titleEl.textContent = `${activeProduct.title} футболка`;
+246|250|250|250|      subEl.textContent = activeProduct.poetry;
+247|251|251|251|      colorEl.textContent = activeProduct.color;
+248|252|252|252|      descEl.textContent = activeProduct.description;
+249|253|253|253|      buyBtn.href = telegramLink(activeProduct);
+250|254|254|254|      renderGallery();
+251|255|255|255|      modal.classList.add('open');
+252|256|256|256|      modal.setAttribute('aria-hidden', 'false');
+253|257|257|257|      document.body.style.overflow = 'hidden';
+254|258|258|258|    }
+255|259|259|259|
+256|260|260|260|    function closeProduct() {
+257|261|261|261|      modal.classList.remove('open');
+258|262|262|262|      modal.setAttribute('aria-hidden', 'true');
+259|263|263|263|      document.body.style.overflow = '';
+260|264|264|264|    }
+261|265|265|265|
+262|266|266|266|    prevBtn.addEventListener('click', () => {
+263|267|267|267|      if (!activeProduct) return;
+264|268|268|268|      activeIndex = (activeIndex - 1 + activeProduct.images.length) % activeProduct.images.length;
+265|269|269|269|      renderGallery();
+266|270|270|270|    });
+267|271|271|271|
+268|272|272|272|    nextBtn.addEventListener('click', () => {
+269|273|273|273|      if (!activeProduct) return;
+270|274|274|274|      activeIndex = (activeIndex + 1) % activeProduct.images.length;
+271|275|275|275|      renderGallery();
+272|276|276|276|    });
+273|277|277|277|
+274|278|278|278|    // Touch swipe for mobile gallery
+275|279|279|279|    const galleryStageEl = document.querySelector('.gallery-stage');
+276|280|280|280|    let touchStartX = 0, touchStartY = 0;
+277|281|281|281|    galleryStageEl.addEventListener('touchstart', (e) => {
+278|282|282|282|      touchStartX = e.changedTouches[0].screenX;
+279|283|283|283|      touchStartY = e.changedTouches[0].screenY;
+280|284|284|284|    }, { passive: true });
+281|285|285|285|    galleryStageEl.addEventListener('touchend', (e) => {
+282|286|286|286|      if (!activeProduct) return;
+283|287|287|287|      const touchEndX = e.changedTouches[0].screenX;
+284|288|288|288|      const touchEndY = e.changedTouches[0].screenY;
+285|289|289|289|      const dx = touchStartX - touchEndX;
+286|290|290|290|      const dy = touchStartY - touchEndY;
+287|291|291|291|      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+288|292|292|292|        if (dx > 0) {
+289|293|293|293|          activeIndex = (activeIndex + 1) % activeProduct.images.length;
+290|294|294|294|        } else {
+291|295|295|295|          activeIndex = (activeIndex - 1 + activeProduct.images.length) % activeProduct.images.length;
+292|296|296|296|        }
+293|297|297|297|        renderGallery();
+294|298|298|298|      }
+295|299|299|299|    }, { passive: true });
+296|300|300|300|
+297|301|301|301|    closeBtn.addEventListener('click', closeProduct);
+298|302|302|302|    modal.addEventListener('click', (e) => {
+299|303|303|303|      if (e.target === modal) closeProduct();
+300|304|304|304|    });
+301|305|305|305|    document.addEventListener('keydown', (e) => {
+302|306|306|306|      if (!modal.classList.contains('open')) return;
+303|307|307|307|      if (e.key === 'Escape') closeProduct();
+304|308|308|308|      if (e.key === 'ArrowLeft') prevBtn.click();
+305|309|309|309|      if (e.key === 'ArrowRight') nextBtn.click();
+306|310|310|310|    });
+307|311|311|311|
+308|312|312|312|    renderCards();
+309|313|313|313|  </script>
+310|314|314|314|</body>
+311|315|315|315|</html>
+312|316|316|316|
