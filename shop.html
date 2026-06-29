@@ -19,14 +19,18 @@
     html{min-height:100%;scroll-behavior:smooth;background:#070707}
     body{min-height:100vh;min-height:100svh;background:#070707;color:var(--text);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden;position:relative}
     .aurora-wrap{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-    .aurora{position:absolute;border-radius:50%;filter:blur(90px);opacity:.75;will-change:transform}
-    .aurora-1{width:45vw;height:45vw;top:-8%;left:-6%;background:radial-gradient(circle,#ff8a2a,transparent 65%);animation:auroraFloat1 18s ease-in-out infinite}
-    .aurora-2{width:38vw;height:38vw;top:55%;right:-8%;background:radial-gradient(circle,#ff6f47,transparent 65%);animation:auroraFloat2 22s ease-in-out infinite}
-    .aurora-3{width:30vw;height:30vw;bottom:-6%;left:25%;background:radial-gradient(circle,#e8553a,transparent 65%);animation:auroraFloat3 16s ease-in-out infinite}
-    .aurora-4{width:26vw;height:26vw;top:20%;right:15%;background:radial-gradient(circle,#ffb15f,transparent 65%);animation:auroraFloat1 26s ease-in-out infinite reverse;opacity:.4}
-    @keyframes auroraFloat1{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(4vw,-3vh) scale(1.12)}66%{transform:translate(-3vw,4vh) scale(.92)}}
-    @keyframes auroraFloat2{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-5vw,3vh) scale(1.08)}66%{transform:translate(3vw,-4vh) scale(.95)}}
-    @keyframes auroraFloat3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(3vw,-5vh) scale(1.15)}}
+    .aurora{position:absolute;border-radius:50%;filter:blur(70px);will-change:transform,opacity}
+    .aurora-1{width:60vw;height:60vw;top:-10%;left:-10%;background:radial-gradient(circle,#ff9b3d,transparent 60%);animation:flash1 8s ease-in-out infinite}
+    .aurora-2{width:55vw;height:55vw;top:40%;right:-12%;background:radial-gradient(circle,#ff6f47,transparent 60%);animation:flash2 11s ease-in-out infinite}
+    .aurora-3{width:45vw;height:45vw;bottom:-12%;left:20%;background:radial-gradient(circle,#ff5a3c,transparent 60%);animation:flash3 9s ease-in-out infinite}
+    .aurora-4{width:40vw;height:40vw;top:15%;right:10%;background:radial-gradient(circle,#ffb15f,transparent 60%);animation:flash4 13s ease-in-out infinite}
+    .aurora-5{width:35vw;height:35vw;top:50%;left:30%;background:radial-gradient(circle,#ff8a2a,transparent 60%);animation:flash5 7s ease-in-out infinite}
+    @keyframes flash1{0%,100%{opacity:0;transform:translate(0,0) scale(.8)}15%{opacity:.9;transform:translate(8vw,5vh) scale(1.2)}40%{opacity:.3;transform:translate(15vw,10vh) scale(1)}60%{opacity:.8;transform:translate(5vw,15vh) scale(1.1)}85%{opacity:.1;transform:translate(-3vw,8vh) scale(.9)}}
+    @keyframes flash2{0%,100%{opacity:0;transform:translate(0,0) scale(.9)}20%{opacity:.85;transform:translate(-10vw,-8vh) scale(1.15)}45%{opacity:.2;transform:translate(-5vw,-15vh) scale(1)}65%{opacity:.9;transform:translate(-15vw,-5vh) scale(1.2)}90%{opacity:.15;transform:translate(-8vw,3vh) scale(.95)}}
+    @keyframes flash3{0%,100%{opacity:0;transform:translate(0,0) scale(.85)}25%{opacity:.8;transform:translate(12vw,-10vh) scale(1.1)}50%{opacity:.15;transform:translate(20vw,-5vh) scale(1)}70%{opacity:.9;transform:translate(8vw,-15vh) scale(1.2)}95%{opacity:.2;transform:translate(15vw,-8vh) scale(.9)}}
+    @keyframes flash4{0%,100%{opacity:0;transform:translate(0,0) scale(.9)}18%{opacity:.7;transform:translate(-8vw,10vh) scale(1.15)}42%{opacity:.25;transform:translate(-15vw,5vh) scale(1)}68%{opacity:.85;transform:translate(-5vw,15vh) scale(1.1)}88%{opacity:.1;transform:translate(-12vw,8vh) scale(.95)}}
+    @keyframes flash5{0%,100%{opacity:0;transform:translate(0,0) scale(.8)}30%{opacity:.9;transform:translate(10vw,-12vh) scale(1.2)}55%{opacity:.2;transform:translate(-8vw,-8vh) scale(1)}80%{opacity:.8;transform:translate(15vw,5vh) scale(1.15)}}
+    @media(max-width:760px){.aurora{filter:blur(50px)}.aurora-1{width:80vw;height:80vw}.aurora-2{width:75vw;height:75vw}.aurora-3{width:65vw;height:65vw}.aurora-4{width:60vw;height:60vw}.aurora-5{width:55vw;height:55vw}}
     a{color:inherit}
     .top{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(18px,4vw,48px);background:linear-gradient(180deg,rgba(0,0,0,.74),transparent)}
     .brand{font-weight:900;letter-spacing:.14em;text-transform:uppercase;text-decoration:none}
@@ -82,6 +86,7 @@
     <div class="aurora aurora-2"></div>
     <div class="aurora aurora-3"></div>
     <div class="aurora aurora-4"></div>
+    <div class="aurora aurora-5"></div>
   </div>
   <header class="top"><a class="brand" href="index.html">Custom</a><a class="back" href="index.html">← На главную</a></header>
   <main>
