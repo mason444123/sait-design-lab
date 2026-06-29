@@ -493,12 +493,17 @@
   }
 
   .hero-cta-wrap {
-    margin: 22px auto 0;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(240px, 1fr));
-    gap: 14px;
-    width: min(720px, 100%);
+    margin-top: 20px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
     padding-bottom: 40px;
+  }
+  .entry-card-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
   .entry-card {
     position: relative;
@@ -2579,18 +2584,7 @@
     </div>
 
     <div class="hero-cta-wrap">
-      <a href="https://t.me/custom_843" target="_blank" rel="noopener" class="entry-card entry-card--free" onclick="ym(109054298,'reachGoal','TELEGRAM_CLICK')">
-        <span class="entry-card__time">19:00–22:00</span>
-        <span class="entry-card__title">Вход бесплатный</span>
-        <span class="entry-card__text">По подписке на наш Telegram-канал.</span>
-        <span class="entry-card__cta">Подписаться</span>
-      </a>
-      <a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="entry-card entry-card--ticket" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">
-        <span class="entry-card__time">22:00–05:00</span>
-        <span class="entry-card__title">Вход по билету</span>
-        <span class="entry-card__text">После 22:00 действует платный вход.</span>
-        <span class="entry-card__cta">Купить билет</span>
-      </a>
+      <a href="#about" class="btn-ghost">ПРО ЛЕТО →</a>
     </div>
   </div>
 
@@ -2618,6 +2612,20 @@
           <div><dt>Что внутри</dt><dd>Вода · бар · кино · волейбол</dd></div>
           <div><dt>Состояние</dt><dd>Лето в пике</dd></div>
         </dl>
+        <div class="entry-card-row">
+          <a href="https://t.me/custom_843" target="_blank" rel="noopener" class="entry-card entry-card--free" onclick="ym(109054298,'reachGoal','TELEGRAM_CLICK')">
+            <span class="entry-card__time">19:00–22:00</span>
+            <span class="entry-card__title">Вход бесплатный</span>
+            <span class="entry-card__text">По подписке на наш Telegram-канал.</span>
+            <span class="entry-card__cta">Подписаться</span>
+          </a>
+          <a href="https://voroh.ru/widget/event/1036665/019ef4a4-09d5-8687-8cf4-a35183b37649/" target="_blank" rel="noopener" class="entry-card entry-card--ticket" onclick="ym(109054298,'reachGoal','TICKET_CLICK')">
+            <span class="entry-card__time">22:00–05:00</span>
+            <span class="entry-card__title">Вход по билету</span>
+            <span class="entry-card__text">После 22:00 действует платный вход.</span>
+            <span class="entry-card__cta">Купить билет</span>
+          </a>
+        </div>
         <div class="hero-side-foot">Сначала ловим закат у воды, потом — самый плотный момент ночи, и только после этого отпускаем гостей встречать рассвет.</div>
       </aside>
     </div>
