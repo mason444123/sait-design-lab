@@ -18,12 +18,12 @@
     *{scrollbar-width:thin;scrollbar-color:rgba(255,138,42,.3) #0a0807}
     html{min-height:100%;scroll-behavior:smooth;background:#070707}
     body{min-height:100vh;min-height:100svh;background:#070707;color:var(--text);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden;position:relative}
-    body:before{content:'';position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,#1a0e07 0%,#0d0604 58%,#070707 100%)}
-    .aurora{position:fixed;z-index:-1;border-radius:50%;filter:blur(90px);opacity:.7;pointer-events:none;will-change:transform}
+    .aurora-wrap{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+    .aurora{position:absolute;border-radius:50%;filter:blur(90px);opacity:.75;will-change:transform}
     .aurora-1{width:45vw;height:45vw;top:-8%;left:-6%;background:radial-gradient(circle,#ff8a2a,transparent 65%);animation:auroraFloat1 18s ease-in-out infinite}
     .aurora-2{width:38vw;height:38vw;top:55%;right:-8%;background:radial-gradient(circle,#ff6f47,transparent 65%);animation:auroraFloat2 22s ease-in-out infinite}
     .aurora-3{width:30vw;height:30vw;bottom:-6%;left:25%;background:radial-gradient(circle,#e8553a,transparent 65%);animation:auroraFloat3 16s ease-in-out infinite}
-    .aurora-4{width:26vw;height:26vw;top:20%;right:15%;background:radial-gradient(circle,#ffb15f,transparent 65%);animation:auroraFloat1 26s ease-in-out infinite reverse;opacity:.35}
+    .aurora-4{width:26vw;height:26vw;top:20%;right:15%;background:radial-gradient(circle,#ffb15f,transparent 65%);animation:auroraFloat1 26s ease-in-out infinite reverse;opacity:.4}
     @keyframes auroraFloat1{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(4vw,-3vh) scale(1.12)}66%{transform:translate(-3vw,4vh) scale(.92)}}
     @keyframes auroraFloat2{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-5vw,3vh) scale(1.08)}66%{transform:translate(3vw,-4vh) scale(.95)}}
     @keyframes auroraFloat3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(3vw,-5vh) scale(1.15)}}
@@ -31,7 +31,7 @@
     .top{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(18px,4vw,48px);background:linear-gradient(180deg,rgba(0,0,0,.74),transparent)}
     .brand{font-weight:900;letter-spacing:.14em;text-transform:uppercase;text-decoration:none}
     .back{padding:12px 16px;border:1px solid var(--line);border-radius:999px;text-decoration:none;background:rgba(255,255,255,.04);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-    main{width:min(1280px,100%);min-height:100vh;min-height:100svh;margin:0 auto;padding:140px clamp(20px,5vw,56px) 64px}
+    main{position:relative;z-index:1;width:min(1280px,100%);min-height:100vh;min-height:100svh;margin:0 auto;padding:140px clamp(20px,5vw,56px) 64px}
     .label{color:rgba(255,243,230,.52);font-size:12px;font-weight:900;letter-spacing:.22em;text-transform:uppercase}
     .title{margin-top:18px;font-size:clamp(56px,10vw,132px);line-height:.85;font-weight:1000;letter-spacing:.02em;text-transform:uppercase}
     .lead{max-width:860px;margin-top:24px;color:var(--muted);font-size:clamp(20px,2vw,28px);line-height:1.18}
@@ -77,10 +77,12 @@
   </style>
 </head>
 <body>
-  <div class="aurora aurora-1"></div>
-  <div class="aurora aurora-2"></div>
-  <div class="aurora aurora-3"></div>
-  <div class="aurora aurora-4"></div>
+  <div class="aurora-wrap">
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    <div class="aurora aurora-3"></div>
+    <div class="aurora aurora-4"></div>
+  </div>
   <header class="top"><a class="brand" href="index.html">Custom</a><a class="back" href="index.html">← На главную</a></header>
   <main>
     <div class="label">Custom store</div>
