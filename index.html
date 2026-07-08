@@ -1584,73 +1584,102 @@
   }
   .program-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    align-items: start;
   }
-  .program-day-block {}
+  .program-day-block {
+    min-height: 100%;
+    padding: 24px;
+    border-radius: 28px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background:
+      radial-gradient(circle at 0% 0%, rgba(255, 138, 76, 0.12), transparent 38%),
+      radial-gradient(circle at 100% 0%, rgba(255, 209, 102, 0.08), transparent 34%),
+      linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+    box-shadow: 0 20px 60px rgba(0,0,0,0.22);
+  }
   .prog-day-header {
     display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 32px;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 20px;
   }
   .prog-date-badge {
-    background: var(--red);
-    color: var(--white);
+    background: linear-gradient(135deg, #ff6f47, #ff9b3d 55%, #ffd166);
+    color: #2a120b;
     font-family: var(--font-impact);
-    font-size: 18px;
-    padding: 8px 16px;
+    font-size: 17px;
+    padding: 8px 14px 7px;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
+    border-radius: 999px;
+    box-shadow: 0 10px 24px rgba(255,111,71,0.28);
+    white-space: nowrap;
   }
   .prog-day-title {
     font-family: var(--font-impact);
-    font-size: 32px;
+    font-size: clamp(26px, 2vw, 34px);
+    line-height: 0.94;
     color: var(--white);
     letter-spacing: 0.04em;
     text-transform: uppercase;
+    padding-top: 4px;
   }
   .prog-timeline {
     display: flex;
     flex-direction: column;
-    gap: 0;
-    border-left: 2px solid rgba(255,255,255,0.08);
-    margin-left: 8px;
-    padding-left: 28px;
+    gap: 12px;
+    border-left: 2px solid rgba(255,255,255,0.1);
+    margin-left: 10px;
+    padding-left: 18px;
   }
   .prog-item {
     position: relative;
-    padding: 16px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 14px 14px 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    background: rgba(255,255,255,0.02);
+    backdrop-filter: blur(6px);
   }
+  .prog-item:last-child { border-bottom: 0; }
   .prog-item::before {
     content: '';
     position: absolute;
-    left: -34px; top: 22px;
-    width: 10px; height: 10px;
+    left: -27px; top: 20px;
+    width: 12px; height: 12px;
     border-radius: 50%;
-    background: #ff8a4c;
-    border: 2px solid #ffd3a1;
+    background: linear-gradient(180deg, #ffd166, #ff8a4c);
+    border: 2px solid rgba(255,243,230,0.7);
+    box-shadow: 0 0 0 4px rgba(255,138,76,0.12);
   }
   .prog-item.headliner-item::before,
-  .prog-item.special-guest-item::before { background: #ff8a2a; border-color: #ffd3a1; width: 12px; height: 12px; left: -35px; top: 21px; }
+  .prog-item.special-guest-item::before { background: linear-gradient(180deg, #ffd166, #ff6f47); width: 14px; height: 14px; left: -28px; top: 19px; box-shadow: 0 0 0 5px rgba(255,138,76,0.16); }
   .prog-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: 0.15em;
-    color: rgba(255,255,255,0.35);
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: #ffd3a1;
     text-transform: uppercase;
-    margin-bottom: 3px;
+    margin-bottom: 8px;
+    padding: 4px 9px 3px;
+    border-radius: 999px;
+    background: rgba(255, 138, 76, 0.14);
+    border: 1px solid rgba(255, 211, 161, 0.22);
   }
   .prog-name {
     font-family: var(--font-impact);
-    font-size: 26px;
+    font-size: 23px;
+    line-height: 1;
     color: var(--white);
     letter-spacing: 0.04em;
     text-transform: uppercase;
   }
-  .prog-item.headliner-item .prog-name { color: var(--white); }
+  .prog-item.headliner-item .prog-name { color: #ffd166; }
   .prog-item.special-guest-item .prog-name,
   .prog-name .program-accent-name {
     color: #ff9b3d;
@@ -1658,10 +1687,11 @@
   }
   .prog-sub {
     font-family: var(--font-body);
-    font-size: 13px;
-    color: rgba(255,255,255,0.4);
-    margin-top: 2px;
-    letter-spacing: 0.05em;
+    font-size: 14px;
+    color: rgba(255,255,255,0.62);
+    margin-top: 6px;
+    letter-spacing: 0.04em;
+    line-height: 1.45;
   }
   .prog-collab-tag {
     display: inline-block;
@@ -1669,12 +1699,13 @@
     border: 1px solid rgba(255, 211, 161, 0.45);
     color: rgba(255, 222, 194, 0.95);
     font-family: var(--font-body);
-    font-weight: 700;
+    font-weight: 800;
     font-size: 10px;
     letter-spacing: 0.2em;
-    padding: 3px 10px;
+    padding: 6px 11px 5px;
     text-transform: uppercase;
     margin-top: 6px;
+    border-radius: 999px;
   }
   .prog-collab-tag.after-party-tag {
     background: rgba(255, 138, 42, 0.14);
@@ -1686,16 +1717,16 @@
     position: relative;
     margin-top: 14px;
     display: grid;
-    grid-template-columns: minmax(190px, 0.72fr) minmax(0, 1fr);
-    gap: 18px;
+    grid-template-columns: minmax(170px, 0.78fr) minmax(0, 1fr);
+    gap: 16px;
     align-items: stretch;
-    padding: 14px;
-    border-radius: 26px;
+    padding: 12px;
+    border-radius: 24px;
     border: 1px solid rgba(255, 159, 64, 0.42);
     background:
       radial-gradient(circle at 16% 18%, rgba(255, 190, 92, 0.24), transparent 34%),
       linear-gradient(135deg, rgba(255, 107, 32, 0.18), rgba(10, 10, 14, 0.94) 58%);
-    box-shadow: 0 24px 70px rgba(0,0,0,.46), 0 0 34px rgba(255, 138, 42, .18);
+    box-shadow: 0 20px 50px rgba(0,0,0,.38), 0 0 34px rgba(255, 138, 42, .14);
     overflow: hidden;
   }
   .program-special-guest-card::before {
@@ -2830,7 +2861,7 @@
       <div class="program-day-block reveal">
         <div class="prog-day-header">
           <div class="prog-date-badge">17 ИЮЛЯ</div>
-          <div class="prog-day-title">Пляжная ночь</div>
+          <div class="prog-day-title">День и закат</div>
         </div>
         <div class="prog-timeline">
           <div class="prog-item">
@@ -2839,20 +2870,27 @@
             <div class="prog-sub">Сбор гостей, закат, пляжная атмосфера</div>
           </div>
           <div class="prog-item">
+            <div class="prog-time">20:00</div>
             <div class="prog-name">Катамараны и шезлонги</div>
             <div class="prog-sub">Отдых у воды и свободный вайб до темноты</div>
           </div>
           <div class="prog-item">
+            <div class="prog-time">21:00</div>
             <div class="prog-name">Пляжный волейбол и гриль-зона</div>
+            <div class="prog-sub">Активности, еда и живой старт ночи</div>
           </div>
           <div class="prog-item headliner-item">
+            <div class="prog-time">23:00</div>
             <div class="prog-name">DJ СЕТЫ</div>
+            <div class="prog-sub">Плотный разгон перед главным выходом</div>
           </div>
           <div class="prog-item headliner-item">
+            <div class="prog-time">01:00</div>
             <div class="prog-name">Выступление хедлайнера</div>
             <div class="prog-sub">Главный выход ночи</div>
           </div>
           <div class="prog-item special-guest-item">
+            <div class="prog-time">02:00</div>
             <div class="prog-name">Специальный гость</div>
             <div class="prog-sub">DJ SET + LIVE · ночной выход у воды</div>
             <div class="program-special-guest-card">
@@ -2887,8 +2925,14 @@
         </div>
         <div class="prog-timeline">
           <div class="prog-item headliner-item program-place-entry-item">
+            <div class="prog-time">Вход</div>
             <div class="prog-name"><span class="program-accent-name">БАРНАЯ ЗОНА</span> · КИНОТЕАТР ПОД ОТКРЫТЫМ НЕБОМ</div>
             <div class="prog-sub">Плюс шезлонги, вода и летний ночной вайб</div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-time">Комфорт</div>
+            <div class="prog-name">Зона у воды</div>
+            <div class="prog-sub">Пледы, посадка и место для выдоха между сетами</div>
           </div>
         </div>
       </div>
@@ -2901,21 +2945,25 @@
         </div>
         <div class="prog-timeline">
           <div class="prog-item headliner-item">
+            <div class="prog-time">Локация</div>
             <div class="prog-name">ОДНОСТОРОНКА ГРИВКИ, 1Б</div>
             <div class="prog-sub">Казань · вид на Казанский Кремль</div>
           </div>
           <div class="prog-item">
-            <div class="prog-name">14+</div>
-            <div class="prog-sub">Дневная пляжная программа</div>
+            <div class="prog-time">14+</div>
+            <div class="prog-name">Дневная программа</div>
+            <div class="prog-sub">Пляжный формат для тёплого старта дня</div>
           </div>
           <div class="prog-item">
-            <div class="prog-name">18+</div>
-            <div class="prog-sub">Ночная пляжная программа до утра</div>
+            <div class="prog-time">18+</div>
+            <div class="prog-name">Ночная программа</div>
+            <div class="prog-sub">До утра — музыка, свет и вода</div>
           </div>
           <div class="prog-item">
+            <div class="prog-time">Билеты</div>
             <div class="prog-name">Билеты уже на Voroh</div>
             <div class="prog-sub">Переходи на сайт Voroh и покупай билет заранее</div>
-                      </div>
+          </div>
         </div>
         <div style="margin-top: 20px;">
           <span class="prog-collab-tag">BEACH PARTY</span>
