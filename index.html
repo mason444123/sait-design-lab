@@ -1682,6 +1682,128 @@
     color: #ff9b3d;
     text-shadow: 0 0 7px rgba(255, 138, 42, 0.45), 0 0 16px rgba(255, 111, 71, 0.2);
   }
+  .program-special-guest-card {
+    position: relative;
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: minmax(190px, 0.72fr) minmax(0, 1fr);
+    gap: 18px;
+    align-items: stretch;
+    padding: 14px;
+    border-radius: 26px;
+    border: 1px solid rgba(255, 159, 64, 0.42);
+    background:
+      radial-gradient(circle at 16% 18%, rgba(255, 190, 92, 0.24), transparent 34%),
+      linear-gradient(135deg, rgba(255, 107, 32, 0.18), rgba(10, 10, 14, 0.94) 58%);
+    box-shadow: 0 24px 70px rgba(0,0,0,.46), 0 0 34px rgba(255, 138, 42, .18);
+    overflow: hidden;
+  }
+  .program-special-guest-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, rgba(255,255,255,.08), transparent 36%, rgba(255,138,42,.08));
+    pointer-events: none;
+  }
+  .program-special-guest-media {
+    position: relative;
+    z-index: 1;
+    min-height: 270px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #050505;
+    box-shadow: 0 16px 38px rgba(0,0,0,.42);
+  }
+  .program-special-guest-media img {
+    width: 100%;
+    height: 100%;
+    min-height: 270px;
+    display: block;
+    object-fit: cover;
+    object-position: center top;
+    filter: saturate(1.06) contrast(1.04);
+  }
+  .program-special-guest-copy {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px 6px;
+  }
+  .program-special-guest-label {
+    width: fit-content;
+    padding: 7px 12px 6px;
+    border-radius: 999px;
+    background: rgba(255, 138, 42, 0.18);
+    border: 1px solid rgba(255, 211, 161, 0.52);
+    color: #ffd3a1;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+  .program-special-guest-name {
+    font-family: var(--font-impact);
+    font-size: clamp(38px, 5vw, 62px);
+    line-height: .88;
+    letter-spacing: .035em;
+    color: #ff9b3d;
+    text-transform: uppercase;
+    text-shadow: 0 0 14px rgba(255,138,42,.55), 0 0 34px rgba(255,111,71,.28);
+  }
+  .program-special-guest-name span {
+    display: block;
+    font-size: .52em;
+    color: rgba(255,243,230,.88);
+    letter-spacing: .08em;
+  }
+  .program-special-guest-text {
+    max-width: 34ch;
+    color: rgba(255,243,230,.78);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.36;
+    letter-spacing: .04em;
+  }
+  .program-special-guest-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .program-special-guest-meta span {
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: rgba(0,0,0,.34);
+    border: 1px solid rgba(255,243,230,.14);
+    color: rgba(255,243,230,.82);
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 768px) {
+    .program-special-guest-card {
+      grid-template-columns: 1fr;
+      gap: 14px;
+      padding: 12px;
+      border-radius: 22px;
+    }
+    .program-special-guest-media,
+    .program-special-guest-media img {
+      min-height: 0;
+    }
+    .program-special-guest-media img {
+      height: auto;
+      object-fit: contain;
+    }
+    .program-special-guest-copy { padding: 4px 2px 6px; }
+    .program-special-guest-text { font-size: 15px; }
+  }
 
   /* ─── EXPERIENCE ─────────────────────────────────────── */
   #experience {
@@ -2732,7 +2854,22 @@
           </div>
           <div class="prog-item special-guest-item">
             <div class="prog-name">Специальный гость</div>
-            <div class="prog-sub">Анонс на площадке</div>
+            <div class="prog-sub">DJ SET + LIVE · ночной выход у воды</div>
+            <div class="program-special-guest-card">
+              <div class="program-special-guest-media">
+                <img src="assets/special-guest-dj-maxwin.jpg?v=202607081620" alt="Специальный гость DJ Maxwin Blago White" loading="lazy">
+              </div>
+              <div class="program-special-guest-copy">
+                <div class="program-special-guest-label">DJ SET + LIVE</div>
+                <div class="program-special-guest-name">DJ MAXWIN <span>BLAGO WHITE</span></div>
+                <div class="program-special-guest-text">Специальный гость ночной программы: DJ-сет и live-выход в тёплой пляжной эстетике афиши.</div>
+                <div class="program-special-guest-meta">
+                  <span>17 июля</span>
+                  <span>19:00–05:00</span>
+                  <span>вид на Кремль</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="prog-item">
             <div class="prog-time">05:00</div>
