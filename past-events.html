@@ -2,400 +2,375 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <title>Прошлые события Custom</title>
   <meta name="description" content="Архив прошлых событий Custom: ключевые вечеринки, коллаборации, привозы и большие форматы команды.">
+  <meta name="theme-color" content="#0c0c0b">
+  <link rel="icon" href="favicon.ico?v=20260605214846" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=20260605214846">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png?v=20260605214846">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=20260605214846">
   <style>
-    :root{
-      --bg:#0b0b0a;
-      --bg-soft:#111110;
-      --ivory:#ede4d4;
-      --text:#e8ddca;
-      --muted:#a89e8d;
-      --soft:#7a7264;
-      --rule:rgba(237,228,212,.10);
-      --rule-soft:rgba(237,228,212,.06);
-      --red:#c2483b;
-      --red-soft:rgba(194,72,59,.16);
-      --serif:'PT Serif','Iowan Old Style','Times New Roman',Georgia,serif;
-      --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
-      --mono:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;background:var(--bg);-webkit-text-size-adjust:100%}
-    body{
-      min-height:100vh;min-height:100svh;
-      background:var(--bg);color:var(--text);
-      font-family:var(--sans);font-size:16px;line-height:1.55;
-      -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-      overflow-x:hidden;
-    }
-    a{color:inherit}
+    * { box-sizing:border-box; }
+    html, body { margin:0; min-height:100%; background:#0c0c0b; overscroll-behavior-y:none; }
+    html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+    body { overflow-x:hidden; font-family:Arial,Helvetica,sans-serif; color:#f4ebe5; }
+    a { color:inherit; }
+    ::selection { background:#e30b08; color:#160707; }
 
-    /* top bar */
-    .top{
-      position:fixed;top:0;left:0;right:0;z-index:20;
-      display:flex;justify-content:space-between;align-items:center;
-      padding:18px clamp(18px,4vw,48px);
-      background:linear-gradient(180deg,rgba(11,11,10,.92),rgba(11,11,10,.45) 70%,transparent);
-      backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-    }
-    .brand{font-family:var(--sans);font-size:13px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;font-weight:600;color:var(--ivory)}
-    .brand span{color:var(--red);margin-left:1px}
-    .back{padding:8px 14px;border:1px solid var(--rule);border-radius:999px;text-decoration:none;background:transparent;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:.18s ease}
-    .back:hover{border-color:var(--red-soft);color:var(--ivory)}
+    /* ─── TOP NAV ─── */
+    .top { position:fixed; top:0; left:0; right:0; z-index:50; display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px clamp(18px,4vw,48px); background:linear-gradient(to bottom,rgba(8,8,8,.86) 0%,transparent 100%); }
+    .brand { display:inline-flex; align-items:baseline; gap:3px; text-decoration:none; color:#f4ebe5; font-family:Didot,"Bodoni MT",Georgia,serif; font-size:clamp(22px,2.2vw,30px); font-weight:400; letter-spacing:-.06em; line-height:.9; text-transform:lowercase; }
+    .brand b { color:#ff4b3d; font-weight:400; }
+    .back { display:inline-flex; align-items:center; gap:8px; padding:10px 18px 9px; text-decoration:none; font-family:Arial,sans-serif; font-size:11px; font-weight:900; letter-spacing:.12em; text-transform:uppercase; color:#160707; background:#e30b08; border:1px solid #ff6959; border-radius:0; box-shadow:5px 5px 0 #5b0909; transition:background .2s ease,color .2s ease,box-shadow .2s ease,transform .2s ease; }
+    .back:hover { background:#ff4b3d; color:#fff8f4; box-shadow:2px 2px 0 #5b0909; transform:translate(3px,3px); }
 
-    /* layout */
-    main{
-      width:min(860px,100%);margin:0 auto;
-      padding:140px clamp(22px,6vw,40px) 120px;
-    }
+    /* ─── HERO ─── */
+    .hero { position:relative; min-height:78vh; min-height:78svh; padding:clamp(112px,16vh,168px) clamp(20px,6vw,80px) clamp(40px,7vw,84px); overflow:hidden; background:radial-gradient(circle at 50% 42%,#3a1110 0%,transparent 40%),radial-gradient(circle at 86% 6%,#2a0d0c 0%,transparent 30%),radial-gradient(circle at 8% 90%,#24100f 0%,transparent 32%),linear-gradient(135deg,#0c0c0b 0%,#15100f 100%); color:#f4ebe5; }
+    .hero-frame { max-width:1180px; margin:0 auto; display:flex; flex-direction:column; gap:clamp(18px,3vw,32px); }
+    .hero-kicker { display:inline-flex; align-items:center; gap:14px; color:#ff6959; font-size:clamp(11px,1.1vw,14px); font-weight:900; letter-spacing:.18em; line-height:1; text-transform:uppercase; opacity:0; transform:translateY(18px); animation:fadeUp .9s cubic-bezier(.16,1,.3,1) .12s forwards; }
+    .hero-kicker::before { content:''; width:42px; height:1px; background:#e30b08; }
+    .hero-kicker .num { color:#e30b08; }
+    .hero-title { margin:0; font-family:Didot,"Bodoni MT",Georgia,serif; font-size:clamp(54px,12vw,168px); font-weight:400; letter-spacing:-.08em; line-height:.82; text-transform:uppercase; color:#f4ebe5; opacity:0; transform:translateY(28px); animation:fadeUp 1.05s cubic-bezier(.16,1,.3,1) .22s forwards; }
+    .hero-title em { font-style:normal; color:#ff4b3d; }
+    .hero-title b { font-weight:400; color:#e30b08; }
+    .hero-lead { max-width:640px; margin:0; color:#f0b6a8; font-size:clamp(16px,1.7vw,22px); line-height:1.34; opacity:0; transform:translateY(24px); animation:fadeUp .9s cubic-bezier(.16,1,.3,1) .34s forwards; }
+    .hero-meta { display:flex; flex-wrap:wrap; gap:clamp(14px,2vw,28px) clamp(22px,3vw,40px); margin-top:clamp(8px,1.4vw,14px); padding-top:clamp(18px,2.4vw,28px); border-top:1px solid rgba(255,105,89,.32); opacity:0; transform:translateY(20px); animation:fadeUp .9s cubic-bezier(.16,1,.3,1) .44s forwards; }
+    .hero-stat { display:flex; flex-direction:column; gap:5px; }
+    .hero-stat__num { font-family:Didot,"Bodoni MT",Georgia,serif; font-size:clamp(24px,3vw,44px); font-weight:400; letter-spacing:-.04em; line-height:1; text-transform:uppercase; color:#ff4b3d; }
+    .hero-stat__label { font-size:clamp(11px,1vw,13px); font-weight:900; letter-spacing:.14em; line-height:1; text-transform:uppercase; color:#a79a93; }
 
-    /* calm intro — no giant display title */
-    .intro{padding-bottom:8px}
-    .eyebrow{
-      font-family:var(--sans);font-size:10px;font-weight:600;
-      letter-spacing:.32em;text-transform:uppercase;color:var(--soft);
-      display:flex;align-items:center;gap:12px;
-    }
-    .eyebrow::before{content:'';width:36px;height:1px;background:var(--rule)}
-    .intro h1{
-      margin-top:26px;
-      font-family:var(--serif);font-weight:400;
-      font-size:clamp(30px,6.5vw,46px);line-height:1.12;
-      letter-spacing:-.01em;color:var(--ivory);
-    }
-    .intro h1 em{font-style:italic;color:var(--red);font-weight:400}
-    .intro p{
-      margin-top:22px;max-width:62ch;
-      color:var(--muted);font-size:clamp(15px,2.2vw,17px);line-height:1.65;
-    }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
 
-    /* meta line: years span + event count — calm, one rule */
-    .archive-meta{
-      margin-top:56px;padding-top:18px;border-top:1px solid var(--rule);
-      display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
-      font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);font-weight:600;
-    }
-    .archive-meta b{color:var(--muted);font-weight:600}
+    .hero-hairline { position:absolute; left:clamp(20px,6vw,80px); right:clamp(20px,6vw,80px); bottom:0; height:1px; background:linear-gradient(90deg,transparent,rgba(255,105,89,.55) 30%,rgba(255,105,89,.55) 70%,transparent); }
 
-    /* chronological archive */
-    .archive{margin-top:28px}
-    .entry{
-      display:grid;
-      grid-template-columns:minmax(0,320px) minmax(0,1fr);
-      gap:clamp(28px,5vw,56px);
-      padding:64px 0;
-      border-top:1px solid var(--rule);
-      align-items:start;
-    }
-    .entry:first-of-type{border-top:0;padding-top:8px}
-    .entry:last-of-type{padding-bottom:8px}
+    /* ─── ARCHIVE ─── */
+    .archive-section { position:relative; padding:clamp(64px,9vw,112px) clamp(20px,6vw,80px) clamp(70px,11vw,130px); background:radial-gradient(circle at 10% 4%,#2a0d0c 0%,transparent 30%),radial-gradient(circle at 92% 96%,#24100f 0%,transparent 32%),#0a0909; overflow:hidden; }
+    .archive-head { position:relative; max-width:1180px; margin:0 auto clamp(40px,5vw,68px); display:grid; grid-template-columns:clamp(42px,7vw,94px) 1fr; gap:clamp(18px,3vw,50px); align-items:start; }
+    .archive-head__number { font-family:Didot,"Bodoni MT",Georgia,serif; font-size:clamp(28px,3.4vw,52px); font-weight:400; letter-spacing:-.04em; line-height:.86; color:#e30b08; }
+    .archive-head__eyebrow { margin:0 0 10px; color:#ff6959; font-size:clamp(11px,1.1vw,14px); font-weight:900; letter-spacing:.16em; text-transform:uppercase; }
+    .archive-head__title { margin:0; color:#f4ebe5; font-family:Didot,"Bodoni MT",Georgia,serif; font-size:clamp(44px,7.4vw,112px); font-weight:400; letter-spacing:-.07em; line-height:.84; text-transform:uppercase; }
+    .archive-head__title em { font-style:normal; color:#ff4b3d; }
 
-    /* poster as visual anchor */
-    .poster{
-      position:relative;width:100%;
-      background:var(--bg-soft);
-      border-radius:2px;overflow:hidden;
-      aspect-ratio:var(--media-ratio,3/4);
-    }
-    .poster img{
-      width:100%;height:100%;display:block;object-fit:contain;object-position:center;
-      filter:saturate(.96) contrast(1.02);
+    .archive { max-width:1180px; margin:0 auto; border-top:1px solid rgba(255,105,89,.28); }
+
+    .entry { position:relative; display:flex; flex-direction:column; gap:clamp(20px,3vw,32px); padding:clamp(40px,6vw,72px) 0; border-bottom:1px solid rgba(255,105,89,.28); opacity:0; transform:translateY(34px); transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1); }
+    .entry.is-revealed { opacity:1; transform:translateY(0); }
+
+    .entry-meta { display:flex; align-items:baseline; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+    .entry-index { color:#e30b08; font-size:11px; font-weight:900; letter-spacing:.16em; text-transform:uppercase; line-height:1; }
+    .entry-date { color:#a79a93; font-size:11px; font-weight:900; letter-spacing:.16em; text-transform:uppercase; line-height:1; }
+    .entry-date b { color:#f4ebe5; font-weight:900; }
+
+    .entry-media { position:relative; width:100%; overflow:hidden; background:#0a0807; aspect-ratio:var(--media-ratio,3/4); clip-path:inset(0 100% 0 0); transform:scale(1.04); transition:clip-path 1.05s cubic-bezier(.76,0,.24,1),transform 1.2s cubic-bezier(.16,1,.3,1); will-change:clip-path,transform; }
+    .entry.is-revealed .entry-media { clip-path:inset(0 0 0 0); transform:scale(1); }
+    .entry-media img { display:block; width:100%; height:100%; object-fit:contain; background:#0a0807; transition:transform .9s cubic-bezier(.16,1,.3,1),filter .5s ease; will-change:transform; }
+    .entry-media::after { content:''; position:absolute; left:0; bottom:0; height:2px; width:0; background:#e30b08; transition:width .5s cubic-bezier(.16,1,.3,1); }
+    .entry:hover .entry-media img { transform:scale(1.035); filter:brightness(1.04) saturate(1.06); }
+    .entry:hover .entry-media::after { width:100%; }
+
+    .entry-body { display:flex; flex-direction:column; gap:clamp(14px,2vw,22px); align-items:flex-start; }
+    .entry h2 { margin:0; font-family:Didot,"Bodoni MT",Georgia,serif; font-size:clamp(34px,5.4vw,72px); font-weight:400; letter-spacing:-.065em; line-height:.86; text-transform:uppercase; color:#f4ebe5; }
+    .entry h2 .accent { font-style:normal; color:#ff4b3d; }
+    .entry-desc { margin:0; max-width:620px; color:#f0b6a8; font-size:clamp(15px,1.6vw,21px); line-height:1.36; }
+
+    .entry-list { margin:6px 0 0; padding:0; display:grid; grid-template-columns:minmax(120px,160px) 1fr; gap:clamp(10px,1.4vw,16px) clamp(18px,3vw,32px); width:100%; max-width:720px; }
+    .entry-list dt { margin:0; color:#ff6959; font-size:11px; font-weight:900; letter-spacing:.16em; line-height:1.4; text-transform:uppercase; padding-top:3px; }
+    .entry-list dd { margin:0; color:#f4ebe5; font-size:clamp(14px,1.4vw,18px); line-height:1.42; }
+    .entry-list dd > span { color:#f0b6a8; }
+
+    .entry-cta { display:inline-flex; align-items:center; gap:12px; margin-top:clamp(4px,1vw,8px); padding:11px 20px 10px; text-decoration:none; background:transparent; color:#fff4ee; font-family:Arial,sans-serif; font-size:12px; font-weight:900; letter-spacing:.12em; line-height:1; text-transform:uppercase; border:1px solid #ff6959; border-radius:0; box-shadow:5px 5px 0 #5b0909; transition:background .2s ease,color .2s ease,box-shadow .2s ease,transform .2s ease; }
+    .entry-cta .arrow { display:inline-block; transition:transform .3s cubic-bezier(.16,1,.3,1); }
+    .entry-cta:hover, .entry-cta:focus-visible { background:#e30b08; color:#160707; box-shadow:2px 2px 0 #5b0909; transform:translate(3px,3px); outline:none; }
+    .entry-cta:hover .arrow, .entry-cta:focus-visible .arrow { transform:translateX(6px); }
+
+    /* ─── FOOTER BAND ─── */
+    .archive-end { position:relative; padding:clamp(38px,6vw,68px) clamp(20px,6vw,80px) clamp(28px,4vw,44px); background:radial-gradient(circle at 50% 0%,rgba(209,16,13,.26),transparent 34%),#080808; color:#f4ebe5; border-top:1px solid #7a1714; text-align:center; }
+    .archive-end__kicker { margin:0 0 8px; color:#ff6959; font-size:11px; font-weight:900; letter-spacing:.16em; text-transform:uppercase; }
+    .archive-end__line { margin:0; color:#f4ebe5; font-family:Didot,"Bodoni MT",Georgia,serif; font-size:clamp(20px,2.6vw,34px); font-weight:400; letter-spacing:-.045em; line-height:.9; text-transform:uppercase; }
+    .archive-end__line b { font-weight:400; color:#ff4b3d; }
+    .archive-end__line span { color:#e30b08; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width:768px) {
+      .brand { font-size:20px; }
+      .back { padding:9px 14px 8px; font-size:10px; }
+      .hero { min-height:72vh; min-height:72svh; padding:96px 20px 56px; }
+      .hero-title { font-size:clamp(46px,14vw,82px); }
+      .archive-section { padding:54px 20px 70px; }
+      .archive-head { grid-template-columns:42px 1fr; gap:16px; margin-bottom:36px; }
+      .archive-head__title { font-size:clamp(44px,13vw,72px); }
+      .entry { padding:36px 0; gap:22px; }
+      .entry h2 { font-size:clamp(30px,9vw,46px); }
+      .entry-list { grid-template-columns:1fr; gap:4px 0; }
+      .entry-list dt { padding-top:14px; }
+      .entry-list dt:first-child { padding-top:0; }
     }
 
-    /* event body */
-    .entry-body{min-width:0}
-    .entry-index{
-      font-family:var(--mono);font-size:11px;
-      color:var(--soft);letter-spacing:.04em;
-      display:flex;align-items:center;gap:12px;
-    }
-    .entry-index .dot{width:5px;height:5px;border-radius:50%;background:var(--red)}
-    .entry-date{
-      margin-top:14px;
-      font-family:var(--mono);font-size:12px;
-      letter-spacing:.04em;color:var(--muted);
-    }
-    .entry-date b{color:var(--ivory);font-weight:600}
-    .entry h2{
-      margin-top:14px;
-      font-family:var(--serif);font-weight:400;
-      font-size:clamp(22px,3.6vw,30px);line-height:1.18;
-      letter-spacing:-.005em;color:var(--ivory);
-    }
-    .entry h2 .accent{color:var(--red);font-style:italic;font-weight:400}
-    .entry p{
-      margin-top:16px;max-width:54ch;
-      color:var(--text);font-size:15.5px;line-height:1.62;
-    }
-    .entry-list{
-      list-style:none;margin-top:22px;padding:0;
-      display:flex;flex-direction:column;gap:10px;
-    }
-    .entry-list li{
-      font-size:13px;line-height:1.5;color:var(--muted);
-      display:grid;grid-template-columns:auto 1fr;gap:14px;
-      padding-bottom:10px;border-bottom:1px solid var(--rule-soft);
-    }
-    .entry-list li:last-child{border-bottom:0;padding-bottom:0}
-    .entry-list b{
-      font-family:var(--sans);font-size:10px;font-weight:600;
-      letter-spacing:.2em;text-transform:uppercase;color:var(--soft);
-      padding-top:2px;white-space:nowrap;
-    }
-    .entry-list span{color:var(--text)}
-    .entry-link{
-      display:inline-flex;align-items:center;gap:10px;
-      margin-top:26px;padding:0;
-      text-decoration:none;color:var(--ivory);
-      font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-      border-bottom:1px solid var(--rule);
-      padding-bottom:6px;transition:.18s ease;
-    }
-    .entry-link::after{content:'→';color:var(--red);transition:transform .18s ease}
-    .entry-link:hover{border-color:var(--ivory)}
-    .entry-link:hover::after{transform:translateX(3px)}
-
-    /* footer closure */
-    .archive-end{
-      margin-top:88px;padding-top:24px;border-top:1px solid var(--rule);
-      text-align:center;
-      font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);font-weight:600;
-    }
-    .archive-end span{color:var(--red)}
-
-    /* mobile — one readable event at a time */
-    @media(max-width:720px){
-      main{padding:120px 22px 80px}
-      .top{padding:14px 18px}
-      .entry{
-        grid-template-columns:1fr;
-        gap:24px;
-        padding:52px 0;
-      }
-      .poster{max-width:300px;margin:0 auto}
-      .entry h2{font-size:23px;line-height:1.22}
-      .entry p{font-size:15px;line-height:1.6}
-      .entry-list li{grid-template-columns:1fr;gap:4px;padding-bottom:9px}
-      .entry-list b{padding-top:0}
-      .intro h1{font-size:30px}
-      .archive-meta{font-size:10px;letter-spacing:.12em}
-      .archive-end{margin-top:64px}
-    }
-    @media(max-width:420px){
-      main{padding:112px 20px 72px}
-      .intro{padding-bottom:0}
-      .entry{padding:44px 0}
-      .entry h2{font-size:21px}
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto}
-      *{transition:none !important}
+    @media (prefers-reduced-motion:reduce) {
+      *, *::before, *::after { animation:none!important; transition:none!important; }
+      .hero-kicker, .hero-title, .hero-lead, .hero-meta, .entry { opacity:1!important; transform:none!important; }
+      .entry-media { clip-path:inset(0 0 0 0); transform:none; }
+      html { scroll-behavior:auto; }
     }
   </style>
 </head>
 <body>
-  <header class="top"><a class="brand" href="index.html">Custom<span>843</span></a><a class="back" href="index.html">← На главную</a></header>
-  <main>
+  <header class="top">
+    <a class="brand" href="index.html">custom<b>.</b>843</a>
+    <a class="back" href="index.html">← На главную</a>
+  </header>
 
-    <section class="intro">
-      <div class="eyebrow">Архив &middot; 2022—2026</div>
-      <h1>Прошлые <em>события</em></h1>
-      <p>Короткая витрина важных вечеринок Custom: свои форматы, коллаборации, привозы и большие ночи, которые сформировали проект.</p>
-    </section>
-
-    <div class="archive-meta">
-      <span><b>2022 — 2026</b> &nbsp;·&nbsp; четыре года</span>
-      <span><b>11</b> записей &nbsp;·&nbsp; Werk — Bazzar — Казань</span>
+  <section class="hero">
+    <div class="hero-frame">
+      <p class="hero-kicker"><span class="num">01</span>Архив · 2022—2026</p>
+      <h1 class="hero-title">Прошлые <em>события</em></h1>
+      <p class="hero-lead">Короткая витрина важных вечеринок Custom: свои форматы, коллаборации, привозы и большие ночи, которые сформировали проект.</p>
+      <div class="hero-meta">
+        <div class="hero-stat"><span class="hero-stat__num">2022—2026</span><span class="hero-stat__label">четыре года</span></div>
+        <div class="hero-stat"><span class="hero-stat__num">11</span><span class="hero-stat__label">записей в архиве</span></div>
+        <div class="hero-stat"><span class="hero-stat__num">W—B—К</span><span class="hero-stat__label">Werk · Bazzar · Казань</span></div>
+      </div>
     </div>
+    <div class="hero-hairline"></div>
+  </section>
 
-    <section class="archive">
+  <section class="archive-section">
+    <div class="archive-head">
+      <span class="archive-head__number">02</span>
+      <div>
+        <p class="archive-head__eyebrow">Архив · Хронология</p>
+        <h2 class="archive-head__title">Хроника <em>ночей</em></h2>
+      </div>
+    </div>
+    <div class="archive">
 
       <article class="entry">
-        <div class="poster" style="--media-ratio:720/1280"><img src="assets/past-events/custom-squad.jpg?v=202607081925" alt="Custom Squad" loading="lazy"></div>
+        <div class="entry-meta">
+          <span class="entry-index">01 / 11</span>
+          <span class="entry-date"><b>14.05.2022</b> · Werk</span>
+        </div>
+        <div class="entry-media" style="--media-ratio:720/1280"><img src="assets/past-events/custom-squad.jpg?v=202607081925" alt="Custom Squad" loading="lazy"></div>
         <div class="entry-body">
-          <div class="entry-index"><span class="dot"></span>01</div>
-          <div class="entry-date"><b>14.05.2022</b> &nbsp;·&nbsp; Werk</div>
           <h2>Custom Squad</h2>
-          <p>Фирменная ночь команды: весь состав за пультами, плотные биты, любимые треки и формат, где Custom впервые звучит как самостоятельная банда.</p>
-          <ul class="entry-list">
-            <li><b>Лайнап</b><span>MNCB · Sasha Spi · Maliká · Priveetromashki · Crimewavė · Ugarinat</span></li>
-            <li><b>Время</b><span>22:00—04:00</span></li>
-            <li><b>Формат</b><span>командная вечеринка</span></li>
-          </ul>
-          <a class="entry-link" href="https://t.me/custom843/68" target="_blank" rel="noopener">Открыть в Telegram</a>
+          <p class="entry-desc">Фирменная ночь команды: весь состав за пультами, плотные биты, любимые треки и формат, где Custom впервые звучит как самостоятельная банда.</p>
+          <dl class="entry-list">
+            <dt>Лайнап</dt><dd>MNCB · Sasha Spi · Maliká · Priveetromashki · Crimewavė · Ugarinat</dd>
+            <dt>Время</dt><dd>22:00—04:00</dd>
+            <dt>Формат</dt><dd>командная вечеринка</dd>
+          </dl>
+          <a class="entry-cta" href="https://t.me/custom843/68" target="_blank" rel="noopener">Открыть в Telegram <span class="arrow">→</span></a>
         </div>
       </article>
 
       <article class="entry">
-        <div class="poster" style="--media-ratio:853/1280"><img src="assets/past-events/basement-moscow.jpg?v=202607081925" alt="Custom w/ BASEMENT Moscow" loading="lazy"></div>
+        <div class="entry-meta">
+          <span class="entry-index">02 / 11</span>
+          <span class="entry-date"><b>01.07.2022</b> · Werk</span>
+        </div>
+        <div class="entry-media" style="--media-ratio:853/1280"><img src="assets/past-events/basement-moscow.jpg?v=202607081925" alt="Custom w/ BASEMENT Moscow" loading="lazy"></div>
         <div class="entry-body">
-          <div class="entry-index"><span class="dot"></span>02</div>
-          <div class="entry-date"><b>01.07.2022</b> &nbsp;·&nbsp; Werk</div>
           <h2>Custom w/ <span class="accent">BASEMENT Moscow</span></h2>
-          <p>Закрытый летний формат с московскими гостями: два танцпола, бар, HOF-зона, фотозона и ночная хип-хоп эстетика.</p>
-          <ul class="entry-list">
-            <li><b>Гости</b><span>Satori · Йогурт · Марк Грибоедов</span></li>
-            <li><b>Локальные</b><span>Crimewavė · Maliká · Priveetromashki · Ugarinat</span></li>
-            <li><b>Суть</b><span>коллаб с московской тусовкой</span></li>
-          </ul>
-          <a class="entry-link" href="https://t.me/custom843/116" target="_blank" rel="noopener">Открыть в Telegram</a>
+          <p class="entry-desc">Закрытый летний формат с московскими гостями: два танцпола, бар, HOF-зона, фотозона и ночная хип-хоп эстетика.</p>
+          <dl class="entry-list">
+            <dt>Гости</dt><dd>Satori · Йогурт · Марк Грибоедов</dd>
+            <dt>Локальные</dt><dd>Crimewavė · Maliká · Priveetromashki · Ugarinat</dd>
+            <dt>Суть</dt><dd>коллаб с московской тусовкой</dd>
+          </dl>
+          <a class="entry-cta" href="https://t.me/custom843/116" target="_blank" rel="noopener">Открыть в Telegram <span class="arrow">→</span></a>
         </div>
       </article>
 
       <article class="entry">
-        <div class="poster" style="--media-ratio:1024/1280"><img src="assets/past-events/avg-showcase.jpg?v=202607081925" alt="Custom Birthday #AVG Showcase" loading="lazy"></div>
+        <div class="entry-meta">
+          <span class="entry-index">03 / 11</span>
+          <span class="entry-date"><b>29.10.2022</b> · Werk</span>
+        </div>
+        <div class="entry-media" style="--media-ratio:1024/1280"><img src="assets/past-events/avg-showcase.jpg?v=202607081925" alt="Custom Birthday #AVG Showcase" loading="lazy"></div>
         <div class="entry-body">
-          <div class="entry-index"><span class="dot"></span>03</div>
-          <div class="entry-date"><b>29.10.2022</b> &nbsp;·&nbsp; Werk</div>
           <h2>Custom Birthday: <span class="accent">#AVG Showcase</span></h2>
-          <p>Двухлетие Custom с первым большим шоукейсом #AVG из Санкт‑Петербурга, спецгостями и плотным лайн‑апом до утра.</p>
-          <ul class="entry-list">
-            <li><b>Гости</b><span>#AVG · Coubraque · Barbara · SND</span></li>
-            <li><b>Команда</b><span>Pasha Roba · Avir · Maliká · Ugarinat</span></li>
-            <li><b>Статус</b><span>одна из ключевых ранних коллабораций</span></li>
-          </ul>
-          <a class="entry-link" href="https://t.me/custom843/222" target="_blank" rel="noopener">Открыть в Telegram</a>
+          <p class="entry-desc">Двухлетие Custom с первым большим шоукейсом #AVG из Санкт-Петербурга, спецгостями и плотным лайн-апом до утра.</p>
+          <dl class="entry-list">
+            <dt>Гости</dt><dd>#AVG · Coubraque · Barbara · SND</dd>
+            <dt>Команда</dt><dd>Pasha Roba · Avir · Maliká · Ugarinat</dd>
+            <dt>Статус</dt><dd>одна из ключевых ранних коллабораций</dd>
+          </dl>
+          <a class="entry-cta" href="https://t.me/custom843/222" target="_blank" rel="noopener">Открыть в Telegram <span class="arrow">→</span></a>
         </div>
       </article>
 
       <article class="entry">
-        <div class="poster" style="--media-ratio:720/1280"><img src="assets/past-events/platinum-friends.jpg?v=202607081925" alt="Custom Platinum & Friends" loading="lazy"></div>
+        <div class="entry-meta">
+          <span class="entry-index">04 / 11</span>
+          <span class="entry-date"><b>03.01.2023</b> · Werk + Scratch</span>
+        </div>
+        <div class="entry-media" style="--media-ratio:720/1280"><img src="assets/past-events/platinum-friends.jpg?v=202607081925" alt="Custom Platinum & Friends" loading="lazy"></div>
         <div class="entry-body">
-          <div class="entry-index"><span class="dot"></span>04</div>
-          <div class="entry-date"><b>03.01.2023</b> &nbsp;·&nbsp; Werk + Scratch</div>
           <h2>Custom Platinum <span class="accent">&amp; Friends</span></h2>
-          <p>Новогодний формат для своих: дневная часть со Scratch DJ School, кино и шампанским, а ночью — платиновые хиты и весь генг в Werk.</p>
-          <ul class="entry-list">
-            <li><b>День</b><span>Scratch DJ School · «Голос улиц»</span></li>
-            <li><b>Ночь</b><span>Custom Platinum & Friends</span></li>
-            <li><b>Атмосфера</b><span>семейный новогодний сбор</span></li>
-          </ul>
-          <a class="entry-link" href="https://t.me/custom843/328" target="_blank" rel="noopener">Открыть в Telegram</a>
+          <p class="entry-desc">Новогодний формат для своих: дневная часть со Scratch DJ School, кино и шампанским, а ночью — платиновые хиты и весь генг в Werk.</p>
+          <dl class="entry-list">
+            <dt>День</dt><dd>Scratch DJ School · «Голос улиц»</dd>
+            <dt>Ночь</dt><dd>Custom Platinum & Friends</dd>
+            <dt>Атмосфера</dt><dd>семейный новогодний сбор</dd>
+          </dl>
+          <a class="entry-cta" href="https://t.me/custom843/328" target="_blank" rel="noopener">Открыть в Telegram <span class="arrow">→</span></a>
         </div>
       </article>
 
       <article class="entry">
-        <div class="poster" style="--media-ratio:745/1118"><img src="assets/past-events/club-27.jpg?v=202607081925" alt="Custom Club 27" loading="lazy"></div>
+        <div class="entry-meta">
+          <span class="entry-index">05 / 11</span>
+          <span class="entry-date"><b>18.03.2023</b> · Werk</span>
+        </div>
+        <div class="entry-media" style="--media-ratio:745/1118"><img src="assets/past-events/club-27.jpg?v=202607081925" alt="Custom Club 27" loading="lazy"></div>
         <div class="entry-body">
-          <div class="entry-index"><span class="dot"></span>05</div>
-          <div class="entry-date"><b>18.03.2023</b> &nbsp;·&nbsp; Werk</div>
           <h2>Custom: <span class="accent">Club 27</span></h2>
-          <p>Весенняя вечеринка и день рождения Avir: лайнап друзей, донат-билеты в поддержку мини‑приюта и тёплый командный вайб.</p>
-          <ul class="entry-list">
-            <li><b>Лайнап</b><span>Lovelysolution · Solman · Avir · Bubblegum · Ugarinat</span></li>
-            <li><b>Время</b><span>22:00—04:00</span></li>
-            <li><b>Акцент</b><span>донат в мини‑приют</span></li>
-          </ul>
-          <a class="entry-link" href="https://t.me/custom843/417" target="_blank" rel="noopener">Открыть в Telegram</a>
+          <p class="entry-desc">Весенняя вечеринка и день рождения Avir: лайнап друзей, донат-билеты в поддержку мини-приюта и тёплый командный вайб.</p>
+          <dl class="entry-list">
+            <dt>Лайнап</dt><dd>Lovelysolution · Solman · Avir · Bubblegum · Ugarinat</dd>
+            <dt>Время</dt><dd>22:00—04:00</dd>
+            <dt>Акцент</dt><dd>донат в мини-приют</dd>
+          </dl>
+          <a class="entry-cta" href="https://t.me/custom843/417" target="_blank" rel="noopener">Открыть в Telegram <span class="arrow">→</span></a>
         </div>
       </article>
 
       <article class="entry">
-        <div class="poster" style="--media-ratio:1072/1920"><img src="assets/past-events/coubraque.jpg?v=202607081950" alt="Custom w/ Coubraque" loading="lazy"></div>
+        <div class="entry-meta">
+          <span class="entry-index">06 / 11</span>
+          <span class="entry-date"><b>13.05.2023</b> · Werk</span>
+        </div>
+        <div class="entry-media" style="--media-ratio:1072/1920"><img src="assets/past-events/coubraque.jpg?v=202607081950" alt="Custom w/ Coubraque" loading="lazy"></div>
         <div class="entry-body">
-          <div class="entry-index"><span class="dot"></span>06</div>
-          <div class="entry-date"><b>13.05.2023</b> &nbsp;·&nbsp; Werk</div>
           <h2>Custom w/ <span class="accent">Coubraque</span></h2>
-          <p>Гость из Saint‑P, участник Players Club и диджей Obladaet/Bushido Zho. Последняя сильная глава Werk‑периода с инсталляцией от Showtime.</p>
-          <ul class="entry-list">
-            <li><b>Гость</b><span>Coubraque</span></li>
-            <li><b>Поддержка</b><span>команда Custom</span></li>
-            <li><b>Визуал</b><span>световая инсталляция</span></li>
-          </ul>
-          <a class="entry-link" href="https://t.me/custom843/473" target="_blank" rel="noopener">Открыть в Telegram</a>
+          <p class="entry-desc">Гость из Saint-P, участник Players Club и диджей Obladaet/Bushido Zho. Последняя сильная глава Werk-периода с инсталляцией от Showtime.</p>
+          <dl class="entry-list">
+            <dt>Гость</dt><dd>Coubraque</dd>
+            <dt>Поддержка</dt><dd>команда Custom</dd>
+            <dt>Визуал</dt><dd>световая инсталляция</dd>
+          </dl>
+          <a class="entry-cta" href="https://t.me/custom843/473" target="_blank" rel="noopener">Открыть в Telegram <span class="arrow">→</span></a>
         </div>
       </article>
 
       <article class="entry">
-        <div class="poster" style="--media-ratio:1280/1280"><img src="assets/past-events/avir-birthday.jpg?v=202607081925" alt="Custom Avir Birthday" loading="lazy"></div>
+        <div class="entry-meta">
+          <span class="entry-index">07 / 11</span>
+          <span class="entry-date"><b>23.03.2024</b> · Bazzar</span>
+        </div>
+        <div class="entry-media" style="--media-ratio:1280/1280"><img src="assets/past-events/avir-birthday.jpg?v=202607081925" alt="Custom Avir Birthday" loading="lazy"></div>
         <div class="entry-body">
-          <div class="entry-index"><span class="dot"></span>07</div>
-          <div class="entry-date"><b>23.03.2024</b> &nbsp;·&nbsp; Bazzar</div>
           <h2>Custom: <span class="accent">Avir Birthday</span></h2>
-          <p>Большая мартовская тусовка в Bazzar: день рождения основателя, много приглашённых диджеев, бир‑понг, спешл‑коктейли и друзья команды.</p>
-          <ul class="entry-list">
-            <li><b>Лайнап</b><span>Sasha Spi · Rin · Ugarinat · Xxkruto · Bubblegum · Abramov</span></li>
-            <li><b>Старт</b><span>23:00</span></li>
-            <li><b>Формат</b><span>весенняя вечеринка</span></li>
-          </ul>
-          <a class="entry-link" href="https://t.me/custom843/1176" target="_blank" rel="noopener">Открыть в Telegram</a>
+          <p class="entry-desc">Большая мартовская тусовка в Bazzar: день рождения основателя, много приглашённых диджеев, бир-понг, спешл-коктейли и друзья команды.</p>
+          <dl class="entry-list">
+            <dt>Лайнап</dt><dd>Sasha Spi · Rin · Ugarinat · Xxkruto · Bubblegum · Abramov</dd>
+            <dt>Старт</dt><dd>23:00</dd>
+            <dt>Формат</dt><dd>весенняя вечеринка</dd>
+          </dl>
+          <a class="entry-cta" href="https://t.me/custom843/1176" target="_blank" rel="noopener">Открыть в Telegram <span class="arrow">→</span></a>
         </div>
       </article>
 
       <article class="entry">
-        <div class="poster" style="--media-ratio:1280/1280"><img src="assets/past-events/media-basket.jpg?v=202607081925" alt="Custom x Liga Stavok Media Basket" loading="lazy"></div>
+        <div class="entry-meta">
+          <span class="entry-index">08 / 11</span>
+          <span class="entry-date"><b>28.06.2024</b> · Bazzar</span>
+        </div>
+        <div class="entry-media" style="--media-ratio:1280/1280"><img src="assets/past-events/media-basket.jpg?v=202607081925" alt="Custom x Liga Stavok Media Basket" loading="lazy"></div>
         <div class="entry-body">
-          <div class="entry-index"><span class="dot"></span>08</div>
-          <div class="entry-date"><b>28.06.2024</b> &nbsp;·&nbsp; Bazzar</div>
           <h2>Custom x Лига Ставок <span class="accent">Media Basket</span></h2>
-          <p>Официальное афтепати тура Media Basket: три хедлайнера, две сцены, инсталляции, фотозона и событие, о котором писали за пределами Казани.</p>
-          <ul class="entry-list">
-            <li><b>Хедлайнеры</b><span>Stas Satori · DJ RiRi · Lesha Mironov</span></li>
-            <li><b>Место</b><span>Bazzar</span></li>
-            <li><b>Масштаб</b><span>один из самых громких ивентов 2024</span></li>
-          </ul>
-          <a class="entry-link" href="https://t.me/custom843/1536" target="_blank" rel="noopener">Открыть в Telegram</a>
+          <p class="entry-desc">Официальное афтепати тура Media Basket: три хедлайнера, две сцены, инсталляции, фотозона и событие, о котором писали за пределами Казани.</p>
+          <dl class="entry-list">
+            <dt>Хедлайнеры</dt><dd>Stas Satori · DJ RiRi · Lesha Mironov</dd>
+            <dt>Место</dt><dd>Bazzar</dd>
+            <dt>Масштаб</dt><dd>один из самых громких ивентов 2024</dd>
+          </dl>
+          <a class="entry-cta" href="https://t.me/custom843/1536" target="_blank" rel="noopener">Открыть в Telegram <span class="arrow">→</span></a>
         </div>
       </article>
 
       <article class="entry">
-        <div class="poster" style="--media-ratio:1024/1280"><img src="assets/past-events/custom-secret.jpg?v=202607081925" alt="Custom Secret" loading="lazy"></div>
+        <div class="entry-meta">
+          <span class="entry-index">09 / 11</span>
+          <span class="entry-date"><b>27.07.2024</b> · Bazzar</span>
+        </div>
+        <div class="entry-media" style="--media-ratio:1024/1280"><img src="assets/past-events/custom-secret.jpg?v=202607081925" alt="Custom Secret" loading="lazy"></div>
         <div class="entry-body">
-          <div class="entry-index"><span class="dot"></span>09</div>
-          <div class="entry-date"><b>27.07.2024</b> &nbsp;·&nbsp; Bazzar</div>
           <h2>Custom Secret</h2>
-          <p>Интригующий летний формат без раскрытия деталей до самого ивента: секретные гости, неожиданный лайн‑ап, бир‑понг, мини‑гольф и тату прямо на площадке.</p>
-          <ul class="entry-list">
-            <li><b>Состав</b><span>MNCB · M.A.D. · Karolina Vibe · Avir · Ralfkon · Виталя ЛАУД · Блинк · Sunshine · Solman</span></li>
-            <li><b>Старт</b><span>19:00</span></li>
-            <li><b>Суть</b><span>тайный формат с сюрпризами</span></li>
-          </ul>
-          <a class="entry-link" href="https://t.me/custom843/1634" target="_blank" rel="noopener">Открыть в Telegram</a>
+          <p class="entry-desc">Интригующий летний формат без раскрытия деталей до самого ивента: секретные гости, неожиданный лайн-ап, бир-понг, мини-гольф и тату прямо на площадке.</p>
+          <dl class="entry-list">
+            <dt>Состав</dt><dd>MNCB · M.A.D. · Karolina Vibe · Avir · Ralfkon · Виталя ЛАУД · Блинк · Sunshine · Solman</dd>
+            <dt>Старт</dt><dd>19:00</dd>
+            <dt>Суть</dt><dd>тайный формат с сюрпризами</dd>
+          </dl>
+          <a class="entry-cta" href="https://t.me/custom843/1634" target="_blank" rel="noopener">Открыть в Telegram <span class="arrow">→</span></a>
         </div>
       </article>
 
       <article class="entry">
-        <div class="poster" style="--media-ratio:853/1280"><img src="assets/past-events/hip-hop-kazan.jpg?v=202607081925" alt="Custom x Hip-Hop Kazan" loading="lazy"></div>
+        <div class="entry-meta">
+          <span class="entry-index">10 / 11</span>
+          <span class="entry-date"><b>17.01.2025</b> · Bazzar</span>
+        </div>
+        <div class="entry-media" style="--media-ratio:853/1280"><img src="assets/past-events/hip-hop-kazan.jpg?v=202607081925" alt="Custom x Hip-Hop Kazan" loading="lazy"></div>
         <div class="entry-body">
-          <div class="entry-index"><span class="dot"></span>10</div>
-          <div class="entry-date"><b>17.01.2025</b> &nbsp;·&nbsp; Bazzar</div>
-          <h2>Custom x <span class="accent">Hip‑Hop Kazan</span></h2>
-          <p>Коллаборация с фестивалем музыки и танца Hip‑Hop Kazan: вечеринка с контестом CYPHER KINGS, баттлами фристайл‑танцоров и голосованием гостей.</p>
-          <ul class="entry-list">
-            <li><b>Контест</b><span>CYPHER KINGS</span></li>
-            <li><b>DJ во время батла</b><span>Yushkova The Creator</span></li>
-            <li><b>После</b><span>команда Custom</span></li>
-          </ul>
-          <a class="entry-link" href="https://t.me/custom843/2681" target="_blank" rel="noopener">Открыть в Telegram</a>
+          <h2>Custom x <span class="accent">Hip-Hop Kazan</span></h2>
+          <p class="entry-desc">Коллаборация с фестивалем музыки и танца Hip-Hop Kazan: вечеринка с контестом CYPHER KINGS, баттлами фристайл-танцоров и голосованием гостей.</p>
+          <dl class="entry-list">
+            <dt>Контест</dt><dd>CYPHER KINGS</dd>
+            <dt>DJ во время батла</dt><dd>Yushkova The Creator</dd>
+            <dt>После</dt><dd>команда Custom</dd>
+          </dl>
+          <a class="entry-cta" href="https://t.me/custom843/2681" target="_blank" rel="noopener">Открыть в Telegram <span class="arrow">→</span></a>
         </div>
       </article>
 
       <article class="entry">
-        <div class="poster" style="--media-ratio:1023/1280"><img src="assets/past-events/big-russian-fest.jpg?v=202607081925" alt="Custom Big Russian Fest" loading="lazy"></div>
+        <div class="entry-meta">
+          <span class="entry-index">11 / 11</span>
+          <span class="entry-date"><b>12.06.2026</b> · Казань</span>
+        </div>
+        <div class="entry-media" style="--media-ratio:1023/1280"><img src="assets/past-events/big-russian-fest.jpg?v=202607081925" alt="Custom Big Russian Fest" loading="lazy"></div>
         <div class="entry-body">
-          <div class="entry-index"><span class="dot"></span>11</div>
-          <div class="entry-date"><b>12.06.2026</b> &nbsp;·&nbsp; Казань</div>
           <h2>Кастом: <span class="accent">Биг Рашн Фест</span></h2>
-          <p>Выход Custom в масштаб фестиваля: ночной рэп‑опен‑эйр, большая площадка, живой звук, свет, несколько хедлайнеров и длинная ночь до утра.</p>
-          <ul class="entry-list">
-            <li><b>Артисты</b><span>Big Russian Boss & Young P&amp;H · SODA LUV · SKY RAE · BABTOMA</span></li>
-            <li><b>Формат</b><span>ночной рэп‑фестиваль</span></li>
-            <li><b>Статус</b><span>самый крупный шаг проекта</span></li>
-          </ul>
-          <a class="entry-link" href="https://t.me/custom843/4519" target="_blank" rel="noopener">Открыть в Telegram</a>
+          <p class="entry-desc">Выход Custom в масштаб фестиваля: ночной рэп-опен-эйр, большая площадка, живой звук, свет, несколько хедлайнеров и длинная ночь до утра.</p>
+          <dl class="entry-list">
+            <dt>Артисты</dt><dd>Big Russian Boss & Young P&amp;H · SODA LUV · SKY RAE · BABTOMA</dd>
+            <dt>Формат</dt><dd>ночной рэп-фестиваль</dd>
+            <dt>Статус</dt><dd>самый крупный шаг проекта</dd>
+          </dl>
+          <a class="entry-cta" href="https://t.me/custom843/4519" target="_blank" rel="noopener">Открыть в Telegram <span class="arrow">→</span></a>
         </div>
       </article>
 
-    </section>
+    </div>
+  </section>
 
-    <div class="archive-end">Конец архива <span>·</span> 11 записей <span>·</span> 2022—2026</div>
+  <footer class="archive-end">
+    <p class="archive-end__kicker">Custom 843 · Архив</p>
+    <p class="archive-end__line">Конец архива <span>·</span> 11 записей <b>2022—2026</b></p>
+  </footer>
 
-  </main>
+  <script>
+    (function () {
+      const entries = document.querySelectorAll('.entry');
+      if (!entries.length || !('IntersectionObserver' in window)) {
+        entries.forEach(e => e.classList.add('is-revealed'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+      entries.forEach((entry) => io.observe(entry));
+    })();
+  </script>
 </body>
 </html>
